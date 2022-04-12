@@ -3,6 +3,7 @@
 <div class="main">
     <div class="main-content user">
         <div class="row">
+            <!-- End Header Table-->
             <!-- Table CONTENT-->
             @if (session()->has('success'))
             <div class="alert alert-success alert-dismissible fade show">
@@ -31,37 +32,37 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Data Catagory</h4>
+                        <h4 class="card-title">{{ $webname }}</h4>
                     </div>
                     <br>
                     <button type="button" class="btn btn-success ml-12" style="width:200px;" data-bs-toggle="modal"
-                        data-bs-target="#add">Add New Catagory
+                        data-bs-target="#add">Add New status
                     </button>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-responsive-md">
                                 <thead>
                                     <th>ID</th>
-                                    <th>Name Catagory Product</th>
+                                    <th>Name Status</th>
                                     <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data as $datacatagory)
+                                    @foreach ($data as $datastatus)
                                     <tr>
-                                        <td><strong>{{$datacatagory->id}}</strong></td>
-                                        <td>{{$datacatagory->name_catagory}}</td>
+                                        <td><strong>{{$datastatus->id_status}}</strong></td>
+                                        <td>{{$datastatus->name_status}}</td>
                                         <td>
                                             <div class="d-flex">
                                                 <button type="button" class="btn btn-primary shadow btn-xs sharp mr-1"
                                                     data-bs-toggle="modal"
-                                                    data-bs-target="#update{{$datacatagory->id}}"><i
+                                                    data-bs-target="#update{{$datastatus->id_status}}"><i
                                                         class="fa fa-pencil"></i>
                                                 </button>
                                                 <button type="button"
-                                                    class="btn btn-danger shadow btn-xs sharp hapuscatagory"
-                                                    data-id="{{$datacatagory->id}}"
-                                                    data-name="{{$datacatagory->name_catagory}}"><i
+                                                    class="btn btn-danger shadow btn-xs sharp delete-status"
+                                                    data-id="{{$datastatus->id_status}}"
+                                                    data-name="{{$datastatus->name_status}}"><i
                                                         class="fa fa-trash"></i></button>
                                             </div>
                                         </td>
@@ -74,12 +75,11 @@
                 </div>
             </div>
             <!--End Table-->
-
             <!-- Modal Untuk Tambah Data-->
             <div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="/addcatagory" method="post" enctype="multipart/form-data">
+                        <form action="/Addstatus" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Add New Data</h5>
@@ -87,10 +87,10 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <label class="form-label">Name Catagory</label>
-                                <input type="text" name="catagoryname" id="disabledTextInput" class="form-control"
-                                    placeholder="Caragory" value="{{old('catagoryname')}}">
-                                @error('catagoryname')
+                                <label class="form-label">Name Status</label>
+                                <input type="text" name="name_status" id="disabledTextInput" class="form-control"
+                                    value="{{old('name_status')}}" required>
+                                @error('name_status')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
@@ -105,36 +105,36 @@
                     </div>
                 </div>
             </div>
-
             <!-- Modal Untuk Update-->
-            @foreach ($data as $datacatagory)
+            @foreach ($data as $datastatus)
             <!-- Modal -->
-            <div class="modal fade" id="update{{$datacatagory->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="update{{$datastatus->id_status}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="/UpdateCatagory/{{$datacatagory->id}}" method="POST">
+                        <form action="/UpdateStatus/{{$datastatus->id_status}}" method="POST">
                             @method('put')
                             @csrf
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Edit Data {{$datacatagory->name_catagory}}</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Edit Data
+                                    {{$datastatus->name_status}}</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <label class="form-label">ID Catagory</label>
-                                <input type="text" name="catagoryname" id="disabledTextInput" class="form-control"
-                                    value="{{$datacatagory->id}}" readonly>
-                                @error('catagoryname')
+                                <label class="form-label">ID Status</label>
+                                <input type="text" name="id_status" id="disabledTextInput" class="form-control"
+                                    value="{{$datastatus->id_status}}" readonly>
+                                @error('id_status')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                                 @enderror
                                 <br>
-                                <label class="form-label">Name Catagory</label>
-                                <input type="text" name="catagoryname" id="disabledTextInput" class="form-control"
-                                    value="{{$datacatagory->name_catagory}}" required>
-                                @error('catagoryname')
+                                <label class="form-label">Name Status</label>
+                                <input type="text" name="name_status" id="disabledTextInput" class="form-control"
+                                    value="{{$datastatus->name_status}}" required>
+                                @error('name_status')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
@@ -149,8 +149,11 @@
                 </div>
             </div>
             @endforeach
-            <!-- End Modal -->
         </div>
+
+
+        <!-- End Modal -->
+
     </div>
 </div>
 @endsection

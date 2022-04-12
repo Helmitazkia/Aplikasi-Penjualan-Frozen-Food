@@ -3,14 +3,6 @@
 <div class="main">
     <div class="main-content user">
         <div class="row">
-            <!--Header Table-->
-            <div class="page-titles">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Data</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Catagory Product</a></li>
-                </ol>
-            </div>
-            <!-- End Header Table-->
             <!-- Table CONTENT -->
             @if (session()->has('success'))
             <div class="alert alert-success alert-dismissible fade show">

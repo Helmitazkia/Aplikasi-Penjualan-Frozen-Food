@@ -159,12 +159,14 @@ Route::put('/updateuser/{id}', [Controller_user::class, 'updateuser'])->name('Up
 
 
 // Data Catagory
-Route::get('/Catagory', [catagory_controller::class, 'showcategory'])->name('tampil_catagori');
-//Route::get('/Catagory', [admincontroller::class, 'Dashboard'])->middleware('auth');
-
-Route::post('/addcatagory', [catagory_controller::class, 'Adddatacatagory']);
-
+Route::get('/Catagory', [catagory_controller::class, 'showcategory'])->name('tampil_catagori')->middleware('auth');
+Route::post('/addcatagory', [catagory_controller::class, 'Adddatacatagory'])->middleware('auth');
 Route::get('/deletecatagory/{id}', [catagory_controller::class, 'DeleteCatagory'])->name('Hapus_catagory')->middleware('auth');
-
 Route::put('/UpdateCatagory/{id}', [catagory_controller::class, 'UpdateDataCatagory'])->name('Update_user')->middleware('auth');
+
+//Data Status
+Route::get('/ShowStatus', [catagory_controller::class, 'showstatus'])->name('tampil_status')->middleware('auth');
+Route::post('/Addstatus', [catagory_controller::class, 'Adddatastatus'])->middleware('auth');
+Route::put('/UpdateStatus/{id}', [catagory_controller::class, 'UpdateDataStatus'])->middleware('auth');
+Route::get('/deletestatus/{id}', [catagory_controller::class, 'DeleteStatus'])->middleware('auth');
 

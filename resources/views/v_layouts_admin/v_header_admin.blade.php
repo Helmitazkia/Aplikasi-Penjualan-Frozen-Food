@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        {{$webname}}
+        {{$title}}
     </title>
     <link rel="shortcut icon" href="foto/favicon.png" type="image/png">
     <!-- GOOGLE FONT -->
@@ -132,8 +132,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/Datauser">
-                                Data Customer
+                            <a href="/ShowStatus">
+                                Data Stataus
                             </a>
                         </li>
                     </ul>
@@ -189,7 +189,7 @@
                 <i class='bx bx-menu'></i>
             </div>
             <div class="main-title">
-                {{$title}}
+                {{$webname}}
             </div>
         </div>
 
@@ -382,6 +382,32 @@
         });
 
     </script>
+
+<script>
+    //.hapus tombol delete yang ada di view dashboar admin
+    $('.delete-status').click(function () {
+        var status_id = $(this).attr("data-id");
+        var status_name = $(this).attr("data-name");
+        swal({
+                title: "Are you sure?",
+                text: "You Will Delete User's Data with Name " + status_name + " ",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location = "deletestatus/" + status_id + " ";
+                    swal("Data Successfully Delete!", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Oops", "Data is not deleted ! ", "error");
+                }
+            });
+    });
+
+</script>
 
     <script>
         @if(Session::has('updatesuccess'))
