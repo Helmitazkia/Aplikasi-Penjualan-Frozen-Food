@@ -62,6 +62,7 @@ class admincontroller extends Controller
             'stok'       => 'required'
             
             
+            
         ]);
        
         //Jika ada file yang di upload

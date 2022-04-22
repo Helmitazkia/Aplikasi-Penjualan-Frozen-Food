@@ -2,14 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 //Memanggil controller
-use App\Http\Controllers\c_catagories\catagoricontroller;
+//use App\Http\Controllers\c_catagories\catagoricontroller;
 use App\Http\Controllers\c_admin\admincontroller;
 use App\Http\Controllers\Auth_admin\registrationController;
 use App\Http\Controllers\Auth_user\logusercontroller;
 use App\Http\Controllers\Auth_user\regisusercontroller;
 use App\Http\Controllers\Auth_user\Controller_user;
-
 use App\Http\Controllers\c_admin\catagory_controller;
+use App\Http\Controllers\customer_controller;
+
 
 //Untuk Menerapkan Middleware 
 use App\Providers\RouteServiceProvider;
@@ -77,6 +78,14 @@ Route::get('/Contact', function () {
     ]);
 });
 
+//url Akun Forget
+Route::get('/Forget', function () {
+    return view('v_acount_admin/v_forget', [
+        'title' => 'Lupa'
+    ]);
+});
+
+
 
 
 
@@ -90,7 +99,6 @@ url Akun Customer
 Route::get('/Registrasi', [regisusercontroller::class, 'registrationuser'])->name('registration_user');
 //untuk Menambahkan Data
 Route::post('/Registrasipost', [regisusercontroller::class, 'tambahuserbaru'])->name('tambah_user_baru');
-
 //url Menampilkan  Form Login
 Route::get('/Login', [logusercontroller::class, 'loginuser'])->name('login_users');
 /*
@@ -106,39 +114,25 @@ url Akun Admin
 Route::get('/RegistrationAdmin', [regisusercontroller::class, 'FormUserAdmin'])->name('Form_admin')->middleware('guest');
 //untuk Menambahkan Data
 Route::post('/RegistrationpostAdmin', [regisusercontroller::class, 'CreateUser'])->name('tambah_admin_baru')->middleware('guest');
-
 Route::get('/LoginAdmin', [logusercontroller::class, 'FormlogiAdmin'])->name('login')->middleware('guest');
-
 Route::post('/LoginAdmin', [logusercontroller::class, 'LogwebAdmin'])->name('loginweb')->middleware('guest');
-
 Route::post('/Logout', [logusercontroller::class, 'keluar'])->name('Logout_form')->middleware('auth');
 
 //Email
 
 Route::get('/verify_email', [logusercontroller::class, 'verify_email'])->name('verify_email');
-
 Route::put('/verifikasi_email/{email}', [logusercontroller::class, 'aktifasi_email'])->name('aktifasi_email');
-
 Route::get('/konfirmasi', [logusercontroller::class, 'konfirmasi_email'])->name('konfirmasi_email');
-
 Route::get('/Verif', [logusercontroller::class, 'coba_email'])->name('coba_email');
 
 
 
-
-//url Akun Forget
-Route::get('/Forget', function () {
-    return view('v_acount_admin/v_forget', [
-        'title' => 'Lupa'
-    ]);
-});
 
 
 //url Akun Dashboard
 // Data Product
 //middleware('auth') artinya tidak boleh di akses tanpa login
 Route::get('/Dashboardshow', [admincontroller::class, 'Dashboard'])->middleware('auth');
-
 Route::get('/Formadd', [admincontroller::class, 'formaddproduct'])->middleware('auth');
 Route::post('/Formadd', [admincontroller::class, 'tambahproduct'])->middleware('auth');
 //delete berdasarkan id product
@@ -170,3 +164,5 @@ Route::post('/Addstatus', [catagory_controller::class, 'Adddatastatus'])->middle
 Route::put('/UpdateStatus/{id}', [catagory_controller::class, 'UpdateDataStatus'])->middleware('auth');
 Route::get('/deletestatus/{id}', [catagory_controller::class, 'DeleteStatus'])->middleware('auth');
 
+//Data Customer
+Route::get('/TampilCustomer', [customer_controller::class,'Showcustomer'])->name('Showcustomer')->middleware('auth');

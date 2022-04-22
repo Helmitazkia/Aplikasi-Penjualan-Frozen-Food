@@ -75,7 +75,6 @@ $tglmasuk = new DateTime();
                                         class="form-control custom-select select2 select2-hidden-accessible"
                                         data-placeholder="Select Department" tabindex="-1" aria-hidden="true"
                                         data-select2-id="select2-data-22-9i9m">
-                                        <option>Status</option>
                                             @foreach ($status as $datastatus)
                                             <option value="{{$datastatus->id_status}}">
                                                 <?php echo $datastatus->name_status; ?>

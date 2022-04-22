@@ -74,50 +74,6 @@
                         </li>
                     </ul>
                 </li>
-                <!---<li class="sidebar-submenu">
-                    <a href="project.html" class="sidebar-menu-dropdown">
-                        <i class='bx bxs-bolt'></i>
-                        <span>Project</span>
-                        <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
-                    </a>
-                    <ul class="sidebar-menu sidebar-menu-dropdown-content">
-                        <li>
-                            <a href="project.html">
-                                Project
-                            </a>
-                        </li>
-                        <li>
-                            <a href="project-details.html">
-                                Project Details
-                            </a>
-                        </li>
-                        <li>
-                            <a href="new-project.html">
-                                New Project
-                            </a>
-                        </li>
-                    </ul>
-                </li>-->
-
-                <li class="sidebar-submenu">
-                    <a href="/Clientshow" class="sidebar-menu-dropdown">
-                        <i class='bx bxs-user'></i>
-                        <span>User's</span>
-                        <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
-                    </a>
-                    <ul class="sidebar-menu sidebar-menu-dropdown-content">
-                        <li>
-                            <a href="/Datauser">
-                                User's
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Datauser">
-                                Data Customer
-                            </a>
-                        </li>
-                    </ul>
-                </li>
 
                 <li class="sidebar-submenu">
                     <a href="/Dashboardshow" class="sidebar-menu-dropdown">
@@ -133,11 +89,41 @@
                         </li>
                         <li>
                             <a href="/ShowStatus">
-                                Data Stataus
+                                Data Status
                             </a>
                         </li>
                     </ul>
                 </li>
+
+                <!---<li class="sidebar-submenu">
+                    <a href="project.html" class="sidebar-menu-dropdown">
+                        <i class='bx bxs-bolt'></i>
+                        <span>Project</span>
+                        <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
+                    </a>
+                </li>-->
+
+                <li class="sidebar-submenu">
+                    <a href="/Clientshow" class="sidebar-menu-dropdown">
+                        <i class='bx bxs-user'></i>
+                        <span>User's</span>
+                        <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
+                    </a>
+                    <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                        <li>
+                            <a href="/Datauser">
+                                User's
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/TampilCustomer"> 
+                                Data Customer
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+               
                 <li>
                     <a href="calendar.html">
                         <i class='bx bx-calendar'></i>
