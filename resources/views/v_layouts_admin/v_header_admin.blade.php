@@ -116,7 +116,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/TampilCustomer"> 
+                            <a href="/Datacustomer"> 
                                 Data Customer
                             </a>
                         </li>

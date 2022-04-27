@@ -85,11 +85,6 @@ Route::get('/Forget', function () {
     ]);
 });
 
-
-
-
-
-
 /*
 ====================
 url Akun Customer
@@ -110,6 +105,7 @@ url Akun Admin
 ===================
 */
 //url Form Login And Register Admin
+//middleware('guest') boleh di akses tanpa login
 
 Route::get('/RegistrationAdmin', [regisusercontroller::class, 'FormUserAdmin'])->name('Form_admin')->middleware('guest');
 //untuk Menambahkan Data
@@ -119,50 +115,45 @@ Route::post('/LoginAdmin', [logusercontroller::class, 'LogwebAdmin'])->name('log
 Route::post('/Logout', [logusercontroller::class, 'keluar'])->name('Logout_form')->middleware('auth');
 
 //Email
-
 Route::get('/verify_email', [logusercontroller::class, 'verify_email'])->name('verify_email');
 Route::put('/verifikasi_email/{email}', [logusercontroller::class, 'aktifasi_email'])->name('aktifasi_email');
 Route::get('/konfirmasi', [logusercontroller::class, 'konfirmasi_email'])->name('konfirmasi_email');
 Route::get('/Verif', [logusercontroller::class, 'coba_email'])->name('coba_email');
 
 
-
-
-
-//url Akun Dashboard
-// Data Product
 //middleware('auth') artinya tidak boleh di akses tanpa login
-Route::get('/Dashboardshow', [admincontroller::class, 'Dashboard'])->middleware('auth');
-Route::get('/Formadd', [admincontroller::class, 'formaddproduct'])->middleware('auth');
-Route::post('/Formadd', [admincontroller::class, 'tambahproduct'])->middleware('auth');
-//delete berdasarkan id product
-Route::get('/deleteproduct/{id}', [admincontroller::class, 'DeleteDataproduct'])->name('Hapus_product')->middleware('auth');
-//Update berdasarkan id product
-Route::put('/Updateproduct/{id}', [admincontroller::class, 'updateproduct'])->middleware('auth');
-
-
-
-
+// Data Product
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/Dashboardshow', [admincontroller::class, 'Dashboard']);
+    Route::get('/Formadd', [admincontroller::class, 'formaddproduct']);
+    Route::post('/Formadd', [admincontroller::class, 'tambahproduct']);
+    Route::get('/deleteproduct/{id}', [admincontroller::class, 'DeleteDataproduct'])->name('Hapus_product');
+    Route::put('/Updateproduct/{id}', [admincontroller::class, 'updateproduct']);
+});
 // Data User's
-Route::get('/Datauser', [Controller_user::class, 'Showuser'])->middleware('auth');
-Route::post('/AddDatauser', [Controller_user::class, 'Adduser'])->middleware('auth');
-//delete berdasarkan id User
-Route::get('/deleteuser/{id}', [Controller_user::class, 'DeleteDatauser'])->name('Hapus_product')->middleware('auth');
-//Update berdasarkan id User
-Route::put('/updateuser/{id}', [Controller_user::class, 'updateuser'])->name('Update_user')->middleware('auth');
-
-
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/Datauser', [Controller_user::class, 'Showuser']);
+    Route::post('/AddDatauser', [Controller_user::class, 'Adduser']);
+    Route::get('/deleteuser/{id}', [Controller_user::class, 'DeleteDatauser'])->name('Hapus_product');
+    Route::put('/updateuser/{id}', [Controller_user::class, 'updateuser'])->name('Update_user');
+});
 // Data Catagory
-Route::get('/Catagory', [catagory_controller::class, 'showcategory'])->name('tampil_catagori')->middleware('auth');
-Route::post('/addcatagory', [catagory_controller::class, 'Adddatacatagory'])->middleware('auth');
-Route::get('/deletecatagory/{id}', [catagory_controller::class, 'DeleteCatagory'])->name('Hapus_catagory')->middleware('auth');
-Route::put('/UpdateCatagory/{id}', [catagory_controller::class, 'UpdateDataCatagory'])->name('Update_user')->middleware('auth');
-
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/Catagory', [catagory_controller::class, 'showcategory'])->name('tampil_catagori');
+    Route::post('/addcatagory', [catagory_controller::class, 'Adddatacatagory'])->middleware('auth');
+    Route::get('/deletecatagory/{id}', [catagory_controller::class, 'DeleteCatagory'])->name('Hapus_catagory');
+    Route::put('/UpdateCatagory/{id}', [catagory_controller::class, 'UpdateDataCatagory'])->name('Update_user');
+});
 //Data Status
-Route::get('/ShowStatus', [catagory_controller::class, 'showstatus'])->name('tampil_status')->middleware('auth');
-Route::post('/Addstatus', [catagory_controller::class, 'Adddatastatus'])->middleware('auth');
-Route::put('/UpdateStatus/{id}', [catagory_controller::class, 'UpdateDataStatus'])->middleware('auth');
-Route::get('/deletestatus/{id}', [catagory_controller::class, 'DeleteStatus'])->middleware('auth');
-
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/ShowStatus', [catagory_controller::class, 'showstatus'])->name('tampil_status');
+    Route::post('/Addstatus', [catagory_controller::class, 'Adddatastatus']);
+    Route::put('/UpdateStatus/{id}', [catagory_controller::class, 'UpdateDataStatus']);
+    Route::get('/deletestatus/{id}', [catagory_controller::class, 'DeleteStatus']);
+});
 //Data Customer
-Route::get('/TampilCustomer', [customer_controller::class,'Showcustomer'])->name('Showcustomer')->middleware('auth');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/Datacustomer', [customer_controller::class,'Showcustomer'])->name('Showcustomer');
+    Route::get('/AddCustomerForm', [customer_controller::class,'FormaddCustomer'])->name('FormaddCustomer');
+    Route::Post('/Addnewcustomer', [customer_controller::class,'Addcustomer'])->name('Addcustomer');
+});

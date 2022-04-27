@@ -17,6 +17,8 @@ class TabelDetailCustomer extends Migration
             $table->id();
             $table->integer('id_customer');
             $table->date('alamat_detail');
+            $table->integer('kode_pos');
+        
         });
     }
 

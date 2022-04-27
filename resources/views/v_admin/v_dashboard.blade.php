@@ -95,8 +95,6 @@
                         <button type="button" >Add Product</button>
                     </form> --}}
                     <a href="/Formadd" class="btn btn-primary ml-12" style="width:200px;">Add Product</a>
-
-
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-responsive-md">

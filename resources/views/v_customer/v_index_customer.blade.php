@@ -34,6 +34,7 @@
                         <h4 class="card-title">Data Customer</h4>
                     </div>
                     <br>
+                    <a href="/AddCustomerForm" class="btn btn-info ml-12" style="width:200px;">Add Customer</a>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-responsive-md">
@@ -41,12 +42,10 @@
                                     <th>ID</th>
                                     <th>Name Customer</th>
                                     <th>Jenis Kelamin</th>
-                                    <th>Tanggal Lahir</th>
                                     <th>Email</th>
                                     <th>Email Verifikasi</th>
                                     <th>Password</th>
                                     <th>Telepon</th>
-                                    <th>Alamat</th>
                                     <th>Action</th>
                                     </tr>
                                 </thead>
@@ -56,12 +55,11 @@
                                         <td><strong>{{$datacustomer->id_customer}}</strong></td>
                                         <td>{{$datacustomer->name_customer}}</td>
                                         <td>{{$datacustomer->jenis_kelamin}}</td>
-                                        <td>{{$datacustomer->tanggal_lahir}}</td>
                                         <td>{{$datacustomer->email}}</td>
                                         <td>{{$datacustomer->email_verified_at}}</td>
                                         <td>{{$datacustomer->password}}</td>
                                         <td>{{$datacustomer->phone}}</td>
-                                        <td>{{$datacustomer->id_alamat_detail}}</td>
+                                        
                                         <td>
                                             <div class="d-flex">
                                                 <button type="button" class="btn btn-primary shadow btn-xs sharp mr-1"
@@ -125,15 +123,6 @@
                                    
                             </select>
                                 <br>
-                                <label class="form-label">Tanggal Lahir</label>
-                                <input type="date" name="tanggal_lahir" id="disabledTextInput" class="form-control"
-                                    value="{{$datacustomer->tanggal_lahir}}">
-                                @error('tanggal_lahir')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                                <br>
                                 <label class="form-label">Password</label>
                                 <input type="text" name="password" id="disabledTextInput" class="form-control"
                                     value="{{$datacustomer->password}}">
@@ -147,15 +136,6 @@
                                 <input type="text" name="phone" id="disabledTextInput" class="form-control"
                                     value="{{$datacustomer->phone}}">
                                 @error('phone')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                                <br>
-                                <label class="form-label">Alamat</label>
-                                <input type="text" name="id_alamat_detail" id="disabledTextInput" class="form-control"
-                                    value="{{$datacustomer->id_alamat_detail}}">
-                                @error('catagoryname')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>

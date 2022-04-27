@@ -17,13 +17,14 @@ class TableCustomer extends Migration
             $table->increments('id_customer');
             $table->string('name_customer');
             $table->string('jenis_kelamin');
-            $table->date('tanggal_lahir');
             $table->string('email')->unique();
             $table->integer('email_verified_at')->nullable();
             $table->string('email_verification_code')->nullable();
             $table->string('password');
             $table->string('phone');
-            $table->integer('id_alamat_detail');
+         
+            
+
         });
     }
 
