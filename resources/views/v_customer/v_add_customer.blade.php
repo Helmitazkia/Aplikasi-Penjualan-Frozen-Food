@@ -19,6 +19,7 @@
                                         {{ $message }}
                                     </div>
                                     @enderror
+
                                 </div>
                                 <div class="col-md-6 col-sm-12 mb-24"> <label class="form-label">Jenis Kelamin</label>
                                     <select name="jenis_kelamin"

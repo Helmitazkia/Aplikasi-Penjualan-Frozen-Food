@@ -153,7 +153,9 @@ Route::group(['middleware' => 'auth'], function () {
 });
 //Data Customer
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/Datacustomer', [customer_controller::class,'Showcustomer'])->name('Showcustomer');
-    Route::get('/AddCustomerForm', [customer_controller::class,'FormaddCustomer'])->name('FormaddCustomer');
-    Route::Post('/Addnewcustomer', [customer_controller::class,'Addcustomer'])->name('Addcustomer');
+    Route::get('/Datacustomer', [customer_controller::class,'Showcustomer']);
+    Route::get('/AddCustomerForm', [customer_controller::class,'FormaddCustomer']);
+    Route::Post('/Addnewcustomer', [customer_controller::class,'Addcustomer']);
+    Route::get('/deletecustomer/{id}', [customer_controller::class, 'DeleteDatacustomer']);
+    Route::put('/Updatecustomer/{id}', [customer_controller::class, 'Updatedatacustomer']);
 });

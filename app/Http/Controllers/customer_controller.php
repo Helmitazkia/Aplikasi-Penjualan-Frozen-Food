@@ -15,14 +15,18 @@ class customer_controller extends Controller
 {
     public function Showcustomer(Request $request)
     {
-        $data = DB::table('tabel_customer')->get();
+        //$data = DB::table('tabel_customer')->get();
+        $data = DB::select('select id_customer , name_customer,jenis_kelamin,email,password,phone,email_verified_at, name_status from tabel_customer
+        inner join tabel_status on tabel_customer.email_verified_at = tabel_status.id_status');
+        $ambilstatus = DB::table('tabel_status')->get();
         //dd($data);
-        return view('v_customer/v_index_customer',compact('data',$data),[
-         'title' => 'Customer-show',
-         'webname' => 'Data Customer'
-        ]);
+        return view('v_customer/v_index_customer',[
+            'data'=> $data,
+            'ambilstatus' => $ambilstatus,
+            'title' => 'Customer-show',
+            'webname' => 'Add New Customer'
+            ]);
     }
-
     public function FormaddCustomer(){
         return view('v_customer/v_add_customer',[
             'title' => 'Customer-show',
@@ -31,8 +35,7 @@ class customer_controller extends Controller
     }
 
     public function Addcustomer(Request $request)
-    {
-        
+    {   
         $request->validate([
             'name_customer'      => 'required', 'string', 'min:5',
             'jenis_kelamin'      => 'required', 'email',
@@ -41,7 +44,6 @@ class customer_controller extends Controller
             'password'           => 'required',
             'phone'              => 'required', 'unique:tabel_customer',
         ]);
-
         $createcustomer = DB::table('tabel_customer')->insert([
             'name_customer' => $request->name_customer,
             'jenis_kelamin' => $request->jenis_kelamin,
@@ -50,8 +52,48 @@ class customer_controller extends Controller
             'phone' => $request->phone, 
             'password' => Hash::make($request->password)
         ]);
+        //dd($createcustomer);
+        if($createcustomer){
+            //redirect dengan pesan sukses
+            return redirect('Datacustomer')->with(['success' => 'Data successfully save !']);
+        }else{
+            //redirect dengan pesan error
+            return redirect('Datacustomer')->with(['error' => 'Data failed to save !']);
+        }    
+    }
 
-        dd($createcustomer);
-           
+    //Delete Data customer
+    public function DeleteDatacustomer($id)
+    {
+        $deleted = DB::delete("DELETE FROM tabel_customer WHERE id_customer = $id ");
+        return redirect('Datacustomer');
+    }
+
+    public function Updatedatacustomer(Request $request, $id)
+    {
+      $request->validate([
+          'name_customer'    => 'required',
+          'jenis_kelamin'    => 'required',
+          'email'            => 'required',
+          'password'         => 'required',
+          'phone'            => 'required',   
+          'email_verified_at'=> 'required'    
+      ]);
+       $UpdateData = DB::table('tabel_customer')->where('id_customer',$id)->update([
+          'name_customer'    => $request->name_customer,
+          'jenis_kelamin'    => $request->jenis_kelamin,
+          'email'            => $request->email,
+          'password'         => Hash::make($request->password),
+          'phone'            => $request->phone,
+          'email_verified_at'=> $request->email_verified_at,
+       ]);
+      //dd($UpdateData);
+       if($UpdateData){
+          //redirect dengan pesan sukses
+          return redirect('Datacustomer')->with(['updatesuccess' => 'Data Edited Successfully !']);
+      }else{
+          //redirect dengan pesan error
+          return redirect('Datacustomer')->with(['updateerorr' => 'Data Failed to Edit !']);
+      }
     }
 }

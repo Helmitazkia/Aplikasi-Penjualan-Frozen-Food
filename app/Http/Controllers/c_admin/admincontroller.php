@@ -59,10 +59,7 @@ class admincontroller extends Controller
             'catagory'   => 'required',
             'image'      => 'required|image|file|max:2024|mimes:jpg,png',
             'desc'       => 'required',
-            'stok'       => 'required'
-            
-            
-            
+            'stok'       => 'required'  
         ]);
        
         //Jika ada file yang di upload

@@ -395,6 +395,32 @@
 
 </script>
 
+<script>
+    //.hapus tombol delete yang ada di view dashboar admin
+    $('.delete-customer').click(function () {
+        var id_customer = $(this).attr("data-id");
+        var name_customer = $(this).attr("data-name");
+        swal({
+                title: "Apa kamu yakin?",
+                text: "Anda Akan Menghapus Data Pengguna dengan Nama " + name_customer + " ",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location = "deletecustomer/" + id_customer + " ";
+                    swal("Data Berhasil di hapus!", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Oops", "Data is not deleted ! ", "error");
+                }
+            });
+    });
+
+</script>
+
     <script>
         @if(Session::has('updatesuccess'))
         toastr.success("{{Session::get('updatesuccess')}}");

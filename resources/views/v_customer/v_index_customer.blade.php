@@ -56,10 +56,10 @@
                                         <td>{{$datacustomer->name_customer}}</td>
                                         <td>{{$datacustomer->jenis_kelamin}}</td>
                                         <td>{{$datacustomer->email}}</td>
-                                        <td>{{$datacustomer->email_verified_at}}</td>
+                                        <td>{{$datacustomer->name_status}}</td>
                                         <td>{{$datacustomer->password}}</td>
                                         <td>{{$datacustomer->phone}}</td>
-                                        
+
                                         <td>
                                             <div class="d-flex">
                                                 <button type="button" class="btn btn-primary shadow btn-xs sharp mr-1"
@@ -68,7 +68,7 @@
                                                         class="fa fa-pencil"></i>
                                                 </button>
                                                 <button type="button"
-                                                    class="btn btn-danger shadow btn-xs sharp hapuscatagory"
+                                                    class="btn btn-danger shadow btn-xs sharp delete-customer"
                                                     data-id="{{$datacustomer->id_customer}}"
                                                     data-name="{{$datacustomer->name_customer}}"><i
                                                         class="fa fa-trash"></i></button>
@@ -87,11 +87,11 @@
             <!-- Modal Untuk Update-->
             @foreach ($data as $datacustomer)
             <!-- Modal -->
-            <div class="modal fade" id="update{{$datacustomer->id_customer}}" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="update{{$datacustomer->id_customer}}" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="/UpdateCatagory/{{$datacustomer->id_customer}}" method="POST">
+                        <form action="/Updatecustomer/{{$datacustomer->id_customer}}" method="POST">
                             @method('put')
                             @csrf
                             <div class="modal-header">
@@ -112,17 +112,38 @@
                                 <br>
                                 <label class="form-label">Jenis Kelamin</label>
                                 <input type="hidden" name="jenis_kelamin" id="disabledTextInput" class="form-control"
-                                value="{{$datacustomer->jenis_kelamin}}">
+                                    value="{{$datacustomer->jenis_kelamin}}">
                                 <select name="jenis_kelamin"
-                                class="form-control custom-select select2 select2-hidden-accessible"
-                                data-placeholder="Select Department" tabindex="-1" aria-hidden="true"
-                                data-select2-id="select2-data-22-9i9m">
-                                    <option value="1">Pilih^</option>
-                                    <option value="1">Laki-Laki</option>
-                                    <option value="2">Wanita</option>
-                                   
-                            </select>
+                                    class="form-control custom-select select2 select2-hidden-accessible"
+                                    data-placeholder="Select Department" tabindex="-1" aria-hidden="true"
+                                    data-select2-id="select2-data-22-9i9m">
+                                    <option>Pilih^</option>
+                                    <option>Laki-Laki</option>
+                                    <option>Wanita</option>
+
+                                </select>
                                 <br>
+                                <label class="form-label">Email</label>
+                                <input type="text" name="email" id="disabledTextInput" class="form-control"
+                                    value="{{$datacustomer->email}}">
+                                @error('password')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                                <br>
+                                <br>
+                                <label class="form-label">Verifikasi Email</label>
+                                <select name="email_verified_at"
+                                    class="form-control custom-select select2 select2-hidden-accessible"
+                                    data-placeholder="Select Department" tabindex="-1" aria-hidden="true"
+                                    data-select2-id="select2-data-22-9i9m">
+                                    @foreach ($ambilstatus as $datastatus)
+                                    <option value="{{$datastatus->id_status}}">
+                                        <?php echo $datastatus->name_status; ?>
+                                    </option>
+                                    @endforeach
+                                </select>
                                 <label class="form-label">Password</label>
                                 <input type="text" name="password" id="disabledTextInput" class="form-control"
                                     value="{{$datacustomer->password}}">
