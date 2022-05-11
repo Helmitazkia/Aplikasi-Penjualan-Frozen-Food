@@ -234,7 +234,7 @@
                                 <input type="hidden" name="status" id="html" value="{{$dataproduct->status}}">
                                 @foreach ($ambilstatus as $datastatus)
                                 <input type="radio" id="html" name="status" value="{{$datastatus->id_status}}">
-                                  <label for="html">{{$datastatus->name_status}}</label><br>
+                                <label for="html">{{$datastatus->name_status}}</label><br>
                                 @endforeach
 
                             </div>

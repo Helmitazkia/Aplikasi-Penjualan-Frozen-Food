@@ -14,9 +14,9 @@ class TabelDetailCustomer extends Migration
     public function up()
     {
         Schema::create('tabel_alamat_detail', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id_alamat');
             $table->integer('id_customer');
-            $table->date('alamat_detail');
+            $table->string('alamat_detail');
             $table->integer('kode_pos');
         
         });

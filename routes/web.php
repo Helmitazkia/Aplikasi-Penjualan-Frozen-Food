@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth_user\regisusercontroller;
 use App\Http\Controllers\Auth_user\Controller_user;
 use App\Http\Controllers\c_admin\catagory_controller;
 use App\Http\Controllers\customer_controller;
+use App\Http\Controllers\controller_alamat_customer;
 
 
 //Untuk Menerapkan Middleware 
@@ -159,3 +160,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/deletecustomer/{id}', [customer_controller::class, 'DeleteDatacustomer']);
     Route::put('/Updatecustomer/{id}', [customer_controller::class, 'Updatedatacustomer']);
 });
+//Detail Alamat
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/DetailAddres', [controller_alamat_customer::class,'ShowAlamatdetail']);
+    Route::Post('/AddNewAlalamat', [controller_alamat_customer::class,'Addalamatcustomer']);
+    Route::get('/Addformalamat', [controller_alamat_customer::class,'VformAddAlamat']);
+    Route::put('/Alamatupdate/{id}', [controller_alamat_customer::class, 'Updatealamat']);
+    Route::get('/Deletealamat/{id}', [controller_alamat_customer::class, 'DeleteDetailalamat']);
+});
+

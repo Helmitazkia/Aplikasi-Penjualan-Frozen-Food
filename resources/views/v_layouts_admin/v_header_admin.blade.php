@@ -74,7 +74,6 @@
                         </li>
                     </ul>
                 </li>
-
                 <li class="sidebar-submenu">
                     <a href="/Dashboardshow" class="sidebar-menu-dropdown">
                         <i class='bx bxs-dashboard'></i>
@@ -94,19 +93,10 @@
                         </li>
                     </ul>
                 </li>
-
-                <!---<li class="sidebar-submenu">
-                    <a href="project.html" class="sidebar-menu-dropdown">
-                        <i class='bx bxs-bolt'></i>
-                        <span>Project</span>
-                        <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
-                    </a>
-                </li>-->
-
                 <li class="sidebar-submenu">
                     <a href="/Clientshow" class="sidebar-menu-dropdown">
                         <i class='bx bxs-user'></i>
-                        <span>User's</span>
+                        <span>Data User's</span>
                         <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
                     </a>
                     <ul class="sidebar-menu sidebar-menu-dropdown-content">
@@ -115,15 +105,29 @@
                                 User's
                             </a>
                         </li>
+                    </ul>
+                </li>
+                <li class="sidebar-submenu">
+                    <a href="/Clientshow" class="sidebar-menu-dropdown">
+                        <i class='bx bxs-bolt'></i>
+                        <span>All Data Customer</span>
+                        <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
+                    </a>
+                    <ul class="sidebar-menu sidebar-menu-dropdown-content">
                         <li>
-                            <a href="/Datacustomer"> 
+                            <a href="/Datacustomer">
                                 Data Customer
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/DetailAddres">
+                                Detail Alamat
                             </a>
                         </li>
                     </ul>
                 </li>
 
-               
+
                 <li>
                     <a href="calendar.html">
                         <i class='bx bx-calendar'></i>
@@ -296,8 +300,8 @@
             var Product_id = $(this).attr("data-id");
             var Product_name = $(this).attr("data-name");
             swal({
-                    title: "Are you sure?",
-                    text: "You Will Delete Product Data with Name " + Product_name + " ",
+                    title: "Apa kamu yakin?",
+                    text: "Anda Akan Menghapus Data Product dengan Nama " + Product_name + " ",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -319,18 +323,18 @@
     <script>
         //.hapus tombol delete yang ada di view dashboar admin
         $('.hapususer').click(function () {
-            var Product_id = $(this).attr("data-id");
-            var Product_name = $(this).attr("data-name");
+            var id_user = $(this).attr("data-id");
+            var user_name = $(this).attr("data-name");
             swal({
-                    title: "Are you sure?",
-                    text: "You Will Delete User's Data with Name " + Product_name + " ",
+                    title: "Apa kamu yakin?",
+                    text: "Anda Akan Menghapus Data User dengan Nama " + user_name + " ",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
                 })
                 .then((willDelete) => {
                     if (willDelete) {
-                        window.location = "deleteuser/" + Product_id + " ";
+                        window.location = "deleteuser/" + id_user + " ";
                         swal("Data Successfully Delete!", {
                             icon: "success",
                         });
@@ -339,7 +343,6 @@
                     }
                 });
         });
-
     </script>
 
 
@@ -349,8 +352,8 @@
             var catagory_id = $(this).attr("data-id");
             var catagory_name = $(this).attr("data-name");
             swal({
-                    title: "Are you sure?",
-                    text: "You Will Delete User's Data with Name " + catagory_name + " ",
+                    title: "Apa kamu yakin?",
+                    text: "Anda Akan Menghapus Data Category dengan Nama " + catagory_name + " ",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -366,50 +369,72 @@
                     }
                 });
         });
+    </script>
 
+    <script>
+        //.hapus tombol delete yang ada di view dashboar admin
+        $('.delete-status').click(function () {
+            var status_id = $(this).attr("data-id");
+            var status_name = $(this).attr("data-name");
+            swal({
+                    title: "Apa kamu yakin?",
+                    text: "Anda Akan Menghapus Data status dengan Nama " + status_name + " ",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location = "deletestatus/" + status_id + " ";
+                        swal("Data Successfully Delete!", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Oops", "Data is not deleted ! ", "error");
+                    }
+                });
+        });
+    </script>
+
+    <script>
+        //.hapus tombol delete yang ada di view dashboar admin
+        $('.delete-customer').click(function () {
+            var id_customer = $(this).attr("data-id");
+            var name_customer = $(this).attr("data-name");
+            swal({
+                    title: "Apa kamu yakin?",
+                    text: "Anda Akan Menghapus Data Customer dengan Nama " + name_customer + " ",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location = "deletecustomer/" + id_customer + " ";
+                        swal("Data Berhasil di hapus!", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Oops", "Data is not deleted ! ", "error");
+                    }
+                });
+        });
     </script>
 
 <script>
-    //.hapus tombol delete yang ada di view dashboar admin
-    $('.delete-status').click(function () {
-        var status_id = $(this).attr("data-id");
-        var status_name = $(this).attr("data-name");
-        swal({
-                title: "Are you sure?",
-                text: "You Will Delete User's Data with Name " + status_name + " ",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    window.location = "deletestatus/" + status_id + " ";
-                    swal("Data Successfully Delete!", {
-                        icon: "success",
-                    });
-                } else {
-                    swal("Oops", "Data is not deleted ! ", "error");
-                }
-            });
-    });
-
-</script>
-
-<script>
-    //.hapus tombol delete yang ada di view dashboar admin
-    $('.delete-customer').click(function () {
-        var id_customer = $(this).attr("data-id");
+    $('.delete-alamat').click(function () {
+        var id_alamat = $(this).attr("data-id");
         var name_customer = $(this).attr("data-name");
         swal({
                 title: "Apa kamu yakin?",
-                text: "Anda Akan Menghapus Data Pengguna dengan Nama " + name_customer + " ",
+                text: "Anda Akan Menghapus Data Customer dengan Nama " + name_customer + " ",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    window.location = "deletecustomer/" + id_customer + " ";
+                    window.location = "Deletealamat/" + id_alamat + " ";
                     swal("Data Berhasil di hapus!", {
                         icon: "success",
                     });
@@ -418,7 +443,6 @@
                 }
             });
     });
-
 </script>
 
     <script>
@@ -427,32 +451,6 @@
         @endif
 
     </script>
-
-
-    {{-- Menampilkan Gambar yang akan di upload --}}
-    {{-- <script>
-        function priviewImage() {
-
-            const image = document.querySelector('#image');
-            const imgPriview = document.querySelector('.img-priview');
-
-            imgPriview.style.display = 'block';
-
-            const oFReader = New fileReader();
-            oFReader.readAsDataURL(image.files[0]);
-
-            oFReader.onload = function (oFREvent) {
-                imgPriview.src = oFREvent.target.result;
-
-            }
-
-        } 
-
-    </script>--}}
-
-
-
-
 
 
 

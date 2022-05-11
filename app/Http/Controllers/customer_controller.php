@@ -18,17 +18,19 @@ class customer_controller extends Controller
         //$data = DB::table('tabel_customer')->get();
         $data = DB::select('select id_customer , name_customer,jenis_kelamin,email,password,phone,email_verified_at, name_status from tabel_customer
         inner join tabel_status on tabel_customer.email_verified_at = tabel_status.id_status');
-        $ambilstatus = DB::table('tabel_status')->get();
+        $statusambil = DB::table('tabel_status')->get();
         //dd($data);
         return view('v_customer/v_index_customer',[
             'data'=> $data,
-            'ambilstatus' => $ambilstatus,
+            'statusambil' => $statusambil,
             'title' => 'Customer-show',
             'webname' => 'Add New Customer'
             ]);
     }
     public function FormaddCustomer(){
+        $statusambil = DB::table('tabel_status')->get();
         return view('v_customer/v_add_customer',[
+            'statusambil' => $statusambil,
             'title' => 'Customer-show',
             'webname' => 'Add New Customer'
         ]);
@@ -37,12 +39,12 @@ class customer_controller extends Controller
     public function Addcustomer(Request $request)
     {   
         $request->validate([
-            'name_customer'      => 'required', 'string', 'min:5',
-            'jenis_kelamin'      => 'required', 'email',
-            'email'              => 'required', 'unique:tabel_customer', 'min:15',
-            'email_verified_at'  => 'required',
-            'password'           => 'required',
-            'phone'              => 'required', 'unique:tabel_customer',
+            'name_customer'      => ['required', 'string'],
+            'jenis_kelamin'      => ['required'],
+            'email'              => ['required', 'email', 'unique:tabel_customer', 'min:15'],
+            'email_verified_at'  => ['required'],
+            'password'           => ['required'],
+            'phone'              => ['required','unique:tabel_customer'],
         ]);
         $createcustomer = DB::table('tabel_customer')->insert([
             'name_customer' => $request->name_customer,
@@ -96,4 +98,5 @@ class customer_controller extends Controller
           return redirect('Datacustomer')->with(['updateerorr' => 'Data Failed to Edit !']);
       }
     }
+
 }
