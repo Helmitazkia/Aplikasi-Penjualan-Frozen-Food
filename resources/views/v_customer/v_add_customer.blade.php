@@ -57,7 +57,7 @@
                             <div class="box-body">
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12 mb-24"> <label class="form-label">Password</label>
-                                        <input type="text" name="password" id="disabledTextInput" class="form-control"
+                                        <input type="password" name="password" id="disabledTextInput" class="form-control"
                                             value="{{old('password')}}" required>
                                         @error('password')
                                         <div class="alert alert-danger mt-2">
@@ -69,6 +69,15 @@
                                         <input type="number" name="phone" id="disabledTextInput" class="form-control"
                                             value="{{old('phone')}}" required>
                                         @error('phone')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group mb-24"> <label class="form-label">Alamat</label>
+                                        <textarea class="form-control" name="alamat_customer" cols="30" rows="10"
+                                            value="{{ old('alamat_customer') }}" required></textarea>
+                                        @error('alamat_customer')
                                         <div class="alert alert-danger mt-2">
                                             {{ $message }}
                                         </div>

@@ -107,7 +107,7 @@
                                     <th>Stok</th>
                                     <th>Status</th>
                                     <th>Image</th>
-                                    <th>Reaction</th>
+                                    <th>Tools</th>
                                     </tr>
                                 </thead>
                                 <tbody>

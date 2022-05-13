@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth_user\Controller_user;
 use App\Http\Controllers\c_admin\catagory_controller;
 use App\Http\Controllers\customer_controller;
 use App\Http\Controllers\controller_alamat_customer;
+use App\Http\Controllers\c_admin\controller_pengiriman;
 
 
 //Untuk Menerapkan Middleware 
@@ -167,5 +168,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/Addformalamat', [controller_alamat_customer::class,'VformAddAlamat']);
     Route::put('/Alamatupdate/{id}', [controller_alamat_customer::class, 'Updatealamat']);
     Route::get('/Deletealamat/{id}', [controller_alamat_customer::class, 'DeleteDetailalamat']);
+});
+//Data Pengiriman
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/Datapengiriman', [controller_pengiriman::class,'ShowPengiriman']);
+    Route::get('/AddFormPengiriman', [controller_pengiriman::class,'VformAddpengiriman']);
+    Route::post('/Addpengiriman', [controller_pengiriman::class,'AddDatapengiriman']);
+    Route::put('/Updatedatapengiriman/{id}', [controller_pengiriman::class,'Updatedatapengiriman']);
 });
 

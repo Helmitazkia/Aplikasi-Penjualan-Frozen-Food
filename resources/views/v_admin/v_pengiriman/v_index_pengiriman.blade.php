@@ -3,6 +3,7 @@
 <div class="main">
     <div class="main-content user">
         <div class="row">
+            <!-- End Header Table-->
             <!-- Table CONTENT-->
             @if (session()->has('success'))
             <div class="alert alert-success alert-dismissible fade show">
@@ -31,38 +32,45 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Detail Alamat Customer</h4>
+                        <h4 class="card-title">{{ $webname }}</h4>
                     </div>
                     <br>
-                    <a href="/Addformalamat" class="btn btn-info ml-12" style="width:200px;">Add Customer</a>
+                    <a href="/AddFormPengiriman" class="btn btn-info ml-12" style="width:200px;">Add Pengiriman</a>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-responsive-md">
                                 <thead>
-                                    <th>ID</th>
-                                    <th>Name Customer</th>
+                                    <th>ID Pengiriman</th>
+                                    <th>Pembelian Barang</th>
+                                    <th>Nama Customer</th>
+                                    <th>Telepon</th>
+                                    <th>Tanggal Pengiririman</th>
                                     <th>Alamat Lengkap</th>
-                                    <th>Kode Pos</th>
+                                    <th>Status Pengiriman</th>
+                                    <th>Tools</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data as $dataalamat)
+                                    @foreach ($data as $datapengiriman)
                                     <tr>
-                                        <td><strong>{{$dataalamat->id_alamat}}</strong></td>
-                                        <td>{{$dataalamat->name_customer}}</td>
-                                        <td>{{$dataalamat->alamat_detail}}</td>
-                                        <td>{{$dataalamat->kode_pos}}</td>
+                                        <td><strong>{{$datapengiriman->id_pengiriman}}</strong></td>
+                                        <td>{{$datapengiriman->name}}</td>
+                                        <td>{{$datapengiriman->name_customer}}</td>
+                                        <td>{{$datapengiriman->phone}}</td>
+                                        <td>{{$datapengiriman->tanggal_pengiriman}}</td>
+                                        <td>{{$datapengiriman->alamat_customer}}</td>
+                                        <td>{{$datapengiriman->name_status}}</td>
                                         <td>
                                             <div class="d-flex">
                                                 <button type="button" class="btn btn-primary shadow btn-xs sharp mr-1"
                                                     data-bs-toggle="modal"
-                                                    data-bs-target="#update{{$dataalamat->id_alamat}}"><i
+                                                    data-bs-target="#update{{$datapengiriman->id_pengiriman}}"><i
                                                         class="fa fa-pencil"></i>
                                                 </button>
                                                 <button type="button"
-                                                    class="btn btn-danger shadow btn-xs sharp delete-alamat"
-                                                    data-id="{{$dataalamat->id_alamat}}"
-                                                    data-name="{{$dataalamat->name_customer}}"><i
+                                                    class="btn btn-danger shadow btn-xs sharp delete-status"
+                                                    data-id="{{$datapengiriman->id_pengiriman}}"
+                                                    data-name="{{$datapengiriman->name_customer}}"><i
                                                         class="fa fa-trash"></i></button>
                                             </div>
                                         </td>
@@ -77,31 +85,49 @@
             <!--End Table-->
 
             {{-- Modal Untuk Update --}}
-            @foreach ($data as $dataalamat)
+            @foreach ($data as $datapengiriman)
             <!-- Modal -->
-            <div class="modal fade" id="update{{$dataalamat->id_alamat}}" tabindex="-1"
+            <div class="modal fade" id="update{{$datapengiriman->id_pengiriman}}" tabindex="-1"
                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="/Alamatupdate/{{$dataalamat->id_alamat}}" method="POST">
+                        <form action="/Updatedatapengiriman/{{$datapengiriman->id_pengiriman}}" method="POST">
                             @method('put')
                             @csrf
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Edit Data
-                                    {{$dataalamat->name_customer}}</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">EDIT DATA 
+                                    {{$datapengiriman->name}}</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <label class="form-label">Nama Customer</label>
-                                <input type="hidden" name="id_customer" id="disabledTextInput" class="form-control"
-                                    value="{{$dataalamat->id_customer}}">
+                                <label class="form-label">Nama Barang</label>
+                                <input type="hidden" name="id_product" id="disabledTextInput" class="form-control"
+                                    value="{{$datapengiriman->id}}">
                                 <select name="id_customer"
                                     class="form-control custom-select select2 select2-hidden-accessible"
                                     data-placeholder="Select Department" tabindex="-1" aria-hidden="true"
                                     data-select2-id="select2-data-22-9i9m">
-                                    <option value="{{$dataalamat->id_customer}}">
-                                        <?php echo $dataalamat->name_customer; ?>
+                                    <option value="{{$datapengiriman->id}}">
+                                        <?php echo $datapengiriman->name; ?>
+                                    </option>
+                                    @foreach ($ambilproduct as $dataproduct)
+                                    <option value="{{$dataproduct->id}}">
+                                        <?php echo $dataproduct->name; ?>
+                                    </option>
+                                    @endforeach
+                                </select>
+                                <br>
+                                <br>
+                                <label class="form-label">Nama Customer</label>
+                                <input type="hidden" name="id_customer" id="disabledTextInput" class="form-control"
+                                    value="{{$datapengiriman->id_customer}}">
+                                <select name="id_customer"
+                                    class="form-control custom-select select2 select2-hidden-accessible"
+                                    data-placeholder="Select Department" tabindex="-1" aria-hidden="true"
+                                    data-select2-id="select2-data-22-9i9m">
+                                    <option value="{{$datapengiriman->id_customer}}">
+                                        <?php echo $datapengiriman->name_customer; ?>
                                     </option>
                                     @foreach ($ambilcustomer as $datacustomer)
                                     <option value="{{$datacustomer->id_customer}}">
@@ -111,23 +137,44 @@
                                 </select>
                                 <br>
                                 <br>
-                                <label class="form-label">Alamat Lengkap</label>
-                                <input type="text" name="alamat_detail" id="disabledTextInput" class="form-control"
-                                    value="{{$dataalamat->alamat_detail}}" style="height: 80px;">
-                                @error('alamat_detail')
+                                <label class="form-label">Alamat Customer</label>
+                                <input type="text" name="alamat_customer" id="disabledTextInput" class="form-control"
+                                    value="{{$datapengiriman->alamat_customer}}" style="height: 80px;" readonly>
+                                @error('alamat_customer')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                                 @enderror
                                 <br>
-                                <label class="form-label">Kode Pos</label>
-                                <input type="text" name="kode_pos" id="disabledTextInput" class="form-control"
-                                    value="{{$dataalamat->kode_pos}}">
-                                @error('kode_pos')
+                                <br>
+                                <label class="form-label">Telepon</label>
+                                <input type="text" name="alamat_customer" id="disabledTextInput" class="form-control"
+                                    value="{{$datapengiriman->phone}}" style="height: 80px;" readonly>
+                                @error('alamat_customer')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                                 @enderror
+                                <br>
+                                <br>
+                                <label class="form-label">Tanggal Pengiriman</label>
+                                <input type="date" name="tanggal_pengiriman" id="disabledTextInput" class="form-control"
+                                    value="{{$datapengiriman->tanggal_pengiriman}}" style="height: 80px;">
+                                @error('tanggal_pengiriman')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                                <br>
+                                <label class="form-label">Status Pengiriman</label>
+                                <br>
+                                <input type="hidden" name="id_status"
+                                    value="{{$datapengiriman->id_status}}">
+                                @foreach ($ambilstatus as $datastatus)
+                                <input type="radio" id="html" name="id_status"
+                                    value="{{$datastatus->id_status}}">
+                                <label for="html">{{$datastatus->name_status}}</label><br>
+                                @endforeach
                                 <br>
                             </div>
                             <div class="modal-footer">
@@ -140,8 +187,8 @@
             </div>
             @endforeach
             {{-- End Modal Update --}}
+
+
         </div>
     </div>
-</div>
-@endsection
-{{-- End Main Content --}}
+    @endsection

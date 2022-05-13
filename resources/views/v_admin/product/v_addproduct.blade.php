@@ -38,8 +38,7 @@ $tglmasuk = new DateTime();
                                     <select name="catagory"
                                         class="form-control custom-select select2 select2-hidden-accessible"
                                         data-placeholder="Select Department" tabindex="-1" aria-hidden="true"
-                                        data-select2-id="select2-data-22-9i9m">
-                                    <option>Select Item</option>
+                                        data-select2-id="select2-data-22-9i9m" required>
                                     @foreach ($data as $dataproduct)
                                     <option value="{{$dataproduct->id}}">
                                         <?php echo $dataproduct->name_catagory; ?>

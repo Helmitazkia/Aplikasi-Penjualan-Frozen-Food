@@ -17,7 +17,6 @@ class TabelTransaksi extends Migration
             $table->increments('id_transaksi');
             $table->dateTime('tanggal_transaksi');
             $table->integer('id_customer');
-            $table->string('Tanggal Lahir');
         });
     }
 

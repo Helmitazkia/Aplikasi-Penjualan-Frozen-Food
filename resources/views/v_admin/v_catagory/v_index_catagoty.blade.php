@@ -43,7 +43,7 @@
                                 <thead>
                                     <th>ID</th>
                                     <th>Name Catagory Product</th>
-                                    <th>Action</th>
+                                    <th>Tools</th>
                                     </tr>
                                 </thead>
                                 <tbody>

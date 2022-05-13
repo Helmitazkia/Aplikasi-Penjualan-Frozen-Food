@@ -21,6 +21,7 @@ class TableCustomer extends Migration
             $table->integer('email_verified_at')->nullable();
             $table->string('email_verification_code')->nullable();
             $table->string('password');
+            $table->string('alamat_customer');
             $table->string('phone');
          
             

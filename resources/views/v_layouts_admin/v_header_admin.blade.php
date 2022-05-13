@@ -94,6 +94,58 @@
                     </ul>
                 </li>
                 <li class="sidebar-submenu">
+                    <a href="chart-apex.html" class="sidebar-menu-dropdown">
+                        <i class='bx bxs-component'></i>
+                        <span>Transkasi</span>
+                        <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
+                    </a>
+                    <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                        <li>
+                            <a href="chart-apex.html">
+                                Data Pesanan Product
+                            </a>
+                            <a href="chart-apex.html">
+                                Detail Transaksi
+                            </a>
+                            <a href="chart-apex.html">
+                                Data Laporan
+                            </a>
+                            <a href="chart-apex.html">
+                                Metode Pembayaran
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                
+                <li class="sidebar-submenu">
+                    <a href="/Clientshow" class="sidebar-menu-dropdown">
+                        <i class='bx bxs-bolt'></i>
+                        <span>Data Customer</span>
+                        <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
+                    </a>
+                    <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                        <li>
+                            <a href="/Datacustomer">
+                                Data Customer
+                            </a>
+                        </li>
+                    </ul>
+                </li>   
+                <li>
+                    <a href="/Datapengiriman">
+                        <i class='bx bx-calendar'></i>
+                        <span>Data Pengiriman</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="message.html">
+                        <i class='bx bxs-message-rounded-detail'></i>
+                        <span>Bukti Pembayaran Customer</span>
+                    </a>
+                </li>
+                <li class="sidebar-submenu">
                     <a href="/Clientshow" class="sidebar-menu-dropdown">
                         <i class='bx bxs-user'></i>
                         <span>Data User's</span>
@@ -107,55 +159,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="sidebar-submenu">
-                    <a href="/Clientshow" class="sidebar-menu-dropdown">
-                        <i class='bx bxs-bolt'></i>
-                        <span>All Data Customer</span>
-                        <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
-                    </a>
-                    <ul class="sidebar-menu sidebar-menu-dropdown-content">
-                        <li>
-                            <a href="/Datacustomer">
-                                Data Customer
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/DetailAddres">
-                                Detail Alamat
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-
-                <li>
-                    <a href="calendar.html">
-                        <i class='bx bx-calendar'></i>
-                        <span>Calendar</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="message.html">
-                        <i class='bx bxs-message-rounded-detail'></i>
-                        <span>Message</span>
-                    </a>
-                </li>
-                <li class="sidebar-submenu">
-                    <a href="chart-apex.html" class="sidebar-menu-dropdown">
-                        <i class='bx bxs-component'></i>
-                        <span>Components</span>
-                        <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
-                    </a>
-                    <ul class="sidebar-menu sidebar-menu-dropdown-content">
-                        <li>
-                            <a href="chart-apex.html">
-                                Apex Charts
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
+                
                 <li>
                     <a class="darkmode-toggle" id="darkmode-toggle" onclick="switchTheme()">
                         <div>

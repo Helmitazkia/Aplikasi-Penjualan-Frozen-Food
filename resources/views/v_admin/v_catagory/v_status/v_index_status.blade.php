@@ -44,7 +44,7 @@
                                 <thead>
                                     <th>ID</th>
                                     <th>Name Status</th>
-                                    <th>Action</th>
+                                    <th>Tools</th>
                                     </tr>
                                 </thead>
                                 <tbody>

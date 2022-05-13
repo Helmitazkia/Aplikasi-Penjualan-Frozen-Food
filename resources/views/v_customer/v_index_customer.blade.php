@@ -44,9 +44,9 @@
                                     <th>Jenis Kelamin</th>
                                     <th>Email</th>
                                     <th>Email Verifikasi</th>
-                                    <th>Password</th>
-                                    <th>Telepon</th>
-                                    <th>Action</th>
+                                    <th>Telepon</th> 
+                                    <th>Alamat</th>
+                                    <th>Tools</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -57,9 +57,11 @@
                                         <td>{{$datacustomer->jenis_kelamin}}</td>
                                         <td>{{$datacustomer->email}}</td>
                                         <td>{{$datacustomer->name_status}}</td>
-                                        <td>{{$datacustomer->password}}</td>
                                         <td>{{$datacustomer->phone}}</td>
-
+                                        <td>{{$datacustomer->alamat_customer}}</td>
+                                        
+                                        
+                                        
                                         <td>
                                             <div class="d-flex">
                                                 <button type="button" class="btn btn-primary shadow btn-xs sharp mr-1"
@@ -133,9 +135,11 @@
                                 <br>
                                 <label class="form-label">Status Akun</label>
                                 <br>
-                                <input type="hidden" name="email_verified_at" id="html" value="{{$datacustomer->email_verified_at}}">
+                                <input type="hidden" name="email_verified_at" id="html"
+                                    value="{{$datacustomer->email_verified_at}}">
                                 @foreach ($statusambil as $datastatus)
-                                <input type="radio" id="html" name="email_verified_at" value="{{$datastatus->id_status}}">
+                                <input type="radio" id="html" name="email_verified_at"
+                                    value="{{$datastatus->id_status}}">
                                 <label for="html">{{$datastatus->name_status}}</label><br>
                                 @endforeach
                                 <label class="form-label">Password</label>
@@ -148,9 +152,18 @@
                                 @enderror
                                 <br>
                                 <label class="form-label">Telepon</label>
-                                <input type="text" name="phone" id="disabledTextInput" class="form-control"
+                                <input type="number" name="phone" id="disabledTextInput" class="form-control"
                                     value="{{$datacustomer->phone}}">
                                 @error('phone')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                                <br>
+                                <label class="form-label">Alamat</label>
+                                <input type="text" name="alamat_customer" id="disabledTextInput" class="form-control"
+                                value="{{$datacustomer->alamat_customer}}" style="height: 60">
+                                @error('alamat_customer')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>

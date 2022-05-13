@@ -16,7 +16,7 @@ class customer_controller extends Controller
     public function Showcustomer(Request $request)
     {
         //$data = DB::table('tabel_customer')->get();
-        $data = DB::select('select id_customer , name_customer,jenis_kelamin,email,password,phone,email_verified_at, name_status from tabel_customer
+        $data = DB::select('select id_customer , alamat_customer, name_customer,jenis_kelamin,email,password,phone,email_verified_at, name_status from tabel_customer
         inner join tabel_status on tabel_customer.email_verified_at = tabel_status.id_status');
         $statusambil = DB::table('tabel_status')->get();
         //dd($data);
@@ -41,10 +41,11 @@ class customer_controller extends Controller
         $request->validate([
             'name_customer'      => ['required', 'string'],
             'jenis_kelamin'      => ['required'],
-            'email'              => ['required', 'email', 'unique:tabel_customer', 'min:15'],
+            'email'              => ['required', 'email', 'unique:tabel_customer', 'min:10'],
             'email_verified_at'  => ['required'],
             'password'           => ['required'],
-            'phone'              => ['required','unique:tabel_customer'],
+            'phone'              => ['required','unique:tabel_customer','min:11'],
+            'alamat_customer'     => ['required','min:10'],
         ]);
         $createcustomer = DB::table('tabel_customer')->insert([
             'name_customer' => $request->name_customer,
@@ -52,6 +53,7 @@ class customer_controller extends Controller
             'email' => $request->email,
             'email_verified_at' => $request->email_verified_at,
             'phone' => $request->phone, 
+            'alamat_customer' => $request->alamat_customer, 
             'password' => Hash::make($request->password)
         ]);
         //dd($createcustomer);
@@ -79,10 +81,12 @@ class customer_controller extends Controller
           'email'            => 'required',
           'password'         => 'required',
           'phone'            => 'required',   
-          'email_verified_at'=> 'required'    
+          'email_verified_at'=> 'required',
+          'alamat_customer'  => ['required','min:10']    
       ]);
        $UpdateData = DB::table('tabel_customer')->where('id_customer',$id)->update([
           'name_customer'    => $request->name_customer,
+          'alamat_customer'   => $request->alamat_customer,
           'jenis_kelamin'    => $request->jenis_kelamin,
           'email'            => $request->email,
           'password'         => Hash::make($request->password),

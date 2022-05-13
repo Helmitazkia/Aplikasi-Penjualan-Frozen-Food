@@ -17,7 +17,8 @@ class TabelPengiriman extends Migration
             $table->increments('id_pengiriman');
             $table->integer('id_customer');
             $table->date('tanggal_pengiriman');
-            $table->integer('status');
+            $table->integer('id_status');
+            $table->integer('id_product');
         });
     }
 
