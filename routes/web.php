@@ -12,6 +12,7 @@ use App\Http\Controllers\c_admin\catagory_controller;
 use App\Http\Controllers\customer_controller;
 use App\Http\Controllers\controller_alamat_customer;
 use App\Http\Controllers\c_admin\controller_pengiriman;
+use App\Http\Controllers\c_admin\controller_pembayaran;
 
 
 //Untuk Menerapkan Middleware 
@@ -175,5 +176,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/AddFormPengiriman', [controller_pengiriman::class,'VformAddpengiriman']);
     Route::post('/Addpengiriman', [controller_pengiriman::class,'AddDatapengiriman']);
     Route::put('/Updatedatapengiriman/{id}', [controller_pengiriman::class,'Updatedatapengiriman']);
+    Route::get('/Deletepengiriman/{id}', [controller_pengiriman::class, 'DeleteDatapengiriman']);
 });
+
+//Data Pembayaran
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/DataPembayaran', [controller_pembayaran::class,'ShowPembayaran']);
+    Route::get('/AddFormPembayaran', [controller_pembayaran::class,'Vformaddpembayaran']);
+    Route::post('/Addpembayaran', [controller_pembayaran::class,'Tambahpembayaran']);
+    Route::get('/Deletepembayaran/{id}', [controller_pembayaran::class, 'DeleteDatapembayaran']);
+    Route::put('/UpdateDataPembayaran/{id}', [controller_pembayaran::class,'Updatepembayaran']);
+ 
+});
+
+
 

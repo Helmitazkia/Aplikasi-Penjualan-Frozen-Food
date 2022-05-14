@@ -96,5 +96,12 @@ class controller_pengiriman extends Controller
           return redirect('Datapengiriman')->with(['updateerorr' => 'Data Failed to Edit !']);
       }
     }
+
+    //Delete Data customer
+    public function DeleteDatapengiriman($id)
+    {
+        $deleted = DB::delete("DELETE FROM tabel_pengiriman WHERE id_pengiriman = $id ");
+        return redirect('Datapengiriman');
+    }
     
 }

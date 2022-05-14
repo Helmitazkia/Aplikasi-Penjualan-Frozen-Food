@@ -77,10 +77,6 @@ class admincontroller extends Controller
             'status'      => $request->status,
            
         ]);
-
-        //dd($addproduct);
- 
-        //dd($addproduct);
         if($addproduct){
             //redirect dengan pesan sukses
             return redirect('Dashboardshow')->with(['success' => 'Data successfully save !']);

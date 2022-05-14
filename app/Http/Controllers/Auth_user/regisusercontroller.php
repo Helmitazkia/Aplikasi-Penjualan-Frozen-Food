@@ -25,7 +25,6 @@ class regisusercontroller extends Controller
         ]);
     }
 
-
     public function FormUserAdmin()
     {
         return view('v_acount_admin/v_register', [

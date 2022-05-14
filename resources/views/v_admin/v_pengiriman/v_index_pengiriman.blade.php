@@ -68,9 +68,9 @@
                                                         class="fa fa-pencil"></i>
                                                 </button>
                                                 <button type="button"
-                                                    class="btn btn-danger shadow btn-xs sharp delete-status"
+                                                    class="btn btn-danger shadow btn-xs sharp delete-pengiriman"
                                                     data-id="{{$datapengiriman->id_pengiriman}}"
-                                                    data-name="{{$datapengiriman->name_customer}}"><i
+                                                    data-name="{{$datapengiriman->name}}"><i
                                                         class="fa fa-trash"></i></button>
                                             </div>
                                         </td>

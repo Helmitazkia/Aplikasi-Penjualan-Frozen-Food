@@ -110,7 +110,7 @@
                             <a href="chart-apex.html">
                                 Data Laporan
                             </a>
-                            <a href="chart-apex.html">
+                            <a href="/DataPembayaran">
                                 Metode Pembayaran
                             </a>
                         </li>
@@ -305,7 +305,7 @@
             var Product_name = $(this).attr("data-name");
             swal({
                     title: "Apa kamu yakin?",
-                    text: "Anda Akan Menghapus Data Product dengan Nama " + Product_name + " ",
+                    text: "Akan Menghapus Data Product dengan Nama " + Product_name + " ",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -331,7 +331,7 @@
             var user_name = $(this).attr("data-name");
             swal({
                     title: "Apa kamu yakin?",
-                    text: "Anda Akan Menghapus Data User dengan Nama " + user_name + " ",
+                    text: "Akan Menghapus Data User dengan Nama " + user_name + " ",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -357,7 +357,7 @@
             var catagory_name = $(this).attr("data-name");
             swal({
                     title: "Apa kamu yakin?",
-                    text: "Anda Akan Menghapus Data Category dengan Nama " + catagory_name + " ",
+                    text: "Akan Menghapus Data Category dengan Nama " + catagory_name + " ",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -382,7 +382,7 @@
             var status_name = $(this).attr("data-name");
             swal({
                     title: "Apa kamu yakin?",
-                    text: "Anda Akan Menghapus Data status dengan Nama " + status_name + " ",
+                    text: "Akan Menghapus Data status dengan Nama " + status_name + " ",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -407,7 +407,7 @@
             var name_customer = $(this).attr("data-name");
             swal({
                     title: "Apa kamu yakin?",
-                    text: "Anda Akan Menghapus Data Customer dengan Nama " + name_customer + " ",
+                    text: "Akan Menghapus Data Customer dengan Nama " + name_customer + " ",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -425,20 +425,45 @@
         });
     </script>
 
+
 <script>
-    $('.delete-alamat').click(function () {
-        var id_alamat = $(this).attr("data-id");
-        var name_customer = $(this).attr("data-name");
+    $('.delete-pengiriman').click(function () {
+        var id_pengiriman = $(this).attr("data-id");
+        var name = $(this).attr("data-name");
         swal({
                 title: "Apa kamu yakin?",
-                text: "Anda Akan Menghapus Data Customer dengan Nama " + name_customer + " ",
+                text: "Akan Menghapus Data Pengiriman dengan Nama " + name + " ",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    window.location = "Deletealamat/" + id_alamat + " ";
+                    window.location = "Deletepengiriman/" + id_pengiriman + " ";
+                    swal("Data Berhasil di hapus!", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Oops", "Data is not deleted ! ", "error");
+                }
+            });
+    });
+</script>
+
+<script>
+    $('.delete-pembayaran').click(function () {
+        var id_pembayaran = $(this).attr("data-id");
+        var Nama_pembayaran = $(this).attr("data-name");
+        swal({
+                title: "Apa kamu yakin?",
+                text: "Akan Menghapus Data pembayaran dengan Nama " + Nama_pembayaran + " ",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location = "Deletepembayaran/" + id_pembayaran + " ";
                     swal("Data Berhasil di hapus!", {
                         icon: "success",
                     });
