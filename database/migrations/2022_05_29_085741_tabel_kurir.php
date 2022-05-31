@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TabelDetailTransaksi extends Migration
+class TabelKurir extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class TabelDetailTransaksi extends Migration
      */
     public function up()
     {
-        Schema::create('tabel_detail_transaksi', function (Blueprint $table) {
-            $table->increments('id_detail_transaksi');
-            $table->integer('id_transaksi');
-            $table->integer('id_product');
-            $table->integer('jumlah_beli');
-            $table->integer('total_transaksi');
+        Schema::create('tabel_kurir', function (Blueprint $table) {
+            $table->increments('id_kurir');
+            $table->string('nama_kurir');
+            $table->integer('ongkir')->nullable();
         });
     }
 

@@ -41,7 +41,7 @@
                         <div class="table-responsive">
                             <table class="table table-responsive-md">
                                 <thead>
-                                    <th>ID</th>
+                                    <th>NO</th>
                                     <th>Name User's</th>
                                     <th>Email</th>
                                     <th>Status Email</th>
@@ -53,12 +53,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                    $no = 1;
+                                    @endphp
                                     @foreach ($data as $datauser)
                                     <tr>
-                                        <td><strong>{{$datauser->id}}</strong></td>
+                                        <td><strong>{{$no++}}</strong></td>
                                         <td>{{$datauser->name}}</td>
                                         <td>{{$datauser->email}}</td>
-                                        <td>{{$datauser->email_verified_at}}</td>
+                                        <td>{{$datauser->name_status}}</td>
                                         <td>{{$datauser->addres}}</td>
                                         <td>{{$datauser->password}}</td>
                                         <td>{{$datauser->phone}}</td>

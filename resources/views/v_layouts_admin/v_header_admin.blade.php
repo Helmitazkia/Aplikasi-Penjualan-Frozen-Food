@@ -77,7 +77,7 @@
                 <li class="sidebar-submenu">
                     <a href="/Dashboardshow" class="sidebar-menu-dropdown">
                         <i class='bx bxs-dashboard'></i>
-                        <span>Data Product</span>
+                        <span>Data Content</span>
                         <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
                     </a>
                     <ul class="sidebar-menu sidebar-menu-dropdown-content">
@@ -89,6 +89,11 @@
                         <li>
                             <a href="/ShowStatus">
                                 Data Status
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Showkurir">
+                                Data Kurir
                             </a>
                         </li>
                     </ul>
@@ -140,7 +145,7 @@
                 </li>
 
                 <li>
-                    <a href="message.html">
+                    <a href="/BuktiPembayaranCustomer">
                         <i class='bx bxs-message-rounded-detail'></i>
                         <span>Bukti Pembayaran Customer</span>
                     </a>
@@ -464,6 +469,30 @@
             .then((willDelete) => {
                 if (willDelete) {
                     window.location = "Deletepembayaran/" + id_pembayaran + " ";
+                    swal("Data Berhasil di hapus!", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Oops", "Data is not deleted ! ", "error");
+                }
+            });
+    });
+</script>
+
+<script>
+    $('.bukti-pembayaran').click(function () {
+        var id_bukti = $(this).attr("data-id");
+        var name_customer = $(this).attr("data-name");
+        swal({
+                title: "Apa kamu yakin?",
+                text: "Akan Menghapus Bukti pembayaran dengan Nama " + name_customer + " ",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location = "Deletebuktipembayaran/" + id_bukti + " ";
                     swal("Data Berhasil di hapus!", {
                         icon: "success",
                     });

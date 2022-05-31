@@ -15,8 +15,11 @@ class TabelTransaksi extends Migration
     {
         Schema::create('tabel_transaksi', function (Blueprint $table) {
             $table->increments('id_transaksi');
-            $table->dateTime('tanggal_transaksi');
+            $table->date('tanggal_transaksi');
             $table->integer('id_customer');
+            $table->integer('id_product');
+            $table->integer('jumlah_beli');
+            $table->integer('total_transaksi');
         });
     }
 

@@ -42,15 +42,18 @@
                         <div class="table-responsive">
                             <table class="table table-responsive-md">
                                 <thead>
-                                    <th>ID</th>
+                                    <th>NO</th>
                                     <th>Name Status</th>
                                     <th>Tools</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                    $no = 1;
+                                    @endphp
                                     @foreach ($data as $datastatus)
                                     <tr>
-                                        <td><strong>{{$datastatus->id_status}}</strong></td>
+                                        <td><strong>{{$no++}}</strong></td>
                                         <td>{{$datastatus->name_status}}</td>
                                         <td>
                                             <div class="d-flex">
@@ -108,8 +111,8 @@
             <!-- Modal Untuk Update-->
             @foreach ($data as $datastatus)
             <!-- Modal -->
-            <div class="modal fade" id="update{{$datastatus->id_status}}" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="update{{$datastatus->id_status}}" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <form action="/UpdateStatus/{{$datastatus->id_status}}" method="POST">

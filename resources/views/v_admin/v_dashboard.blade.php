@@ -99,7 +99,7 @@
                         <div class="table-responsive">
                             <table class="table table-responsive-md">
                                 <thead>
-                                    <th>ID</th>
+                                    <th>NO</th>
                                     <th>Name Product</th>
                                     <th>Price Product</th>
                                     <th>Description Product</th>
@@ -111,9 +111,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                        $no = 1;
+                                    @endphp
                                     @foreach ($data as $dataproduct)
                                     <tr>
-                                        <td><strong>{{$dataproduct->id}}</strong></td>
+                                        <td><strong>{{$no++}}</strong></td>
                                         <td>
                                             {{$dataproduct->name}}
                                         </td>

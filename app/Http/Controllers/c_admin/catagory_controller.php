@@ -3,14 +3,11 @@
 namespace App\Http\Controllers\c_admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-use\Illuminate\Support\Facades\Hash;
-use\Illuminate\Support\Facades\Auth;
 use\Illuminate\Validation\ValidationExecption;
 use Illuminate\Support\Facades\Validator;
 use\Illuminate\Support\Facades\DB;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Support\Facades\Storage;
+
 
 class catagory_controller extends Controller
 {
@@ -126,4 +123,50 @@ class catagory_controller extends Controller
            return redirect('ShowStatus');
    
        }
+
+       public function Showkurir()
+    {
+        $data = DB::table('tabel_kurir')->get();
+        //dd($data);
+        return view('v_admin.v_kurir.v_index_kurir',compact('data',$data),[
+            'title' => 'Data Kurir',
+            'webname' => 'Kurir yang Tersedia'
+           ]);
+    }
+
+    public function Adddatakurir(Request $request)
+    {
+        $this->validate($request,[
+            'nama_kurir' => 'required|max:20|unique:tabel_kurir,nama_kurir',
+            'ongkir' => 'required|min:4,'
+        ]);
+        $addkurir = DB::table('tabel_kurir')->insert([
+            'nama_kurir'=> $request->nama_kurir,
+            'ongkir'=> $request->ongkir,
+        ]);
+        if($addkurir){
+            return redirect('Showkurir')->with(['success' => 'Data successfully save !']);
+        }else{
+            return redirect('Showkurir')->with(['error' => 'Data failed to save !']);
+        }
+       
+    }
+
+    public function Updatekurir(Request $request, $id)
+    {
+        $request->validate([
+            'nama_kurir' => 'required|max:20|unique:tabel_kurir,nama_kurir',
+            'ongkir' => 'required|min:4,'  
+        ]);
+        $data = DB::table('tabel_kurir')->where('id_kurir',$id)->update([
+            'nama_kurir'=> $request->nama_kurir,
+            'ongkir'=> $request->ongkir,
+         ]);
+         if($data){
+            return redirect('Showkurir')->with(['updatesuccess' => 'Data Edited Successfully !']);
+        }else{
+            return redirect('Showkurir')->with(['updateerorr' => 'Data Failed to Edit !']);
+        }
+       
+    } 
 }

@@ -39,7 +39,7 @@
                         <div class="table-responsive">
                             <table class="table table-responsive-md">
                                 <thead>
-                                    <th>ID Pembayaran</th>
+                                    <th>NO</th>
                                     <th>Image</th>
                                     <th>Nama Bank</th>
                                     <th>Nama Penerima</th>
@@ -49,9 +49,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                    $no = 1;
+                                    @endphp
                                     @foreach ($data as $datapembayaran)
                                     <tr>
-                                        <td><strong>{{$datapembayaran->id_pembayaran}}</strong></td>
+                                        <td><strong>{{$no++}}</strong></td>
                                         <td>
                                             <img src="{{asset('storage/'.$datapembayaran->image_pembayaran) }}"
                                                 style="width:100px;">
@@ -147,7 +150,7 @@
                                 </div>
                                 @enderror
                                 <input type="hidden" name="fotolama" class="form-control"
-                                value="{{$datapembayaran->image_pembayaran}}">
+                                    value="{{$datapembayaran->image_pembayaran}}">
 
                                 <br>
                                 <label class="form-label">Status Product :</label>

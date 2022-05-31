@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 //Memanggil controller
-//use App\Http\Controllers\c_catagories\catagoricontroller;
+//Halaman Admin
 use App\Http\Controllers\c_admin\admincontroller;
 use App\Http\Controllers\Auth_admin\registrationController;
 use App\Http\Controllers\Auth_user\logusercontroller;
@@ -13,6 +13,9 @@ use App\Http\Controllers\customer_controller;
 use App\Http\Controllers\controller_alamat_customer;
 use App\Http\Controllers\c_admin\controller_pengiriman;
 use App\Http\Controllers\c_admin\controller_pembayaran;
+use App\Http\Controllers\c_admin\controller_bukti_pembayaran;
+//Tampilkan Product
+use App\Http\Controllers\product\controller_product;
 
 
 //Untuk Menerapkan Middleware 
@@ -44,11 +47,11 @@ Route::get('/', function () {
 //     return view('welcome');
 // });
 
-Route::get('/Store', function () {
-    return view('Loyout_product/content_product/v_shop', [
-        'title' => 'Product'
-    ]);
-});
+// Route::get('/Store', function () {
+//     return view('Loyout_product/content_product/v_shop', [
+//         'title' => 'Product'
+//     ]);
+// });
 
 
 Route::get('/Blog', function () {
@@ -179,15 +182,34 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/Deletepengiriman/{id}', [controller_pengiriman::class, 'DeleteDatapengiriman']);
 });
 
-//Data Pembayaran
+//Data Metode Pembayaran
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/DataPembayaran', [controller_pembayaran::class,'ShowPembayaran']);
     Route::get('/AddFormPembayaran', [controller_pembayaran::class,'Vformaddpembayaran']);
     Route::post('/Addpembayaran', [controller_pembayaran::class,'Tambahpembayaran']);
     Route::get('/Deletepembayaran/{id}', [controller_pembayaran::class, 'DeleteDatapembayaran']);
     Route::put('/UpdateDataPembayaran/{id}', [controller_pembayaran::class,'Updatepembayaran']);
- 
 });
+
+//Data Bukti Pembayaran
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/BuktiPembayaranCustomer', [controller_bukti_pembayaran::class,'Showbuktipembayaran']);
+    Route::get('/Deletebuktipembayaran/{id}', [controller_bukti_pembayaran::class, 'Deletebuktipembayaran']);
+});
+
+//Data Kurir
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/Showkurir', [catagory_controller::class,'Showkurir']);
+    Route::post('/Addkurir', [catagory_controller::class,'Adddatakurir']);
+    Route::put('/Updatekurir/{id}', [catagory_controller::class,'Updatekurir']);
+});
+
+//Menampilkan Product Home Customer
+//Menampilkan Produck sesuai dengan katagori
+Route::get('/Store', [controller_product::class,'ProductAktif']);
+Route::get('/{id}', [controller_product::class,'Productsosis']);
+// Route::post('/Addkurir', [catagory_controller::class,'Adddatakurir']);
+// Route::put('/Updatekurir/{id}', [catagory_controller::class,'Updatekurir']);
 
 
 

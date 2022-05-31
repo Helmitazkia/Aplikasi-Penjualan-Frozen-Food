@@ -17,29 +17,13 @@
             <!--- Start Katergori Product-->
             <div class="p-b-46">
                 <div class="flex-w flex-c-m filter-tope-group">
-                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10 how-active1" data-filter="*">
-                        All Products
+                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10 how-active1"><a href="/Store" style="color: green;">All Products</a>
                     </button>
-
-                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".vegetable-fill">
-                        Vegetable
+                    @foreach ($ambilcatagory as $datacata)
+                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10 how-active1">
+                        <a href="{{ $datacata->id }}" style="color:green;">{{ $datacata->name_catagory }}</a>
                     </button>
-
-                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".fruit-fill">
-                        Fruit
-                    </button>
-
-                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".fruit-juic-fill">
-                        Fruit Juic
-                    </button>
-
-                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".dried-fill">
-                        Dried
-                    </button>
-
-                    <button class="txt-m-104 cl9 hov2 trans-04 p-rl-27 p-b-10" data-filter=".other-fill">
-                        Other
-                    </button>
+                    @endforeach
                 </div>
             </div>
             <!--- End Katergori Product-->
@@ -47,67 +31,34 @@
 
             <!--- Start PRODUCT-->
             <div class="row isotope-grid">
-                <!-- - -->
-                <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item fruit-juic-fill other-fill dried-fill">
+                @foreach ($data as $dataproductaktif)
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item $dataproductaktif->catagories">
                     <!-- Block1 -->
                     <div class="block1">
                         <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
-                            <img src="Product/images/product-01.jpg" alt="IMG">
-
+                            <img src="{{asset('storage/'.$dataproductaktif->image) }}" style="width: 270px;">
                             <div class="block1-content flex-col-c-m p-b-46">
-                                <a href="product-single.html" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
-                                    Red pumpkin
+                                <a href="#" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                                    <b style='color:#00008B;font-size: 20px;'>{{$dataproductaktif->name}}</b>
                                 </a>
-
                                 <span class="block1-content-more txt-m-104 cl9 p-t-21 trans-04">
-                                    21$
+                                    <b style='color:#00008B;font-size: 30px;'>{{$dataproductaktif->price}}</b>
+                    
                                 </span>
-
+                                {{-- detail --}}
                                 <div class="block1-wrap-icon flex-c-m flex-w trans-05">
                                     <a href="/Detail" class="block1-icon flex-c-m wrap-pic-max-w">
                                         <img src="Product/images/icons/icon-view.png" alt="ICON">
                                     </a>
-
                                     <a href="#" class="block1-icon flex-c-m wrap-pic-max-w js-addcart-b1">
                                         <img src="Product/images/icons/icon-cart.png" alt="ICON">
-                                    </a>
-
-                                  
+                                    </a>  
                                 </div>
                             </div>
                         </div>
-                    </div>	
+                    </div>	 
                 </div>
-
-                <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item other-fill dried-fill">
-                    <!-- Block1 -->
-                    <div class="block1">
-                        <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
-                            <img src="Product/images/product-01.jpg" alt="IMG">
-
-                            <div class="block1-content flex-col-c-m p-b-46">
-                                <a href="product-single.html" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
-                                    Bell pepper
-                                </a>
-
-                                <span class="block1-content-more txt-m-104 cl9 p-t-21 trans-04">
-                                    12$
-                                </span>
-
-                                <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                    <a href="/Detail" class="block1-icon flex-c-m wrap-pic-max-w">
-                                        <img src="Product/images/icons/icon-view.png" alt="ICON">
-                                    </a>
-
-                                    <a href="#" class="block1-icon flex-c-m wrap-pic-max-w js-addcart-b1">
-                                        <img src="Product/images/icons/icon-cart.png" alt="ICON">
-                                    </a>
- 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <!--- END PRODUCT-->
         </div>

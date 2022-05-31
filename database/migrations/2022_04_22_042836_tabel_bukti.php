@@ -15,9 +15,11 @@ class TabelBukti extends Migration
     {
         Schema::create('tabel_bukti', function (Blueprint $table) {
             $table->increments('id_bukti');
-            $table->date('tanggal_menerima');
+            $table->date('tanggal_kirim_bukti');
             $table->string('image')->nullable();
             $table->integer('id_transaksi');
+            $table->integer('id_customer');
+            $table->integer('id_product');
             
         });
     }

@@ -18,8 +18,8 @@ class Controller_user extends Controller
 {
     public function Showuser(Request $request)
     {
-        $data = DB::table('users')->get();
-        //dd($product);
+        $data = DB::select('select id,users.name,email,tabel_status.name_status , addres ,users.password ,phone,image from users
+        inner join tabel_status on users.email_verified_at = tabel_status.id_status');
         return view('v_admin/v_user/index',compact('data',$data),[
          'title' => 'Data User',
          'webname' => 'User'

@@ -40,7 +40,7 @@
                         <div class="table-responsive">
                             <table class="table table-responsive-md">
                                 <thead>
-                                    <th>ID Pengiriman</th>
+                                    <th>NO</th>
                                     <th>Pembelian Barang</th>
                                     <th>Nama Customer</th>
                                     <th>Telepon</th>
@@ -51,9 +51,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                    $no = 1;
+                                    @endphp
                                     @foreach ($data as $datapengiriman)
                                     <tr>
-                                        <td><strong>{{$datapengiriman->id_pengiriman}}</strong></td>
+                                        <td><strong>{{$no++}}</strong></td>
                                         <td>{{$datapengiriman->name}}</td>
                                         <td>{{$datapengiriman->name_customer}}</td>
                                         <td>{{$datapengiriman->phone}}</td>
@@ -95,7 +98,7 @@
                             @method('put')
                             @csrf
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">EDIT DATA 
+                                <h5 class="modal-title" id="exampleModalLabel">EDIT DATA
                                     {{$datapengiriman->name}}</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
@@ -104,7 +107,7 @@
                                 <label class="form-label">Nama Barang</label>
                                 <input type="hidden" name="id_product" id="disabledTextInput" class="form-control"
                                     value="{{$datapengiriman->id}}">
-                                <select name="id_customer"
+                                <select name="id_product"
                                     class="form-control custom-select select2 select2-hidden-accessible"
                                     data-placeholder="Select Department" tabindex="-1" aria-hidden="true"
                                     data-select2-id="select2-data-22-9i9m">
@@ -168,11 +171,9 @@
                                 <br>
                                 <label class="form-label">Status Pengiriman</label>
                                 <br>
-                                <input type="hidden" name="id_status"
-                                    value="{{$datapengiriman->id_status}}">
+                                <input type="hidden" name="id_status" value="{{$datapengiriman->id_status}}">
                                 @foreach ($ambilstatus as $datastatus)
-                                <input type="radio" id="html" name="id_status"
-                                    value="{{$datastatus->id_status}}">
+                                <input type="radio" id="html" name="id_status" value="{{$datastatus->id_status}}">
                                 <label for="html">{{$datastatus->name_status}}</label><br>
                                 @endforeach
                                 <br>
