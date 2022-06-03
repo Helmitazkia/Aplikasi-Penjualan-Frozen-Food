@@ -142,7 +142,7 @@ class catagory_controller extends Controller
         ]);
         $addkurir = DB::table('tabel_kurir')->insert([
             'nama_kurir'=> $request->nama_kurir,
-            'ongkir'=> $request->ongkir,
+            'ongkir'=> str_replace(".","",$request->ongkir),
         ]);
         if($addkurir){
             return redirect('Showkurir')->with(['success' => 'Data successfully save !']);

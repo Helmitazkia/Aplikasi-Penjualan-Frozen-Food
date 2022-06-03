@@ -54,7 +54,8 @@
                                     <tr>
                                         <td><strong>{{$no++}}</strong></td>
                                         <td>{{$datakurir->nama_kurir}}</td>
-                                        <td>{{$datakurir->ongkir}}</td>
+                                        <td><?= number_format($datakurir->ongkir,0,',','.');
+                                        ?></td>
                                         <td>
                                             <div class="d-flex">
                                                 <button type="button" class="btn btn-primary shadow btn-xs sharp mr-1"
@@ -96,8 +97,8 @@
                                 @enderror
                                 <br>
                                 <label class="form-label">Harga</label>
-                                <input type="text" name="ongkir" id="disabledTextInput" class="form-control"
-                                    value="{{old('ongkir')}}" required>
+                                <input type="text" name="ongkir"  class="form-control"
+                                    value="{{old('ongkir')}}" id="rupiah" required>
                                 @error('ongkir')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
@@ -134,7 +135,7 @@
                                 <label class="form-label">Nama Kurir</label>
                                 <input type="hidden" name="id_kurir" class="form-control"
                                     value="{{$datakurir->id_kurir}}">
-                                <input type="text" name="nama_kurir" id="disabledTextInput" class="form-control"
+                                <input type="text" name="nama_kurir"  class="form-control"
                                     value="{{$datakurir->nama_kurir}}" required>
                                 @error('nama_kurir')
                                 <div class="alert alert-danger mt-2">
@@ -143,8 +144,8 @@
                                 @enderror
                                 <br>
                                 <label class="form-label">Harga</label>
-                                <input type="text" name="ongkir" id="disabledTextInput" class="form-control"
-                                    value="{{$datakurir->ongkir}}" required>
+                                <input type="text" name="ongkir"  class="form-control" id="rupiah"
+                                value="<?= number_format($datakurir->ongkir,0,',','.')?>"  required>
                                 @error('ongkir')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
@@ -166,5 +167,29 @@
         </div>
     </div>
 </div>
+{{-- format rupiah --}}
+<script type="text/javascript">
+    var rupiah = document.getElementById('rupiah');
+    rupiah.addEventListener('keyup', function(e){
+        rupiah.value = formatRupiah(this.value, 'Rp. ');
+    });
+    /* Fungsi formatRupiah */
+    function formatRupiah(angka, prefix){
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+        split           = number_string.split(','),
+        sisa             = split[0].length % 3,
+        rupiah             = split[0].substr(0, sisa),
+        ribuan             = split[0].substr(sisa).match(/\d{3}/gi);
+
+        // tambahkan titik jika yang di input sudah menjadi angka satuan ribuan
+        if(ribuan){
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? '' + rupiah : '');
+    }
+</script>
 @endsection
 <!-- END MAIN CONTENT -->

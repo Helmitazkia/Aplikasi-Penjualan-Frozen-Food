@@ -24,8 +24,8 @@ $tglmasuk = new DateTime();
                                     @enderror
                                 </div>
                                 <div class="col-md-6 col-sm-12 mb-24"> <label class="form-label">Price (IDR)</label>
-                                    <input type="number" name="price" id="disabledTextInput" class="form-control"
-                                        value="{{old('price')}}" placeholder="70000 *" required>
+                                    <input type="text" name="price"  class="form-control"
+                                        value="{{old('price')}}" placeholder="70.000 *" id="rupiah" required>
                                     @error('price')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
@@ -104,4 +104,28 @@ $tglmasuk = new DateTime();
 </div>
 <!-- END MAIN CONTENT -->
 
+{{-- format rupiah --}}
+<script type="text/javascript">
+    var rupiah = document.getElementById('rupiah');
+    rupiah.addEventListener('keyup', function(e){
+        rupiah.value = formatRupiah(this.value, 'Rp. ');
+    });
+    /* Fungsi formatRupiah */
+    function formatRupiah(angka, prefix){
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+        split           = number_string.split(','),
+        sisa             = split[0].length % 3,
+        rupiah             = split[0].substr(0, sisa),
+        ribuan             = split[0].substr(sisa).match(/\d{3}/gi);
+
+        // tambahkan titik jika yang di input sudah menjadi angka satuan ribuan
+        if(ribuan){
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? '' + rupiah : '');
+    }
+</script>
 @endsection

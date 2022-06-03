@@ -42,8 +42,9 @@
                                     <b style='color:#00008B;font-size: 20px;'>{{$dataproductaktif->name}}</b>
                                 </a>
                                 <span class="block1-content-more txt-m-104 cl9 p-t-21 trans-04">
-                                    <b style='color:#00008B;font-size: 30px;'>{{$dataproductaktif->price}}</b>
-                    
+                                    <b style='color:#00008B;font-size: 30px;'>
+                                    <?= number_format($dataproductaktif->price,0,',','.');
+                                    ?></b>
                                 </span>
                                 {{-- detail --}}
                                 <div class="block1-wrap-icon flex-c-m flex-w trans-05">

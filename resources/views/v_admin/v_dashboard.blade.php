@@ -9,11 +9,11 @@
                         <div class="icon bg-icon-1">
                             <i class='bx bxs-briefcase'></i>
                         </div>
-                        <div class="content">
-                            <h5 class="title-box fs-15 mt-2">Total Task</h5>
-                            <div class="themesflat-counter fs-14 font-wb color-1">
+                       <div class="content">
+                        <a href="#"><h5 class="title-box fs-15 mt-2">{{ $webname_product }}</h5></a>
+                           <div class="themesflat-counter fs-14 font-wb color-1">
                                 <span class="number" data-from="0" data-to="1225" data-speed="2500"
-                                    data-inviewport="yes">1225</span>
+                                    data-inviewport="yes">{{ $product_count }}</span>
                             </div>
                         </div>
                     </div>
@@ -22,10 +22,10 @@
                             <i class='bx bx-task'></i>
                         </div>
                         <div class="content click-c">
-                            <h5 class="title-box fs-15 mt-2">Running Task</h5>
+                            <h5 class="title-box fs-15 mt-2">{{$webname_customer  }}</h5>
                             <div class="themesflat-counter fs-14 font-wb color-2">
                                 <span class="number" data-from="0" data-to="309" data-speed="2500"
-                                    data-inviewport="yes">154
+                                    data-inviewport="yes">{{ $cutomer_count }}
                                     +</span>
                             </div>
                         </div>
@@ -112,7 +112,7 @@
                                 </thead>
                                 <tbody>
                                     @php
-                                        $no = 1;
+                                    $no = 1;
                                     @endphp
                                     @foreach ($data as $dataproduct)
                                     <tr>
@@ -120,7 +120,7 @@
                                         <td>
                                             {{$dataproduct->name}}
                                         </td>
-                                        <td>{{$dataproduct->price}}</td>
+                                        <td><?= number_format($dataproduct->price,0,',','.');?></td>
                                         <td>{{$dataproduct->description}}</td>
                                         <td>{{$dataproduct->name_catagory}}</td>
                                         <td>{{$dataproduct->stok}}</td>
@@ -180,8 +180,8 @@
                                 <br>
                                 <!--Price Edit--->
                                 <label class="form-label">Price (IDR)</label>
-                                <input type="text" name="price" id="disabledTextInput" class="form-control"
-                                    value="{{$dataproduct->price}}" required>
+                                <input type="text" name="price" id="disabledTextInput" class="form-control" value="<?= number_format($dataproduct->price,0,',','.');
+                                    ?>" required>
                                 @error('price')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
@@ -254,6 +254,32 @@
         </div>
     </div>
 </div>
+
+{{-- format rupiah --}}
+<script type="text/javascript">
+    var rupiah = document.getElementById('rupiah');
+    rupiah.addEventListener('keyup', function (e) {
+        rupiah.value = formatRupiah(this.value, 'Rp. ');
+    });
+    /* Fungsi formatRupiah */
+    function formatRupiah(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        // tambahkan titik jika yang di input sudah menjadi angka satuan ribuan
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? '' + rupiah : '');
+    }
+
+</script>
 @endsection
 
 

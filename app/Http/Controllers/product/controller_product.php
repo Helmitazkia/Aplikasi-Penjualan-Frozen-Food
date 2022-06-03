@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Storage;
 class controller_product extends Controller
 {
     //Tampil Product
-    public function ProductAktif()
+    public function AllProductdanAktif()
     {
         $data = DB::select('select * from products WHERE status = 1
         ORDER BY name ASC');
@@ -27,23 +27,7 @@ class controller_product extends Controller
             ]);
     }
 
-    // public function Tampilcatagorysosis($id)
-    // {
-        
-    //     $data = DB::table('products')
-    //         ->join('catagory', 'products.catagories', 'catagory.id')
-    //         ->where('catagories',$id)
-    //         ->orderBy('products.name', 'ASC');
-    //         $data = $data->get();
-    //      $ambilcatagory = DB::select('select * from catagory');
-    //      return view('Loyout_product/content_product/v_shop',[
-    //         'data'=> $data,
-    //         'ambilcatagory' =>$ambilcatagory,
-    //         'title' => 'Product'
-    //         ]);
-    // }
-
-    public function Productsosis($id)
+    public function Tampilproductsesuaicategory($id)
     {
         
         $data = DB::table('products')
@@ -60,20 +44,4 @@ class controller_product extends Controller
             ]);
     }
 
-    public function Productnugget()
-    {
-        
-        $data = DB::table('products')
-            ->join('catagory', 'products.catagories', 'catagory.id')
-            ->where('catagories',3)
-            ->orderBy('products.name', 'ASC');
-            $data = $data->get();
-            //dd($data);
-         $ambilcatagory = DB::select('select * from catagory');
-         return view('Loyout_product/content_product/v_shop',[
-            'data'=> $data,
-            'ambilcatagory' =>$ambilcatagory,
-            'title' => 'Product'
-            ]);
-    }
 }

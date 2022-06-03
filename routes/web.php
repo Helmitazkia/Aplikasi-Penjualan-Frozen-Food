@@ -14,8 +14,10 @@ use App\Http\Controllers\controller_alamat_customer;
 use App\Http\Controllers\c_admin\controller_pengiriman;
 use App\Http\Controllers\c_admin\controller_pembayaran;
 use App\Http\Controllers\c_admin\controller_bukti_pembayaran;
-//Tampilkan Product
+//Tampilkan Product di Home page Customer
 use App\Http\Controllers\product\controller_product;
+use App\Http\Controllers\Home\controller_home;
+
 
 
 //Untuk Menerapkan Middleware 
@@ -37,11 +39,11 @@ url Akun Landing Page
 ===================
 */
 
-Route::get('/', function () {
-    return view('Loyout_product/content_product/v_home', [
-        'title' => 'Home'
-    ]);
-});
+// Route::get('/', function () {
+//     return view('Loyout_product/content_product/v_home', [
+//         'title' => 'Home'
+//     ]);
+// });
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -206,10 +208,11 @@ Route::group(['middleware' => 'auth'], function () {
 
 //Menampilkan Product Home Customer
 //Menampilkan Produck sesuai dengan katagori
-Route::get('/Store', [controller_product::class,'ProductAktif']);
-Route::get('/{id}', [controller_product::class,'Productsosis']);
-// Route::post('/Addkurir', [catagory_controller::class,'Adddatakurir']);
-// Route::put('/Updatekurir/{id}', [catagory_controller::class,'Updatekurir']);
+Route::get('/Store', [controller_product::class,'AllProductdanAktif']);
+Route::get('/{id}', [controller_product::class,'Tampilproductsesuaicategory']);
+
+//Home
+Route::get('/', [controller_home::class,'Newproduct']);
 
 
 

@@ -503,12 +503,13 @@
     });
 </script>
 
-    <script>
-        @if(Session::has('updatesuccess'))
-        toastr.success("{{Session::get('updatesuccess')}}");
-        @endif
+<script>
+    @if(Session::has('updatesuccess'))
+    toastr.success("{{Session::get('updatesuccess')}}");
+    @endif
+</script>
 
-    </script>
+    
 
 
 

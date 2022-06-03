@@ -26,13 +26,19 @@ class admincontroller extends Controller
         INNER JOIN tabel_status ON products.status = tabel_status.id_status');
         $ambilcatagory = DB::table('catagory')->get();
         $ambilstatus = DB::table('tabel_status')->get();
-        //dd($ambilcatagory);
+        $product_count = DB::table('products')->count();
+        $cutomer_count = DB::table('tabel_customer')->count();
+        //dd($product_count);
         return view('v_admin.v_dashboard',[
             'data'=> $data,
             'ambilcatagory' => $ambilcatagory,
             'ambilstatus' => $ambilstatus,
+            'product_count' => $product_count,
+            'cutomer_count' => $cutomer_count,
             'title' => 'Dashboard',
-            'webname' => 'Dashboard'
+            'webname' => 'Dashboard',
+            'webname_product' => 'Total Product',
+            'webname_customer' => 'Total Customer',
             ]);
     }
     //Menampilkan Form Create Product
@@ -68,7 +74,8 @@ class admincontroller extends Controller
                          
         $addproduct = DB::table('Products')->insert([
             'name'        => $request->name,
-            'price'       => $request->price,
+            //format rupiah
+            'price'       => str_replace(".","",$request->price),
             'catagories'  => $request->catagory,
             'image'       => $uploadimage,
             'description' => $request->desc,
