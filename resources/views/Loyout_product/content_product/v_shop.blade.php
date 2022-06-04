@@ -48,7 +48,7 @@
                                 </span>
                                 {{-- detail --}}
                                 <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                    <a href="/Detail" class="block1-icon flex-c-m wrap-pic-max-w">
+                                    <a href="{{ $dataproductaktif->id }}" class="block1-icon flex-c-m wrap-pic-max-w">
                                         <img src="Product/images/icons/icon-view.png" alt="ICON">
                                     </a>
                                     <a href="#" class="block1-icon flex-c-m wrap-pic-max-w js-addcart-b1">

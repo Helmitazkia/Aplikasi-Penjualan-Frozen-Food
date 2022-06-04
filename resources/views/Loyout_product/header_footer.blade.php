@@ -162,11 +162,11 @@
 		<div class="menu-mobile">
 			<ul class="main-menu-m">
 				<li class="active-menu">
-					<a href="index.html">Home</a>
+					<a href="/">Home</a>
 				</li>
 
 				<li>
-					<a href="Shop-Product.html">Product</a>
+					<a href="/store">Product</a>
 				</li>
 
 				<li>

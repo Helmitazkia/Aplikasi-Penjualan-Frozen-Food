@@ -68,11 +68,11 @@ Route::get('/Entry', function () {
     ]);
 });
 
-Route::get('/Detail', function () {
-    return view('Loyout_product/content_product/V_detail_Product/v_detail_product', [
-        'title' => 'Detail-Product'
-    ]);
-});
+// Route::get('/Detail', function () {
+//     return view('Loyout_product/content_product/V_detail_Product/v_detail_product', [
+//         'title' => 'Detail-Product'
+//     ]);
+// });
 
 Route::get('/Checkout', function () {
     return view('Loyout_product/content_product/V_checkout_product/v_checkout', [
@@ -213,6 +213,8 @@ Route::get('/{id}', [controller_product::class,'Tampilproductsesuaicategory']);
 
 //Home
 Route::get('/', [controller_home::class,'Newproduct']);
+
+Route::get('/{id}', [controller_product::class,'Detailproductaktif']);
 
 
 

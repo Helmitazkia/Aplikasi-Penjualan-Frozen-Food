@@ -44,4 +44,22 @@ class controller_product extends Controller
             ]);
     }
 
+    public function Detailproductaktif($id)
+    {
+        
+        $data = DB::table('products')
+            ->join('catagory', 'products.catagories', 'catagory.id')
+            ->where('products.id',$id);
+            $product = DB::select('select *from products ORDER BY id DESC LIMIT 12');
+            $data = $data->get();
+            
+            //dd($data);
+         //$ambilcatagory = DB::select('select * from catagory');
+         return view('Loyout_product/content_product/V_detail_Product/v_detail_product',[
+            'data'=> $data,
+            'product' =>$product,
+            'title' => 'Detail | Sistus Belanja Online Frozen food'
+            ]);
+}
+
 }

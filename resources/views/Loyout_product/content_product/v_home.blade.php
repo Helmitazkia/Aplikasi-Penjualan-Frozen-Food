@@ -114,8 +114,7 @@
                 New products
             </h3>
         </div>
-
-
+        
         <!--- Start PRODUCT-->
         <div class="row isotope-grid">
             @foreach ($data as $dataproductaktif)
@@ -135,7 +134,7 @@
                             </span>
                             {{-- detail --}}
                             <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                <a href="/Detail" class="block1-icon flex-c-m wrap-pic-max-w">
+                                <a href="{{ $dataproductaktif->id }}" class="block1-icon flex-c-m wrap-pic-max-w">
                                     <img src="Product/images/icons/icon-view.png" alt="ICON">
                                 </a>
                                 <a href="#" class="block1-icon flex-c-m wrap-pic-max-w js-addcart-b1">
@@ -197,6 +196,7 @@
                             </span>
                         </div>
                     </div>
+                
 
                     <p class="txt-s-101 cl6">
                         Selain mudah disajikan, produk Ardena Food dibuat dari bahan baku seafood berkualitas tinggi
