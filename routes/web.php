@@ -210,7 +210,12 @@ Route::group(['middleware' => 'auth'], function () {
 //Menampilkan Product Home Customer
 //Menampilkan Produck sesuai dengan katagori
 Route::get('/Store', [controller_product::class,'AllProductdanAktif']);
-Route::get('/{id}', [controller_product::class,'Tampilproductsesuaicategory']);
+Route::get('/Sosis', [controller_product::class,'ProductSosis']);
+Route::get('/Nugget', [controller_product::class,'ProductNugget']);
+Route::get('/Cireng', [controller_product::class,'ProductCireng']);
+Route::get('/Bakso', [controller_product::class,'ProductBakso']);
+Route::get('/Buah', [controller_product::class,'ProductBuah']);
+Route::get('/Sambal', [controller_product::class,'Productsambal']);
 
 //Home
 Route::get('/', [controller_home::class,'Newproduct']);
@@ -219,9 +224,10 @@ Route::get('/{id}', [controller_product::class,'Detailproductaktif']);
 //Registrasi Customer
 Route::get('/Registrasi', [controller_auth::class, 'VformRegistrasi'])->name('Registrasi_customer');
 Route::post('/Tambahcustomer', [controller_auth::class,'Registrasticustomer']);
+//Login Customer
 Route::post('/Logincustomer', [controller_auth::class, 'Logcustomer']);
 //Route::post('/Logout', [logusercontroller::class, 'keluar'])->name('Logout_form')->middleware('auth');
-//Route::get('/verify_email', [logusercontroller::class, 'verify_email'])->name('verify_email');
+
 
 
 

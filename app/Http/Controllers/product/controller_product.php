@@ -18,48 +18,92 @@ class controller_product extends Controller
     {
         $data = DB::select('select * from products WHERE status = 1
         ORDER BY name ASC');
-        $ambilcatagory = DB::select('select * from catagory');
-        //dd($data);
         return view('Loyout_product/content_product/v_shop',[
             'data'=> $data,
-            'ambilcatagory' =>$ambilcatagory,
             'title' => 'Product'
             ]);
     }
 
-    public function Tampilproductsesuaicategory($id)
+    public function ProductSosis()
     {
         
         $data = DB::table('products')
-            ->join('catagory', 'products.catagories', 'catagory.id')
-            ->where('catagories',$id)
-            ->orderBy('products.name', 'ASC');
-            $data = $data->get();
-            //dd($data);
-         $ambilcatagory = DB::select('select * from catagory');
-         return view('Loyout_product/content_product/v_shop',[
-            'data'=> $data,
-            'ambilcatagory' =>$ambilcatagory,
-            'title' => 'Product'
-            ]);
+        ->where('catagories', 1)->get();
+        return view('Loyout_product/content_product/v_shop',[
+        'data'=> $data,
+        'title' => 'Product'
+        ]);
     }
+
+    public function ProductNugget()
+    {
+        
+        $data = DB::table('products')
+        ->where('catagories', 2)->get();
+        return view('Loyout_product/content_product/v_shop',[
+        'data'=> $data,
+        'title' => 'Product'
+        ]);
+    }
+
+    public function ProductCireng()
+    {
+        
+        $data = DB::table('products')
+        ->where('catagories', 3)->get();
+        return view('Loyout_product/content_product/v_shop',[
+        'data'=> $data,
+        'title' => 'Product'
+        ]);
+    }
+
+    public function ProductBakso()
+    {
+        
+        $data = DB::table('products')
+        ->where('catagories', 4)->get();
+        return view('Loyout_product/content_product/v_shop',[
+        'data'=> $data,
+        'title' => 'Product'
+        ]);
+    }
+
+    public function ProductBuah()
+    {
+        
+        $data = DB::table('products')
+        ->where('catagories', 5)->get();
+        return view('Loyout_product/content_product/v_shop',[
+        'data'=> $data,
+        'title' => 'Product'
+        ]);
+    }
+
+    public function Productsambal()
+    {
+        
+        $data = DB::table('products')
+        ->where('catagories', 6)->get();
+        return view('Loyout_product/content_product/v_shop',[
+        'data'=> $data,
+        'title' => 'Product'
+        ]);
+    }
+
 
     public function Detailproductaktif($id)
     {
         
-        $data = DB::table('products')
-            ->join('catagory', 'products.catagories', 'catagory.id')
-            ->where('products.id',$id);
-            $product = DB::select('select *from products ORDER BY id DESC LIMIT 12');
-            $data = $data->get();
-            
-            //dd($data);
-         //$ambilcatagory = DB::select('select * from catagory');
-         return view('Loyout_product/content_product/V_detail_Product/v_detail_product',[
-            'data'=> $data,
-            'product' =>$product,
-            'title' => 'Detail | Sistus Belanja Online Frozen food'
-            ]);
-}
+    $data = DB::table('products')
+        ->join('catagory', 'products.catagories', 'catagory.id')
+        ->where('products.id',$id);
+        $product = DB::select('select *from products ORDER BY id DESC LIMIT 12');
+        $data = $data->get();
+     return view('Loyout_product/content_product/V_detail_Product/v_detail_product',[
+        'data'=> $data,
+        'product' =>$product,
+        'title' => 'Detail | Sistus Belanja Online Frozen food'
+        ]);
+    }
 
 }

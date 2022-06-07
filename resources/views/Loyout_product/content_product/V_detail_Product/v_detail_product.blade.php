@@ -129,37 +129,37 @@
         <br>
         <br>
         <!-- Tab01 -->
-        <div class="row isotope-grid">
-            @foreach ($product as $dataproductaktif)
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item $dataproductaktif->catagories">
-                <!-- Block1 -->
-                <div class="block1">
-                    <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
-                        <img src="{{asset('storage/'.$dataproductaktif->image) }}" style="width: 270px;">
-                        <div class="block1-content flex-col-c-m p-b-46">
-                            <a href="#" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
-                                <b style='color:#00008B;font-size: 20px;'>{{$dataproductaktif->name}}</b>
-                            </a>
-                            <span class="block1-content-more txt-m-104 cl9 p-t-21 trans-04">
-                                <b style='color:#00008B;font-size: 30px;'>
+         <div class="row isotope-grid">
+                @foreach ($product as $dataproductaktif)
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item $dataproductaktif->catagories">
+                    <!-- Block1 -->
+                    <div class="block1">
+                        <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
+                            <img src="{{asset('storage/'.$dataproductaktif->image) }}" style="width: 270px;">
+                            <div class="block1-content flex-col-c-m p-b-46">
+                                <a href="#" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
+                                    <b style='color:#00008B;font-size: 20px;'>{{$dataproductaktif->name}}</b>
+                                </a>
+                                <span class="block1-content-more txt-m-104 cl9 p-t-21 trans-04">
+                                    <b style='color:#00008B;font-size: 30px;'>
                                     <?= number_format($dataproductaktif->price,0,',','.');
-								?></b>
-                            </span>
-                            {{-- detail --}}
-                            <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                <a href="{{ $dataproductaktif->id }}" class="block1-icon flex-c-m wrap-pic-max-w">
-                                    <img src="Product/images/icons/icon-view.png" alt="ICON">
-                                </a>
-                                <a href="#" class="block1-icon flex-c-m wrap-pic-max-w js-addcart-b1">
-                                    <img src="Product/images/icons/icon-cart.png" alt="ICON">
-                                </a>
+                                    ?></b>
+                                </span>
+                                {{-- detail --}}
+                                <div class="block1-wrap-icon flex-c-m flex-w trans-05">
+                                    <a href="/{{ $dataproductaktif->id}}" class="block1-icon flex-c-m wrap-pic-max-w">
+                                        <img src="Product/images/icons/icon-view.png" alt="ICON">
+                                    </a>
+                                    <a href="#" class="block1-icon flex-c-m wrap-pic-max-w js-addcart-b1">
+                                        <img src="Product/images/icons/icon-cart.png" alt="ICON">
+                                    </a>  
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </div>	 
                 </div>
+                @endforeach
             </div>
-            @endforeach
-        </div>
     </div>
 </section>
 

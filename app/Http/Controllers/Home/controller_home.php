@@ -16,7 +16,7 @@ class controller_home extends Controller
     //Tampil New Product
     public function Newproduct()
     {
-        $data = DB::select('select *from products ORDER BY id DESC LIMIT 12');
+        $data = DB::select('select * from products ORDER BY id DESC LIMIT 12');
         return view('Loyout_product/content_product/v_home',[
             'data'=> $data,
             'title' => 'Katalog | Sistus Belanja Online Frozen food'
