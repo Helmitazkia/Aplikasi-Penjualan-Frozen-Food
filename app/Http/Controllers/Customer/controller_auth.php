@@ -8,6 +8,7 @@ use\Illuminate\Support\Facades\Auth;
 use\Illuminate\Validation\ValidationExecption;
 use Validator;
 use\Illuminate\Support\Facades\DB;
+use App\Models\Customer;
 
 //Buat email
 use Mail;
@@ -25,7 +26,6 @@ class controller_auth extends Controller
 
     public function Registrasticustomer(Request $request)
     {   
-
          //Membuat validasi inputan 
          $request->validate([
             'name_customer' => ['required', 'string', 'min:5'],
@@ -51,27 +51,24 @@ class controller_auth extends Controller
            return redirect('/Registrasi');
         }  
 
-        public function verify_email(){     
-            return view('emails/Vformverif_customer',[
-                'title' => 'Verifition Email | situs belanja online frozen food'
+        public function Logcustomer(Request $request){
+            $request->validate([
+                'email_customer' => ['required', 'email'],
+                'pswt' => ['required'],
             ]);
+             $customerlog = Customer::whereEmail($request->email_customer)->first();
+            if($customerlog){
+                if(Hash::check($request->pswt,$customerlog->password)){
+                    if($customerlog->email_verified_at === NULL){
+                        return redirect('Registrasi')->with('logerror','Email Anda belum di verifikasi');
+                    }
+                    //Jika berhasil/lolos
+                   // return redirect('Store');
+                    dd($customerlog);
+                     }
+                }else{
+                    return redirect('Registrasi')->with('logerror','Gagal Login, Email Atau Password Salah !');
+                }
         }
-        
-    //Proses Update Verifikasi
-    public function aktifasi_email(Request $request, $email){     
-       
-        $email = $request->email;
-        $verifon = 1;
-        $updateverif = DB::table('users')
-        ->where('email', $email)
-        ->update(['email_verified_at' => $verifon]);
-
-       if ($updateverif) {
-        return redirect('konfirmasi')->with(['updatesuccess' => 'Email Verification Successfully.Please Login!']);
-       }else{
-        return redirect('konfirmasi')->with(['updateerorr' => 'Your email failed to verify !']);
-       }
-        
-    }
     }
 

@@ -219,6 +219,8 @@ Route::get('/{id}', [controller_product::class,'Detailproductaktif']);
 //Registrasi Customer
 Route::get('/Registrasi', [controller_auth::class, 'VformRegistrasi'])->name('Registrasi_customer');
 Route::post('/Tambahcustomer', [controller_auth::class,'Registrasticustomer']);
+Route::post('/Logincustomer', [controller_auth::class, 'Logcustomer']);
+//Route::post('/Logout', [logusercontroller::class, 'keluar'])->name('Logout_form')->middleware('auth');
 //Route::get('/verify_email', [logusercontroller::class, 'verify_email'])->name('verify_email');
 
 

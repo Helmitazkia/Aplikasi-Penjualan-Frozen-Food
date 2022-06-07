@@ -37,7 +37,7 @@ class logusercontroller extends Controller
             return redirect('Dashboardshow');  
             //dd('sukses');
             } else {
-                return redirect()->intended('LoginAdmin')->with('logerror','Login Failed ! or email has not verified');
+                return redirect()->intended('LoginAdmin')->with('logerror','Password salah ! email belum di verifikasi ');
             }
    
     }

@@ -30,7 +30,6 @@ class controller_bukti_pembayaran extends Controller
             'webname' => 'Bukti Pembayaran'
            ]);
     }
-
     
     public function Deletebuktipembayaran($id)
     {

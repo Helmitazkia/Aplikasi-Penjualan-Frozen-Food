@@ -28,46 +28,54 @@
         <div class="row">
             <div class="col-md-6 p-b-50">
                 <div class="p-r-15 p-rl-0-lg">
+                    @if (session()->has('logerror'))
+                    <div class="alert alert-warning alert-dismissible fade show">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                            </path>
+                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                        <strong>Warning ! </strong>{{session()->get('logerror')}}
+                    </div>
+                    @endif
                     <h4 class="txt-m-124 cl3 p-b-28">
                         Login
                     </h4>
-
-                    <form class="how-bor3 p-rl-30 p-tb-32">
+                    <form action="Logincustomer" method="post">
                         @csrf
                         <div class="p-b-24">
                             <div class="txt-s-101 cl6 p-b-10">
-                                Username or email address <span class="cl12">*</span>
+                                Email<span class="cl12">*</span>
                             </div>
-
                             <input class="txt-s-120 cl3 size-a-21 bo-all-1 bocl15 p-rl-15 focus1" type="text"
-                                name="username">
+                                name="email_customer" value="{{old('email')}}" required>
+                            @error('email_customer')
+                            <div class="text-danger mt-0">
+                                {{$message}}
+                            </div>
+                            @enderror
                         </div>
-
                         <div class="p-b-24">
                             <div class="txt-s-101 cl6 p-b-10">
                                 Password <span class="cl12">*</span>
                             </div>
-
                             <input class="txt-s-120 cl3 size-a-21 bo-all-1 bocl15 p-rl-15 focus1" type="password"
-                                name="password">
-                        </div>
+                                name="pswt" required>
+                            @error('pswt')
+                            <div class="text-danger mt-0">
+                                {{$message}}
+                            </div>
+                            @enderror
 
+                        </div>
                         <div class="flex-w flex-m p-t-15 p-b-10">
                             <button class="flex-c-m txt-s-105 cl0 bg10 size-a-39 hov-btn2 trans-04 p-rl-10 m-r-18">
                                 Login
                             </button>
-
-                            <div class="flex-w flex-m p-tb-8">
-                                <input id="check-creatacc" class="size-a-35 m-r-10" type="checkbox" name="creatacc">
-                                <label for="check-creatacc" class="txt-s-101 cl9">
-                                    Create an account?
-                                </label>
-                            </div>
                         </div>
-
-                        <a href="#" class="txt-s-101 cl9 hov-cl10 trans-04">
-                            Lost your password?
-                        </a>
                     </form>
                 </div>
             </div>
@@ -84,24 +92,9 @@
                         <strong>Success ! </strong>{{session()->get('message')}}
                     </div>
                     @endif
-                    <!--Pesan Error-->
-                    @if (session()->has('logerror'))
-                    <div class="alert alert-warning alert-dismissible fade show">
-                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
-                            fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
-                            <path
-                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
-                            </path>
-                            <line x1="12" y1="9" x2="12" y2="13"></line>
-                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                        </svg>
-                        <strong>Warning ! </strong>{{session()->get('logerror')}}
-                    </div>
-                    @endif
                     <h4 class="txt-m-124 cl3 p-b-28">
                         Register
                     </h4>
-
                     <form action="Tambahcustomer" method="post">
                         @csrf
                         <div class="row p-b-50">
@@ -110,8 +103,8 @@
                                     <div class="txt-s-101 cl6 p-b-10">
                                         Nama <span class="cl12">*</span>
                                     </div>
-                                    <input class="txt-s-120 cl3 size-a-21 bo-all-1 bocl15 p-rl-20 focus1" type="text" required value="{{old('name_customer')}}"
-                                        name="name_customer">
+                                    <input class="txt-s-120 cl3 size-a-21 bo-all-1 bocl15 p-rl-20 focus1" type="text"
+                                        required value="{{old('name_customer')}}" name="name_customer">
                                     @error('name_customer')
                                     <div class="text-danger mt-0">
                                         {{$message}}
@@ -140,8 +133,9 @@
                                     <div class="txt-s-101 cl6 p-b-10">
                                         Alamat Lengkap <span class="cl12">*</span>
                                     </div>
-                                    <textarea class="plh2 txt-s-120 cl3 size-a-21 bo-all-1 bocl15 p-rl-20 focus1 m-b-20" required value="{{old('alamat_customer')}}"
-                                        type="text" name="alamat_customer" placeholder="Sertakan Kode Pos"></textarea>
+                                    <textarea class="plh2 txt-s-120 cl3 size-a-21 bo-all-1 bocl15 p-rl-20 focus1 m-b-20"
+                                        required value="{{old('alamat_customer')}}" type="text" name="alamat_customer"
+                                        placeholder="Sertakan Kode Pos"></textarea>
                                     @error('alamat_customer')
                                     <div class="text-danger mt-0">
                                         {{$message}}
@@ -154,8 +148,8 @@
                                     <div class="txt-s-101 cl6 p-b-10">
                                         Telepon <span class="cl12">*</span>
                                     </div>
-                                    <input class="txt-s-120 cl3 size-a-21 bo-all-1 bocl15 p-rl-20 focus1" type="text" required value="{{old('phone')}}"
-                                        name="phone">
+                                    <input class="txt-s-120 cl3 size-a-21 bo-all-1 bocl15 p-rl-20 focus1" type="text"
+                                        required value="{{old('phone')}}" name="phone">
                                     @error('phone')
                                     <div class="text-danger mt-0">
                                         {{$message}}
@@ -168,8 +162,8 @@
                                     <div class="txt-s-101 cl6 p-b-10">
                                         Email
                                     </div>
-                                    <input class="txt-s-120 cl3 size-a-21 bo-all-1 bocl15 p-rl-20 focus1" type="text" required value="{{old('email')}}"
-                                        name="email">
+                                    <input class="txt-s-120 cl3 size-a-21 bo-all-1 bocl15 p-rl-20 focus1" type="text"
+                                        required value="{{old('email')}}" name="email">
                                     @error('email')
                                     <div class="text-danger mt-0">
                                         {{$message}}
@@ -197,8 +191,8 @@
                                     <div class="txt-s-101 cl6 p-b-10">
                                         Konfirmasi Password <span class="cl12">*</span>
                                     </div>
-                                    <input class="txt-s-120 cl3 size-a-21 bo-all-1 bocl15 p-rl-20 focus1" type="password"
-                                        name="password_confirmation">
+                                    <input class="txt-s-120 cl3 size-a-21 bo-all-1 bocl15 p-rl-20 focus1"
+                                        type="password" name="password_confirmation">
                                     @error('password_confirmation')
                                     <div class="text-danger mt-0">
                                         {{$message}}
