@@ -18,12 +18,6 @@ use Illuminate\Support\Str;
 
 class regisusercontroller extends Controller
 {
-    public function registrationuser()
-    {
-        return view('v_shopcoffe/v_auth/v_register', [
-            'title' => 'Registration'
-        ]);
-    }
 
     public function FormUserAdmin()
     {
@@ -63,7 +57,5 @@ class regisusercontroller extends Controller
         //view Users
         return redirect('/LoginAdmin');
     }
-
-
 
 }

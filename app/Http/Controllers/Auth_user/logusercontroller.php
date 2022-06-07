@@ -49,20 +49,29 @@ class logusercontroller extends Controller
     }
 
     //Proses Update Verifikasi
-    public function aktifasi_email(Request $request, $email){     
-       
+    public function aktifasi_email(Request $request,$email)
+    {   
+        $request->validate([
+            'email' => ['required', 'email'],
+        ]);
+
         $email = $request->email;
         $verifon = 1;
-        $updateverif = DB::table('users')
+        $verif = DB::table('users')
+        ->where('email', $email)
+        ->update(['email_verified_at' => $verifon ]);
+
+        $cus = DB::table('tabel_customer')
         ->where('email', $email)
         ->update(['email_verified_at' => $verifon]);
+        if($verif){
+            return redirect('konfirmasi')->with(['updatesuccess' => 'Verifikasi Email Berhasil. Silakan Login!']);  
+        } if($cus){
+            return redirect('konfirmasi')->with(['updatesuccess' => 'Verifikasi Email Berhasil. Silakan Login!']);  
+        }
+        return redirect('verify_email')->with(['updateerorr' => 'Verifikasi Email Gagal !, Ketikan Emal Yang anda daftarkan!']);
 
-       if ($updateverif) {
-        return redirect('konfirmasi')->with(['updatesuccess' => 'Email Verification Successfully.Please Login!']);
-       }else{
-        return redirect('konfirmasi')->with(['updateerorr' => 'Your email failed to verify !']);
-       }
-        
+         
     }
 
     public function verify_email(){     
@@ -70,11 +79,13 @@ class logusercontroller extends Controller
             'title' => 'Verifition Email'
         ]);
     }
+
     public function konfirmasi_email()
     {
             return view('emails/auth/konfirmasi');
        
-    } 
+    }
+    
     
     
 

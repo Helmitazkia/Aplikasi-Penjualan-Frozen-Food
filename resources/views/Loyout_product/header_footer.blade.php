@@ -69,7 +69,7 @@
 								</li>
 
 								<li>
-									<a href="/Entry">Acount</a>
+									<a href="/Registrasi">Acount</a>
 								</li>
 
 								<li>

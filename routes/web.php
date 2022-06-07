@@ -17,6 +17,7 @@ use App\Http\Controllers\c_admin\controller_bukti_pembayaran;
 //Tampilkan Product di Home page Customer
 use App\Http\Controllers\product\controller_product;
 use App\Http\Controllers\Home\controller_home;
+use App\Http\Controllers\Customer\controller_auth;
 
 
 
@@ -62,11 +63,11 @@ Route::get('/Blog', function () {
     ]);
 });
 
-Route::get('/Entry', function () {
-    return view('Loyout_product/content_product/v_acount', [
-        'title' => 'Acount'
-    ]);
-});
+// Route::get('/Entry', function () {
+//     return view('Loyout_product/content_product/v_acount', [
+//         'title' => 'Acount'
+//     ]);
+// });
 
 // Route::get('/Detail', function () {
 //     return view('Loyout_product/content_product/V_detail_Product/v_detail_product', [
@@ -213,8 +214,13 @@ Route::get('/{id}', [controller_product::class,'Tampilproductsesuaicategory']);
 
 //Home
 Route::get('/', [controller_home::class,'Newproduct']);
-
+//detail product
 Route::get('/{id}', [controller_product::class,'Detailproductaktif']);
+//Registrasi Customer
+Route::get('/Registrasi', [controller_auth::class, 'VformRegistrasi'])->name('Registrasi_customer');
+Route::post('/Tambahcustomer', [controller_auth::class,'Registrasticustomer']);
+//Route::get('/verify_email', [logusercontroller::class, 'verify_email'])->name('verify_email');
+
 
 
 
