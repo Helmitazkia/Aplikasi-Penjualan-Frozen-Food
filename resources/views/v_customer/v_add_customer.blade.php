@@ -40,31 +40,9 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-6 col-sm-12 mb-24"> <label class="form-label">Email
-                                        Verifikasi</label>
-                                    <select name="email_verified_at"
-                                        class="form-control custom-select select2 select2-hidden-accessible"
-                                        data-placeholder="Select Department" tabindex="-1" aria-hidden="true"
-                                        data-select2-id="select2-data-22-9i9m">
-                                        @foreach ($statusambil as $datastatus)
-                                        <option value="{{$datastatus->id_status}}">
-                                            <?php echo $datastatus->name_status; ?>
-                                        </option>
-                                        @endforeach
-                                    </select>
-                                </div>
                             </div>
                             <div class="box-body">
                                 <div class="row">
-                                    <div class="col-md-6 col-sm-12 mb-24"> <label class="form-label">Password</label>
-                                        <input type="password" name="password" id="disabledTextInput" class="form-control"
-                                            value="{{old('password')}}" required>
-                                        @error('password')
-                                        <div class="alert alert-danger mt-2">
-                                            {{ $message }}
-                                        </div>
-                                        @enderror
-                                    </div>
                                     <div class="col-md-6 col-sm-12 mb-24"> <label class="form-label">Telepon</label>
                                         <input type="number" name="phone" id="disabledTextInput" class="form-control"
                                             value="{{old('phone')}}" required>

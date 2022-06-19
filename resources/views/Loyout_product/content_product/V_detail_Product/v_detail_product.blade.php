@@ -44,7 +44,7 @@
                                 <div class="sub-frame sub-1">
                                     <div class="wrap-main-pic">
                                         <div class="main-pic">
-                                            @foreach ($data as $detailproduct)
+                                            @foreach ($datadetail as $detailproduct)
                                             {{-- <img src="Product/images/pro-detail-thumb-02.jpg" alt="IMG-SLIDE"
                                                 style="width: 500px"> --}}
                                             <img src="{{asset('storage/'.$detailproduct->image) }}"
@@ -60,7 +60,7 @@
             </div>
 
             <div class="col-md-5 col-lg-6">
-                @foreach ($data as $detailproduct)
+                @foreach ($datadetail as $detailproduct)
                 <div class="p-l-70 p-t-35 p-l-0-lg">
                     <h4 class="js-name1 txt-l-104 cl3 p-b-16">
                         {{ $detailproduct->name}}
@@ -104,9 +104,8 @@
 
                     <div class="txt-s-107 p-b-6">
                         <span class="cl6">
-                            Stok:
+                            Stok :
                         </span>
-
                         <span class="cl9">
                             {{ $detailproduct->stok}}
                         </span>
@@ -114,7 +113,7 @@
 
                     <div class="txt-s-107 p-b-6">
                         <span class="cl6">
-                            Category:
+                            Category :
                         </span>
 
                         <span class="cl9">

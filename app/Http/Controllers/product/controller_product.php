@@ -94,13 +94,12 @@ class controller_product extends Controller
     public function Detailproductaktif($id)
     {
         
-    $data = DB::table('products')
+    $datadetail = DB::table('products')
         ->join('catagory', 'products.catagories', 'catagory.id')
-        ->where('products.id',$id);
+        ->where('products.id',$id)->get();
         $product = DB::select('select *from products ORDER BY id DESC LIMIT 12');
-        $data = $data->get();
      return view('Loyout_product/content_product/V_detail_Product/v_detail_product',[
-        'data'=> $data,
+        'datadetail'=> $datadetail,
         'product' =>$product,
         'title' => 'Detail | Sistus Belanja Online Frozen food'
         ]);

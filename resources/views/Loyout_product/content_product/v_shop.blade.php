@@ -46,7 +46,7 @@
 
         <!--- Start PRODUCT-->
         <div class="row isotope-grid">
-            @foreach ($data as $dataproductaktif)
+             <?php foreach ($data as $dataproductaktif):?>
             <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item $dataproductaktif->catagories">
                 <!-- Block1 -->
                 <div class="block1">
@@ -74,7 +74,9 @@
                     </div>
                 </div>
             </div>
-            @endforeach
+          <?php
+        endforeach;
+          ?>
         </div>
         <!--- END PRODUCT-->
     </div>

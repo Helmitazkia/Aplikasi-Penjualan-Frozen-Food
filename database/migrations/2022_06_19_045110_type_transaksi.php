@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TabelPengiriman extends Migration
+class TypeTransaksi extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class TabelPengiriman extends Migration
      */
     public function up()
     {
-        Schema::create('tabel_pengiriman', function (Blueprint $table) {
-            $table->increments('id_pengiriman');
-            $table->integer('id_customer');
-            $table->date('tanggal_pengiriman');
-            $table->integer('id_status');
-            $table->integer('id_product');
+        Schema::create('tabel_type_transaksi', function (Blueprint $table) {
+            $table->increments('id_type');
+            $table->string('name_type');
+           
         });
     }
 

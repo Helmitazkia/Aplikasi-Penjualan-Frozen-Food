@@ -39,29 +39,27 @@
                         <div class="table-responsive">
                             <table class="table table-responsive-md">
                                 <thead>
-                                    <th>ID</th>
+                                    <th>NO</th>
                                     <th>Name Customer</th>
                                     <th>Jenis Kelamin</th>
                                     <th>Email</th>
-                                    <th>Email Verifikasi</th>
-                                    <th>Telepon</th> 
+                                    <th>Telepon</th>
                                     <th>Alamat</th>
                                     <th>Tools</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                    $no = 1;
+                                    @endphp
                                     @foreach ($data as $datacustomer)
                                     <tr>
-                                        <td><strong>{{$datacustomer->id_customer}}</strong></td>
+                                        <td><strong>{{$no++}}</strong></td>
                                         <td>{{$datacustomer->name_customer}}</td>
                                         <td>{{$datacustomer->jenis_kelamin}}</td>
                                         <td>{{$datacustomer->email}}</td>
-                                        <td>{{$datacustomer->name_status}}</td>
                                         <td>{{$datacustomer->phone}}</td>
                                         <td>{{$datacustomer->alamat_customer}}</td>
-                                        
-                                        
-                                        
                                         <td>
                                             <div class="d-flex">
                                                 <button type="button" class="btn btn-primary shadow btn-xs sharp mr-1"
@@ -133,24 +131,6 @@
                                 </div>
                                 @enderror
                                 <br>
-                                <label class="form-label">Status Akun</label>
-                                <br>
-                                <input type="hidden" name="email_verified_at" id="html"
-                                    value="{{$datacustomer->email_verified_at}}">
-                                @foreach ($statusambil as $datastatus)
-                                <input type="radio" id="html" name="email_verified_at"
-                                    value="{{$datastatus->id_status}}">
-                                <label for="html">{{$datastatus->name_status}}</label><br>
-                                @endforeach
-                                <label class="form-label">Password</label>
-                                <input type="text" name="password" id="disabledTextInput" class="form-control"
-                                    value="{{$datacustomer->password}}">
-                                @error('password')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                                <br>
                                 <label class="form-label">Telepon</label>
                                 <input type="number" name="phone" id="disabledTextInput" class="form-control"
                                     value="{{$datacustomer->phone}}">
@@ -162,7 +142,7 @@
                                 <br>
                                 <label class="form-label">Alamat</label>
                                 <input type="text" name="alamat_customer" id="disabledTextInput" class="form-control"
-                                value="{{$datacustomer->alamat_customer}}" style="height: 60">
+                                    value="{{$datacustomer->alamat_customer}}" style="height: 60">
                                 @error('alamat_customer')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}

@@ -50,11 +50,11 @@ url Akun Landing Page
 //     return view('welcome');
 // });
 
-// Route::get('/Store', function () {
-//     return view('Loyout_product/content_product/v_shop', [
-//         'title' => 'Product'
-//     ]);
-// });
+Route::get('/kepo', function () {
+    return view('Loyout_product/content_product/jajal', [
+      
+    ]);
+});
 
 
 Route::get('/Blog', function () {
@@ -146,8 +146,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/deleteuser/{id}', [Controller_user::class, 'DeleteDatauser'])->name('Hapus_product');
     Route::put('/updateuser/{id}', [Controller_user::class, 'updateuser'])->name('Update_user');
 });
-// Data Catagory
+// Data Catagory & product
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/Produk', [catagory_controller::class, 'DataProduct'])->name('produk_data');
     Route::get('/Catagory', [catagory_controller::class, 'showcategory'])->name('tampil_catagori');
     Route::post('/addcatagory', [catagory_controller::class, 'Adddatacatagory'])->middleware('auth');
     Route::get('/deletecatagory/{id}', [catagory_controller::class, 'DeleteCatagory'])->name('Hapus_catagory');
@@ -168,47 +169,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/deletecustomer/{id}', [customer_controller::class, 'DeleteDatacustomer']);
     Route::put('/Updatecustomer/{id}', [customer_controller::class, 'Updatedatacustomer']);
 });
-//Detail Alamat
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/DetailAddres', [controller_alamat_customer::class,'ShowAlamatdetail']);
-    Route::Post('/AddNewAlalamat', [controller_alamat_customer::class,'Addalamatcustomer']);
-    Route::get('/Addformalamat', [controller_alamat_customer::class,'VformAddAlamat']);
-    Route::put('/Alamatupdate/{id}', [controller_alamat_customer::class, 'Updatealamat']);
-    Route::get('/Deletealamat/{id}', [controller_alamat_customer::class, 'DeleteDetailalamat']);
-});
-//Data Pengiriman
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/Datapengiriman', [controller_pengiriman::class,'ShowPengiriman']);
-    Route::get('/AddFormPengiriman', [controller_pengiriman::class,'VformAddpengiriman']);
-    Route::post('/Addpengiriman', [controller_pengiriman::class,'AddDatapengiriman']);
-    Route::put('/Updatedatapengiriman/{id}', [controller_pengiriman::class,'Updatedatapengiriman']);
-    Route::get('/Deletepengiriman/{id}', [controller_pengiriman::class, 'DeleteDatapengiriman']);
-});
 
-//Data Metode Pembayaran
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/DataPembayaran', [controller_pembayaran::class,'ShowPembayaran']);
-    Route::get('/AddFormPembayaran', [controller_pembayaran::class,'Vformaddpembayaran']);
-    Route::post('/Addpembayaran', [controller_pembayaran::class,'Tambahpembayaran']);
-    Route::get('/Deletepembayaran/{id}', [controller_pembayaran::class, 'DeleteDatapembayaran']);
-    Route::put('/UpdateDataPembayaran/{id}', [controller_pembayaran::class,'Updatepembayaran']);
-});
 
-//Data Bukti Pembayaran
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/BuktiPembayaranCustomer', [controller_bukti_pembayaran::class,'Showbuktipembayaran']);
-    Route::get('/Deletebuktipembayaran/{id}', [controller_bukti_pembayaran::class, 'Deletebuktipembayaran']);
-});
 
-//Data Kurir
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/Showkurir', [catagory_controller::class,'Showkurir']);
-    Route::post('/Addkurir', [catagory_controller::class,'Adddatakurir']);
-    Route::put('/Updatekurir/{id}', [catagory_controller::class,'Updatekurir']);
-});
 
 //Menampilkan Product Home Customer
 //Menampilkan Produck sesuai dengan katagori
+//Route::get('/catagory/{id_catagory}', [controller_product::class,'Tampilproductsesuaicategory']);
 Route::get('/Store', [controller_product::class,'AllProductdanAktif']);
 Route::get('/Sosis', [controller_product::class,'ProductSosis']);
 Route::get('/Nugget', [controller_product::class,'ProductNugget']);
@@ -221,12 +188,7 @@ Route::get('/Sambal', [controller_product::class,'Productsambal']);
 Route::get('/', [controller_home::class,'Newproduct']);
 //detail product
 Route::get('/{id}', [controller_product::class,'Detailproductaktif']);
-//Registrasi Customer
-Route::get('/Registrasi', [controller_auth::class, 'VformRegistrasi'])->name('Registrasi_customer');
-Route::post('/Tambahcustomer', [controller_auth::class,'Registrasticustomer']);
-//Login Customer
-Route::post('/Logincustomer', [controller_auth::class, 'Logcustomer']);
-//Route::post('/Logout', [logusercontroller::class, 'keluar'])->name('Logout_form')->middleware('auth');
+
 
 
 

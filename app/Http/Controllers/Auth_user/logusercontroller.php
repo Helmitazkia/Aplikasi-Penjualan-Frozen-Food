@@ -61,12 +61,7 @@ class logusercontroller extends Controller
         ->where('email', $email)
         ->update(['email_verified_at' => $verifon ]);
 
-        $cus = DB::table('tabel_customer')
-        ->where('email', $email)
-        ->update(['email_verified_at' => $verifon]);
         if($verif){
-            return redirect('konfirmasi')->with(['updatesuccess' => 'Verifikasi Email Berhasil. Silakan Login!']);  
-        } if($cus){
             return redirect('konfirmasi')->with(['updatesuccess' => 'Verifikasi Email Berhasil. Silakan Login!']);  
         }
         return redirect('verify_email')->with(['updateerorr' => 'Verifikasi Email Gagal !, Ketikan Emal Yang anda daftarkan!']);

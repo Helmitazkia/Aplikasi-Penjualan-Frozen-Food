@@ -77,10 +77,15 @@
                 <li class="sidebar-submenu">
                     <a href="/Dashboardshow" class="sidebar-menu-dropdown">
                         <i class='bx bxs-dashboard'></i>
-                        <span>Data Content</span>
+                        <span>Katalog</span>
                         <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
                     </a>
                     <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                         <li>
+                            <a href="/Produk">
+                                Product
+                            </a>
+                        </li>
                         <li>
                             <a href="/Catagory">
                                 Catagory Product
@@ -91,32 +96,25 @@
                                 Data Status
                             </a>
                         </li>
-                        <li>
-                            <a href="/Showkurir">
-                                Data Kurir
-                            </a>
-                        </li>
+                       
                     </ul>
                 </li>
                 <li class="sidebar-submenu">
                     <a href="chart-apex.html" class="sidebar-menu-dropdown">
                         <i class='bx bxs-component'></i>
-                        <span>Transkasi</span>
+                        <span>Pengeluaran</span>
                         <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
                     </a>
                     <ul class="sidebar-menu sidebar-menu-dropdown-content">
                         <li>
                             <a href="chart-apex.html">
-                                Data Pesanan Product
+                                Transaksi
                             </a>
                             <a href="chart-apex.html">
-                                Detail Transaksi
+                                Type Transaksi
                             </a>
                             <a href="chart-apex.html">
                                 Data Laporan
-                            </a>
-                            <a href="/DataPembayaran">
-                                Metode Pembayaran
                             </a>
                         </li>
 
@@ -126,7 +124,7 @@
                 <li class="sidebar-submenu">
                     <a href="/Clientshow" class="sidebar-menu-dropdown">
                         <i class='bx bxs-bolt'></i>
-                        <span>Data Customer</span>
+                        <span>Pelanggan & Supplier</span>
                         <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
                     </a>
                     <ul class="sidebar-menu sidebar-menu-dropdown-content">
@@ -135,19 +133,22 @@
                                 Data Customer
                             </a>
                         </li>
+                        <li>
+                            <a href="/Datacustomer">
+                                Barang Masuk
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/Datacustomer">
+                                Agen
+                            </a>
+                        </li>
                     </ul>
                 </li>   
                 <li>
                     <a href="/Datapengiriman">
                         <i class='bx bx-calendar'></i>
-                        <span>Data Pengiriman</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/BuktiPembayaranCustomer">
-                        <i class='bx bxs-message-rounded-detail'></i>
-                        <span>Bukti Pembayaran Customer</span>
+                        <span>Pendapatan</span>
                     </a>
                 </li>
                 <li class="sidebar-submenu">

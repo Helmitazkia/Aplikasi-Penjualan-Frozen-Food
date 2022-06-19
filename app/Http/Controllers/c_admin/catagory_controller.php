@@ -11,6 +11,23 @@ use App\Providers\RouteServiceProvider;
 
 class catagory_controller extends Controller
 {
+
+    public function DataProduct()
+    {
+        $data = DB::select('select products.id,name,price,description,catagories,stok ,catagory.name_catagory,image ,status ,tabel_status.name_status from products
+        INNER JOIN catagory ON products.catagories = catagory.id
+        INNER JOIN tabel_status ON products.status = tabel_status.id_status');
+        $ambilcatagory = DB::table('catagory')->get();
+        $ambilstatus = DB::table('tabel_status')->get();
+        //dd($product_count);
+        return view('v_admin.product.index_product',[
+            'data'=> $data,
+            'ambilcatagory' => $ambilcatagory,
+            'ambilstatus' => $ambilstatus,
+            'title' => 'Data Product | Sistus Belanja Online Frozen food',
+            'webname' => 'Semua Product',
+            ]);
+    }
     public function showcategory()
     {
         $data = DB::table('catagory')->get();
