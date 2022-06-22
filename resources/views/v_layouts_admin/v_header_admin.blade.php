@@ -110,7 +110,7 @@
                             <a href="chart-apex.html">
                                 Transaksi
                             </a>
-                            <a href="chart-apex.html">
+                            <a href="/TypeTransaksi">
                                 Type Transaksi
                             </a>
                             <a href="chart-apex.html">
@@ -134,12 +134,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/Datacustomer">
+                            <a href="/DataBarangMasuk">
                                 Barang Masuk
                             </a>
                         </li>
                         <li>
-                            <a href="/Datacustomer">
+                            <a href="/Agenshow">
                                 Agen
                             </a>
                         </li>
@@ -431,78 +431,63 @@
         });
     </script>
 
+    <script>
+        //.hapus tombol delete yang ada di view dashboar admin
+        $('.delete-agen').click(function () {
+            var kode_agen = $(this).attr("data-id");
+            var nama_agen = $(this).attr("data-name");
+            swal({
+                    title: "Apa kamu yakin?",
+                    text: "Akan Menghapus Data Agen dengan Nama " + nama_agen + " ",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location = "deleteagen/" + kode_agen + " ";
+                        swal("Data Berhasil di hapus!", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Oops", "Data is not deleted ! ", "error");
+                    }
+                });
+        });
+    </script>
 
-<script>
-    $('.delete-pengiriman').click(function () {
-        var id_pengiriman = $(this).attr("data-id");
-        var name = $(this).attr("data-name");
-        swal({
-                title: "Apa kamu yakin?",
-                text: "Akan Menghapus Data Pengiriman dengan Nama " + name + " ",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    window.location = "Deletepengiriman/" + id_pengiriman + " ";
-                    swal("Data Berhasil di hapus!", {
-                        icon: "success",
-                    });
-                } else {
-                    swal("Oops", "Data is not deleted ! ", "error");
-                }
-            });
-    });
-</script>
 
-<script>
-    $('.delete-pembayaran').click(function () {
-        var id_pembayaran = $(this).attr("data-id");
-        var Nama_pembayaran = $(this).attr("data-name");
-        swal({
-                title: "Apa kamu yakin?",
-                text: "Akan Menghapus Data pembayaran dengan Nama " + Nama_pembayaran + " ",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    window.location = "Deletepembayaran/" + id_pembayaran + " ";
-                    swal("Data Berhasil di hapus!", {
-                        icon: "success",
-                    });
-                } else {
-                    swal("Oops", "Data is not deleted ! ", "error");
-                }
-            });
-    });
-</script>
+     <script>
+        //.hapus tombol delete yang ada di view dashboar admin
+        $('.Hapus-barang').click(function () {
+            var id_barang = $(this).attr("data-id");
+            var nama_barang = $(this).attr("data-name");
+            swal({
+                    title: "Apa kamu yakin?",
+                    text: "Akan Menghapus Data Barang dengan Nama " + nama_barang + " ",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location = "deleteBarang/" + id_barang + " ";
+                        swal("Data Berhasil di hapus!", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Oops", "Data is not deleted ! ", "error");
+                    }
+                });
+        });
+    </script>
 
-<script>
-    $('.bukti-pembayaran').click(function () {
-        var id_bukti = $(this).attr("data-id");
-        var name_customer = $(this).attr("data-name");
-        swal({
-                title: "Apa kamu yakin?",
-                text: "Akan Menghapus Bukti pembayaran dengan Nama " + name_customer + " ",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    window.location = "Deletebuktipembayaran/" + id_bukti + " ";
-                    swal("Data Berhasil di hapus!", {
-                        icon: "success",
-                    });
-                } else {
-                    swal("Oops", "Data is not deleted ! ", "error");
-                }
-            });
-    });
-</script>
+
+
+
+
+
+
 
 <script>
     @if(Session::has('updatesuccess'))

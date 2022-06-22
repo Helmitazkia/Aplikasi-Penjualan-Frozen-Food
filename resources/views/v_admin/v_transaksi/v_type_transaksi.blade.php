@@ -1,5 +1,5 @@
 @extends('v_layouts_admin/v_header_admin')
-@section('contentadmin')  
+@section('contentadmin')
 <div class="main">
     <div class="main-content user">
         <div class="row">
@@ -31,18 +31,18 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Data Catagory</h4>
+                        <h4 class="card-title">{{ $webname }}</h4>
                     </div>
                     <br>
                     <button type="button" class="btn btn-success ml-12" style="width:200px;" data-bs-toggle="modal"
-                        data-bs-target="#add">Add New Catagory
+                        data-bs-target="#add">Add New Agen
                     </button>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-responsive-md">
                                 <thead>
                                     <th>NO</th>
-                                    <th>Name Catagory Product</th>
+                                    <th>Type Transaksi</th>
                                     <th>Tools</th>
                                     </tr>
                                 </thead>
@@ -50,22 +50,17 @@
                                     @php
                                     $no = 1;
                                     @endphp
-                                    @foreach ($data as $datacatagory)
+                                    @foreach ($data as $datatype)
                                     <tr>
                                         <td><strong>{{$no++}}</strong></td>
-                                        <td>{{$datacatagory->name_catagory}}</td>
+                                        <td>{{$datatype->name_type}}</td>
                                         <td>
                                             <div class="d-flex">
                                                 <button type="button" class="btn btn-primary shadow btn-xs sharp mr-1"
                                                     data-bs-toggle="modal"
-                                                    data-bs-target="#update{{$datacatagory->id}}"><i
+                                                    data-bs-target="#update{{$datatype->id_type}}"><i
                                                         class="fa fa-pencil"></i>
                                                 </button>
-                                                <button type="button"
-                                                    class="btn btn-danger shadow btn-xs sharp hapuscatagory"
-                                                    data-id="{{$datacatagory->id}}"
-                                                    data-name="{{$datacatagory->name_catagory}}"><i
-                                                        class="fa fa-trash"></i></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -82,7 +77,7 @@
             <div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="/addcatagory" method="post" enctype="multipart/form-data">
+                        <form action="/AddNewtype" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Add New Data</h5>
@@ -90,10 +85,10 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <label class="form-label">Name Catagory</label>
-                                <input type="text" name="catagoryname" id="disabledTextInput" class="form-control"
-                                    placeholder="Caragory" value="{{old('catagoryname')}}">
-                                @error('catagoryname')
+                                <label class="form-label">Type Transaksi</label>
+                                <input type="text" name="name_type" class="form-control" value="{{old('name_type')}}"
+                                    required>
+                                @error('name_type')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
@@ -110,35 +105,28 @@
             </div>
 
             <!-- Modal Untuk Update-->
-            @foreach ($data as $datacatagory)
+            @foreach ($data as $datatype)
             <!-- Modal -->
-            <div class="modal fade" id="update{{$datacatagory->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="update{{$datatype->id_type}}" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="/UpdateCatagory/{{$datacatagory->id}}" method="POST">
+                        <form action="/Updatetype/{{$datatype->id_type}}" method="POST">
                             @method('put')
                             @csrf
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Edit Data
-                                    {{$datacatagory->name_catagory}}</h5>
+                                    {{$datatype->name_type}}</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <label class="form-label">ID Catagory</label>
-                                <input type="text" name="catagoryname" id="disabledTextInput" class="form-control"
-                                    value="{{$datacatagory->id}}" readonly>
-                                @error('catagoryname')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                                <br>
-                                <label class="form-label">Name Catagory</label>
-                                <input type="text" name="catagoryname" id="disabledTextInput" class="form-control"
-                                    value="{{$datacatagory->name_catagory}}" required>
-                                @error('catagoryname')
+                                <label class="form-label">Type Transaksi</label>
+                                   <input type="hidden" name="id_type" id="disabledTextInput" class="form-control"
+                                    value="{{$datatype->id_type}}" required>
+                                <input type="text" name="name_type" id="disabledTextInput" class="form-control"
+                                    value="{{$datatype->name_type}}" required>
+                                @error('name_type')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
@@ -154,6 +142,8 @@
             </div>
             @endforeach
             <!-- End Modal -->
+
+
         </div>
     </div>
 </div>

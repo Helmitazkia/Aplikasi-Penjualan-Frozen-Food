@@ -17,7 +17,10 @@ use App\Http\Controllers\c_admin\controller_bukti_pembayaran;
 //Tampilkan Product di Home page Customer
 use App\Http\Controllers\product\controller_product;
 use App\Http\Controllers\Home\controller_home;
-use App\Http\Controllers\Customer\controller_auth;
+use App\Http\Controllers\Agen\Controller_agen;
+use App\Http\Controllers\Transaksi\Controller_transaksi;
+use App\Http\Controllers\Barang\Controller_barang;
+
 
 
 
@@ -40,22 +43,6 @@ url Akun Landing Page
 ===================
 */
 
-// Route::get('/', function () {
-//     return view('Loyout_product/content_product/v_home', [
-//         'title' => 'Home'
-//     ]);
-// });
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/kepo', function () {
-    return view('Loyout_product/content_product/jajal', [
-      
-    ]);
-});
-
 
 Route::get('/Blog', function () {
     return view('Loyout_product/content_product/v_blog', [
@@ -63,17 +50,6 @@ Route::get('/Blog', function () {
     ]);
 });
 
-// Route::get('/Entry', function () {
-//     return view('Loyout_product/content_product/v_acount', [
-//         'title' => 'Acount'
-//     ]);
-// });
-
-// Route::get('/Detail', function () {
-//     return view('Loyout_product/content_product/V_detail_Product/v_detail_product', [
-//         'title' => 'Detail-Product'
-//     ]);
-// });
 
 Route::get('/Checkout', function () {
     return view('Loyout_product/content_product/V_checkout_product/v_checkout', [
@@ -169,7 +145,29 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/deletecustomer/{id}', [customer_controller::class, 'DeleteDatacustomer']);
     Route::put('/Updatecustomer/{id}', [customer_controller::class, 'Updatedatacustomer']);
 });
+//Data Agen
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/Agenshow', [Controller_agen::class,'Showagen']);
+    Route::Post('/AddNewagen', [Controller_agen::class,'AdddataAgen']);
+    Route::get('/deleteagen/{id}', [Controller_agen::class, 'DeteleAgen']);
+    Route::put('/UpdataAgen/{id}', [Controller_agen::class, 'UpdateDataAgen']);
+});
 
+//Type Transaksi
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/TypeTransaksi', [Controller_transaksi::class,'Datatypetransaksi']);
+    Route::Post('/AddNewtype', [Controller_transaksi::class,'Adddatatype']);
+    Route::put('/Updatetype/{id}', [Controller_transaksi::class, 'UpdateDatatype']);
+});
+
+//Data Barang Masuk
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/DataBarangMasuk', [Controller_barang::class,'Databarangmasuk']);
+    Route::get('/AddBarangMasuk', [Controller_barang::class,'FormAddBarang']);
+    Route::Post('/AddNewbarang', [Controller_barang::class,'AddBarangNew']);
+    //Route::put('/UpdateBrg/{id_barang}', [Controller_barang::class, 'UpdateDataBarang']);
+    Route::get('/deleteBarang/{id}', [Controller_barang::class, 'DeleteDataBarang']);
+});
 
 
 

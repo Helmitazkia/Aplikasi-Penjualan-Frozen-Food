@@ -17,7 +17,7 @@ class Agen extends Migration
             $table->increments('kode_agen');
             $table->string('nama_agen');
             $table->string('alamat');
-            $table->integer('phone');
+            $table->string('phone');
         });
     }
 

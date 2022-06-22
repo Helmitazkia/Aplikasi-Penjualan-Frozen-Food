@@ -84,24 +84,10 @@
                             (1 customer review)
                         </span>
                     </div>
-
                     <p class="txt-s-101 cl6">
                         {{ $detailproduct->description}}
                     </p>
-
-                    <div class="flex-w flex-m p-t-55 p-b-30">
-                        <!--Jumlah Ceheckout-->
-                        <div class="wrap-num-product flex-w flex-m bg12 p-rl-10 m-r-30 m-b-30">
-                            <div class="btn-num-product-down flex-c-m fs-29"></div>
-                            <input class="txt-m-102 cl6 txt-center num-product" type="number" name="num-product"
-                                value="1">
-                            <div class="btn-num-product-up flex-c-m fs-16"></div>
-                        </div>
-                        <a href="/Checkout" class="flex-c-m txt-s-103 cl0 bg10 size-a-2 hov-btn2 trans-04 m-b-30">
-                            Checkout
-                        </a>
-                    </div>
-
+                    <br>
                     <div class="txt-s-107 p-b-6">
                         <span class="cl6">
                             Stok :

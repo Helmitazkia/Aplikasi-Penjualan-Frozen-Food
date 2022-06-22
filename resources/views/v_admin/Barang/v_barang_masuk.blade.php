@@ -1,5 +1,5 @@
 @extends('v_layouts_admin/v_header_admin')
-@section('contentadmin')  
+@section('contentadmin')
 <div class="main">
     <div class="main-content user">
         <div class="row">
@@ -31,18 +31,21 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Data Catagory</h4>
+                        <h4 class="card-title">{{ $webname }}</h4>
                     </div>
                     <br>
-                    <button type="button" class="btn btn-success ml-12" style="width:200px;" data-bs-toggle="modal"
-                        data-bs-target="#add">Add New Catagory
+                    <a href="/AddBarangMasuk" class="btn btn-primary ml-12" style="width:200px;">Add New Barang</a>
                     </button>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-responsive-md">
                                 <thead>
                                     <th>NO</th>
-                                    <th>Name Catagory Product</th>
+                                    <th>Nama Barang</th>
+                                    <th>Catagory</th>
+                                    <th>Nama Agen</th>
+                                    <th>Harga Beli</th>
+                                    <th>Stok Masuk</th>
                                     <th>Tools</th>
                                     </tr>
                                 </thead>
@@ -50,21 +53,25 @@
                                     @php
                                     $no = 1;
                                     @endphp
-                                    @foreach ($data as $datacatagory)
+                                    @foreach ($data as $databarang)
                                     <tr>
                                         <td><strong>{{$no++}}</strong></td>
-                                        <td>{{$datacatagory->name_catagory}}</td>
+                                        <td>{{$databarang->nama_barang}}</td>
+                                        <td>{{$databarang->name_catagory}}</td>
+                                        <td>{{$databarang->nama_agen}}</td>
+                                        <td><?= number_format($databarang->harga_beli,0,',','.');?></td>
+                                        <td>{{$databarang->jumlah_stok}}</td>
                                         <td>
                                             <div class="d-flex">
                                                 <button type="button" class="btn btn-primary shadow btn-xs sharp mr-1"
                                                     data-bs-toggle="modal"
-                                                    data-bs-target="#update{{$datacatagory->id}}"><i
+                                                    data-bs-target="#update{{$databarang->id_barang}}"><i
                                                         class="fa fa-pencil"></i>
                                                 </button>
                                                 <button type="button"
-                                                    class="btn btn-danger shadow btn-xs sharp hapuscatagory"
-                                                    data-id="{{$datacatagory->id}}"
-                                                    data-name="{{$datacatagory->name_catagory}}"><i
+                                                    class="btn btn-danger shadow btn-xs sharp Hapus-barang"
+                                                    data-id="{{$databarang->id_barang}}"
+                                                    data-name="{{$databarang->nama_barang}}"><i
                                                         class="fa fa-trash"></i></button>
                                             </div>
                                         </td>
@@ -78,71 +85,77 @@
             </div>
             <!--End Table-->
 
-            <!-- Modal Untuk Tambah Data-->
-            <div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form action="/addcatagory" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Add New Data</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <label class="form-label">Name Catagory</label>
-                                <input type="text" name="catagoryname" id="disabledTextInput" class="form-control"
-                                    placeholder="Caragory" value="{{old('catagoryname')}}">
-                                @error('catagoryname')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                                <br>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Modal Untuk Update-->
-            @foreach ($data as $datacatagory)
             <!-- Modal -->
-            <div class="modal fade" id="update{{$datacatagory->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            @foreach ($data as $databarang)
+            <!-- Modal -->
+            <div class="modal fade" id="update{{$databarang->id_barang}}" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="/UpdateCatagory/{{$datacatagory->id}}" method="POST">
+                        <form action="/UpdateBrg/{{$databarang->id_barang}}" method="POST"
+                            enctype="multipart/form-data">
                             @method('put')
                             @csrf
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Edit Data
-                                    {{$datacatagory->name_catagory}}</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Edit {{$databarang->nama_barang}}</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <label class="form-label">ID Catagory</label>
-                                <input type="text" name="catagoryname" id="disabledTextInput" class="form-control"
-                                    value="{{$datacatagory->id}}" readonly>
-                                @error('catagoryname')
+                                <!--Price Name--->
+                                <input type="hidden" name="id_barang" class="form-control"
+                                    value="{{$databarang->id_barang}}" readonly>
+                                <label class="form-label">Nama Barang</label>
+                                <input type="text" name="nama_barang" class="form-control"
+                                    value="{{$databarang->nama_barang}}" required>
+                                @error('nama_barang')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                                 @enderror
                                 <br>
-                                <label class="form-label">Name Catagory</label>
-                                <input type="text" name="catagoryname" id="disabledTextInput" class="form-control"
-                                    value="{{$datacatagory->name_catagory}}" required>
-                                @error('catagoryname')
+                                <label class="form-label">Nama Agen :</label>
+                                <br>
+                                <input type="hidden" name="nama_agen" value="{{$databarang->nama_agen}}">
+                                <select name="nama_agen"
+                                    class="form-control custom-select select2 select2-hidden-accessible"
+                                    data-placeholder="Select Department" tabindex="-1" aria-hidden="true"
+                                    data-select2-id="select2-data-22-9i9m" required>
+                                    @foreach ($ambilagen as $agen)
+                                    <option value="{{$agen->kode_agen}}">
+                                        <?php echo $agen->nama_agen; ?>
+                                    </option>
+                                    @endforeach
+                                </select>
+                                <!--Price Edit--->
+                                <label class="form-label">Harga Beli</label>
+                                <input type="text" name="harga_beli" class="form-control" value="<?= number_format($databarang->harga_beli,0,',','.');
+                                    ?>" required>
+                                @error('harga_beli')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
                                 @enderror
+                                <br>
+                                <!--Catagory Edit--->
+                                <label class="form-label">Catagory :</label>
+                                <br>
+                                <input type="hidden" name="catagories" id="html" value="{{$databarang->catagories}}">
+                                @foreach ($ambilkategori as $productkata)
+                                <input type="radio" id="html" name="catagories" value="{{$productkata->id}}">
+                                  <label for="html">{{$productkata->name_catagory}}</label><br>
+                                @endforeach
+                                <br>
+                                <label class="form-label">Stok Barang</label>
+                                <input type="text" name="jumlah_stok"  class="form-control"
+                                    value="{{$databarang->jumlah_stok}}" required>
+                                @error('jumlah_stok')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                                <br>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
