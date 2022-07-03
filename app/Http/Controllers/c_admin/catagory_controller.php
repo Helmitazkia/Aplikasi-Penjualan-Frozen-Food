@@ -151,39 +151,32 @@ class catagory_controller extends Controller
            ]);
     }
 
-    public function Adddatakurir(Request $request)
-    {
-        $this->validate($request,[
-            'nama_kurir' => 'required|max:20|unique:tabel_kurir,nama_kurir',
-            'ongkir' => 'required|min:4,'
-        ]);
-        $addkurir = DB::table('tabel_kurir')->insert([
-            'nama_kurir'=> $request->nama_kurir,
-            'ongkir'=> str_replace(".","",$request->ongkir),
-        ]);
-        if($addkurir){
-            return redirect('Showkurir')->with(['success' => 'Data successfully save !']);
-        }else{
-            return redirect('Showkurir')->with(['error' => 'Data failed to save !']);
-        }
-       
-    }
+    
 
-    public function Updatekurir(Request $request, $id)
+    public function CountCatagoty()
     {
-        $request->validate([
-            'nama_kurir' => 'required|max:20|unique:tabel_kurir,nama_kurir',
-            'ongkir' => 'required|min:4,'  
+        $sosis = DB::table('products')
+        ->where('catagories', 1)->count();
+        $Nugget  = DB::table('products')
+        ->where('catagories', 2)->count();
+        $Cireng = DB::table('products')
+        ->where('catagories', 3)->count();
+        $Bakso = DB::table('products')
+        ->where('catagories', 4)->count();
+        $Buah = DB::table('products')
+        ->where('catagories', 5)->count();
+        $Sambal = DB::table('products')
+        ->where('catagories', 6)->count();
+        return view('Loyout_product/content_product/v_blog',[
+            'sosis' =>$sosis,
+            'Nugget' =>$Nugget,
+            'Cireng' =>$Cireng,
+            'Bakso' =>$Bakso,
+            'Buah' =>$Buah,
+            'Sambal' =>$Sambal,
+            'title' => 'Blog | Sistus Belanja Online Frozen Food',
         ]);
-        $data = DB::table('tabel_kurir')->where('id_kurir',$id)->update([
-            'nama_kurir'=> $request->nama_kurir,
-            'ongkir'=> $request->ongkir,
-         ]);
-         if($data){
-            return redirect('Showkurir')->with(['updatesuccess' => 'Data Edited Successfully !']);
-        }else{
-            return redirect('Showkurir')->with(['updateerorr' => 'Data Failed to Edit !']);
-        }
+
        
     } 
 }

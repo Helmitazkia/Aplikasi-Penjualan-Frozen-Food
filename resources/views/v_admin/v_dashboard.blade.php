@@ -36,7 +36,7 @@
                             <i class='bx bx-block'></i>
                         </div>
                         <div class="content click-c">
-                            <h5 class="title-box fs-15 mt-2">On Hold Task</h5>
+                            <h5 class="title-box fs-15 mt-2">Transaksi</h5>
                             <div class="themesflat-counter fs-14 font-wb color-3">
                                 <span class="number" data-from="0" data-to="309" data-speed="2500"
                                     data-inviewport="yes">75
@@ -50,7 +50,7 @@
                             <i class='bx bx-task color-white'></i>
                         </div>
                         <div class="content click-c">
-                            <h5 class="title-box fs-15 mt-2">Complete Task</h5>
+                            <h5 class="title-box fs-15 mt-2">Barang Masuk</h5>
                             <div class="themesflat-counter fs-14 font-wb color-4">
                                 <span class="number" data-from="0" data-to="309" data-speed="2500"
                                     data-inviewport="yes">120

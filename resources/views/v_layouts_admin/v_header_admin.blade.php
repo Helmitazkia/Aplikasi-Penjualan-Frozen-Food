@@ -107,7 +107,7 @@
                     </a>
                     <ul class="sidebar-menu sidebar-menu-dropdown-content">
                         <li>
-                            <a href="chart-apex.html">
+                            <a href="/Transaksi">
                                 Transaksi
                             </a>
                             <a href="/TypeTransaksi">

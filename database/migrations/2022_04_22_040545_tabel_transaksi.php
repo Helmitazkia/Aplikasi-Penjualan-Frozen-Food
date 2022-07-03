@@ -14,9 +14,9 @@ class TabelTransaksi extends Migration
     public function up()
     {
         Schema::create('tabel_transaksi', function (Blueprint $table) {
-            $table->increments('no_transaksi');
+            $table->string('no_transaksi');
             $table->date('tanggal_transaksi');
-            $table->integer('id_customer');
+            $table->integer('customer');
             $table->integer('id_product');
             $table->integer('jumlah_beli');
             $table->integer('staf');

@@ -59,7 +59,7 @@
                         </div>
                         @endif
                         <h3>Login to account</h3>
-                        <p>Access Users Hot Coffe</p>
+                        <p>Access Users E-katalog</p>
                         <form action="LoginAdmin" method="post">
                             @csrf
                             <input class="form-control" type="email" name="email" placeholder="E-mail Address" value="{{old('email')}}" required>
@@ -79,12 +79,13 @@
                                     password?</a>
                             </div>
                         </form>
-                        <div class="other-links">
+                        {{-- <div class="other-links">
                             <div class="text">Or login with</div>
                             <a href="#"><i class="fab fa-facebook-f"></i>Facebook</a><a href="#"><i
                                     class="fab fa-google"></i>Google</a><a href="#"><i
                                     class="fab fa-linkedin-in"></i>Linkedin</a>
-                        </div>
+                        </div> --}}
+                        <br>
                         <div class="page-links">
                             <a href="/RegistrationAdmin">Register new account</a>
                         </div>

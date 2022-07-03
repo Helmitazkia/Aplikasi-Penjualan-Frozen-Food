@@ -93,7 +93,7 @@
                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="/UpdateBrg/{{$databarang->id_barang}}" method="POST"
+                        <form action="/BarangUpdate/{{$databarang->id_barang}}" method="POST"
                             enctype="multipart/form-data">
                             @method('put')
                             @csrf
@@ -128,6 +128,7 @@
                                     </option>
                                     @endforeach
                                 </select>
+                                <br>
                                 <!--Price Edit--->
                                 <label class="form-label">Harga Beli</label>
                                 <input type="text" name="harga_beli" class="form-control" value="<?= number_format($databarang->harga_beli,0,',','.');

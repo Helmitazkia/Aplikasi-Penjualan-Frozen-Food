@@ -23,7 +23,7 @@ class Controller_barang extends Controller
             'data' =>$data,
             'ambilagen' =>$ambilagen,
             'ambilkategori'=>$ambilkategori,
-            'title' => 'Barang Masuk| Halaman Admin Online Frozen Food',
+            'title' => 'Barang Masuk | Halaman Admin Online Frozen Food',
             'webname' => 'Data Barang Masuk'
            ]);
     }
@@ -69,17 +69,17 @@ class Controller_barang extends Controller
 
 
 
-    public function UpdateDataBarang(Request $request, $id_barang)
+    public function Updatebrg(Request $request,$id)
     {
-        $request->validate([
-            'name_type' => 'required', 
-            'nama_barang'     => 'required|max:200|unique:tabel_barang_masuk,nama_barang',
+        $this->validate($request,[
+            'nama_barang'     => 'required|max:200',
             'nama_agen'       => 'required',
             'harga_beli'      => 'required|min:4',
             'catagories'      => 'required', 
-            'jumlah_stok'     => 'required',   
+            'jumlah_stok'     => 'required', 
+
         ]);
-        $UpdateBarang = DB::table('tabel_barang_masuk')->where('id_barang',$id_barang)->update([
+        $UpdateBarang = DB::table('tabel_barang_masuk')->where('id_barang',$id)->update([
             'nama_barang'=> $request->nama_barang,
             'nama_agen'=> $request->nama_agen,
             'harga_beli'=>$request->harga_beli,

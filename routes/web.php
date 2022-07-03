@@ -44,18 +44,18 @@ url Akun Landing Page
 */
 
 
-Route::get('/Blog', function () {
-    return view('Loyout_product/content_product/v_blog', [
-        'title' => 'Blog'
+Route::get('/Tentang', function () {
+    return view('Loyout_product/content_product/v_tentang', [
+        'title' => 'Tentang | Sistus Belanja Online Frozen Food'
     ]);
 });
 
 
-Route::get('/Checkout', function () {
-    return view('Loyout_product/content_product/V_checkout_product/v_checkout', [
-        'title' => 'Checkout-Product'
-    ]);
-});
+// Route::get('/Checkout', function () {
+//     return view('Loyout_product/content_product/V_checkout_product/v_checkout', [
+//         'title' => 'Checkout-Product'
+//     ]);
+// });
 
 Route::get('/Contact', function () {
     return view('Loyout_product/content_product/v_contact', [
@@ -165,8 +165,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/DataBarangMasuk', [Controller_barang::class,'Databarangmasuk']);
     Route::get('/AddBarangMasuk', [Controller_barang::class,'FormAddBarang']);
     Route::Post('/AddNewbarang', [Controller_barang::class,'AddBarangNew']);
-    //Route::put('/UpdateBrg/{id_barang}', [Controller_barang::class, 'UpdateDataBarang']);
+    Route::put('/BarangUpdate/{id}', [Controller_barang::class, 'Updatebrg']);
     Route::get('/deleteBarang/{id}', [Controller_barang::class, 'DeleteDataBarang']);
+});
+
+
+//Data Transaksi
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/Transaksi', [Controller_transaksi::class,'TransaksiData']);
+    Route::get('/AddTransaksi', [Controller_transaksi::class,'FormAddTransaksi']);
+    Route::Post('/PostTransaksi', [Controller_transaksi::class,'AddTransaksi']);
+    Route::put('/UpdateTransaksi/{id}', [Controller_transaksi::class, 'UpdateDataTransaksi']);
+    // Route::get('/deleteBarang/{id}', [Controller_barang::class, 'DeleteDataBarang']);
 });
 
 
@@ -174,6 +184,8 @@ Route::group(['middleware' => 'auth'], function () {
 //Menampilkan Product Home Customer
 //Menampilkan Produck sesuai dengan katagori
 //Route::get('/catagory/{id_catagory}', [controller_product::class,'Tampilproductsesuaicategory']);
+
+Route::get('/Blog', [catagory_controller::class, 'CountCatagoty']);
 Route::get('/Store', [controller_product::class,'AllProductdanAktif']);
 Route::get('/Sosis', [controller_product::class,'ProductSosis']);
 Route::get('/Nugget', [controller_product::class,'ProductNugget']);
@@ -186,6 +198,7 @@ Route::get('/Sambal', [controller_product::class,'Productsambal']);
 Route::get('/', [controller_home::class,'Newproduct']);
 //detail product
 Route::get('/{id}', [controller_product::class,'Detailproductaktif']);
+
 
 
 

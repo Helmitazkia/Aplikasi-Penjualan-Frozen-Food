@@ -69,12 +69,13 @@
                                 <button id="submit" type="submit" class="ibtn">Register</button>
                             </div>
                         </form>
-                        <div class="other-links">
+                        {{-- <div class="other-links">
                             <div class="text">Or register with</div>
                             <a href="#"><i class="fab fa-facebook-f"></i>Facebook</a><a href="#"><i
                                     class="fab fa-google"></i>Google</a><a href="#"><i
                                     class="fab fa-linkedin-in"></i>Linkedin</a>
-                        </div>
+                        </div> --}}
+                        <br>
                         <div class="page-links">
                             <a href="/LoginAdmin">Login to account</a>
                         </div>

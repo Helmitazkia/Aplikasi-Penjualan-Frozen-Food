@@ -59,23 +59,22 @@
                         <div class="menu-desktop">
                             <ul class="main-menu">
                                 <li class="active-menu">
-                                    <a href="/">Home</a>
+                                    <a href="/">Beranda</a>
                                 </li>
-
                                 <li>
                                     <a href="/Store">Product</a>
                                 </li>
-
+                                <li>
+                                    <a href="/Promosi">Promosi</a>
+                                </li>
                                 <li>
                                     <a href="/Blog">Blog</a>
                                 </li>
-
                                 <li>
-                                    <a href="/Registrasi">Acount</a>
+                                    <a href="/Tentang">Tentang Kami</a>
                                 </li>
-
                                 <li>
-                                    <a href="/Contact">Contact</a>
+                                    <a href="/Contact">Kontak Kami</a>
                                 </li>
                             </ul>
                         </div>
@@ -160,23 +159,22 @@
         <div class="menu-mobile">
             <ul class="main-menu-m">
                 <li class="active-menu">
-                    <a href="/">Home</a>
+                    <a href="/">Branda</a>
                 </li>
-
                 <li>
-                    <a href="/store">Product</a>
+                    <a href="/store">Produk</a>
                 </li>
-
                 <li>
-                    <a href="Blog.html">Blog</a>
+                    <a href="/store">Promosi</a>
                 </li>
-
                 <li>
-                    <a href="Contact.html">Contact</a>
+                    <a href="/Blog">Blog</a>
                 </li>
-
                 <li>
-                    <a href="Acount.html">Acount</a>
+                    <a href="/Tentang">Tentang Kami</a>
+                </li>
+                <li>
+                    <a href="Contact.html">Kontak Kami</a>
                 </li>
             </ul>
         </div>
@@ -200,7 +198,6 @@
 
 
     @yield('contentproduct')
-
 
 
 

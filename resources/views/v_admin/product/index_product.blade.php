@@ -104,7 +104,7 @@
                             @method('put')
                             @csrf
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Edit {{$dataproduct->name}}</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">EDIT {{$dataproduct->name}}</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
