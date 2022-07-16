@@ -8,20 +8,13 @@
             <h2 class="txt-l-101 cl0 txt-center p-b-14 respon1">
                 shop
             </h2>
-
             <span class="txt-m-201 cl0 flex-c-m flex-w">
-                <a href="index.html" class="txt-m-201 cl0 hov-cl10 trans-04 m-r-6">
+                <a href="/" class="txt-m-201 cl0 hov-cl10 trans-04 m-r-6">
                     Home
                 </a>
-
-                <a href="shop-product-grid.html" class="txt-m-201 cl0 hov-cl10 trans-04 m-r-6">
+                <a href="/Store" class="txt-m-201 cl0 hov-cl10 trans-04 m-r-6">
                     / Products
                 </a>
-
-                <a href="#" class="txt-m-201 cl0 hov-cl10 trans-04 m-r-6">
-                    / Vegetables
-                </a>
-
                 <span>
                     / Products
                 </span>

@@ -50,6 +50,11 @@ Route::get('/Tentang', function () {
     ]);
 });
 
+Route::get('/Promosi', function () {
+    return view('Loyout_product/content_product/v__promosi', [
+        'title' => 'Promosi | Sistus Belanja Online Frozen Food'
+    ]);
+});
 
 // Route::get('/Checkout', function () {
 //     return view('Loyout_product/content_product/V_checkout_product/v_checkout', [
@@ -59,7 +64,7 @@ Route::get('/Tentang', function () {
 
 Route::get('/Contact', function () {
     return view('Loyout_product/content_product/v_contact', [
-        'title' => 'Contact'
+        'title' => 'Kontak Kami | Sistus Belanja Online Frozen Food'
     ]);
 });
 

@@ -50,7 +50,7 @@
             <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item $dataproductaktif->catagories">
                 <!-- Block1 -->
                 <div class="block1">
-                    <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
+                    <div class="block1-bg">
                         <img src="{{asset('storage/'.$dataproductaktif->image) }}" style="width: 270px;">
                         <div class="block1-content flex-col-c-m p-b-46">
                             <a href="#" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
@@ -81,21 +81,4 @@
         <!--- END PRODUCT-->
     </div>
 </div>
-
-<!-- Pagination -->
-<div class="flex-w flex-c-m p-t-47">
-    <a href="#" class="flex-c-m txt-s-115 cl6 size-a-23 bo-all-1 bocl15 hov-btn1 trans-04 m-all-3 active-pagi1">
-        1
-    </a>
-    <a href="#" class="flex-c-m txt-s-115 cl6 size-a-23 bo-all-1 bocl15 hov-btn1 trans-04 m-all-3">
-        2
-    </a>
-    <a href="#" class="flex-c-m txt-s-115 cl6 size-a-24 how-btn1 bo-all-1 bocl15 hov-btn1 trans-04 m-all-3 p-b-1">
-        Next
-        <span class="lnr lnr-chevron-right m-t-3 m-l-7"></span>
-        <span class="lnr lnr-chevron-right m-t-3"></span>
-    </a>
-</div>
-<br>
-<br>
 @endsection

@@ -90,20 +90,6 @@
                                     <img src="Product/images/icons/icon-search.png" alt="SEARCH">
                                 </div>
                             </div>
-
-                            <div class="wrap-cart-header h-full flex-m m-l-10 menu-click">
-                                <div class="icon-header-item flex-c-m trans-04 icon-header-noti" data-notify="2">
-                                    <img src="Product/images/icons/profil.png" alt="CART">
-                                </div>
-
-                                <div class="cart-header menu-click-child trans-04">
-                                    <div class="flex-w flex-sb-m p-b-31">
-                                        <span class="txt-m-103 cl3 p-r-20">
-                                            Profil</span></span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <!--- End Cart -->
@@ -127,23 +113,6 @@
                         <img src="Product/images/icons/icon-search.png" alt="SEARCH">
                     </div>
                 </div>
-
-                <div class="wrap-cart-header h-full flex-m m-l-5 menu-click">
-                    <div class="icon-header-item flex-c-m trans-04 icon-header-noti" data-notify="2">
-                        <a href="/kepo"><img src="Product/images/icons/profil.png" alt="CART"></a>
-                    </div>
-                    <!-- Profil Mobile header item -->
-                    <div class="cart-header menu-click-child trans-04">
-                        <div class="flex-w flex-sb-m p-b-31">
-                            <span class="txt-m-103 cl3 p-r-20">
-                                Helmi Tazkia
-                            </span>
-                        </div>
-                        <a href="/Profil" class="flex-c-m size-a-8 bg10 txt-s-105 cl13 hov-btn2 trans-04">
-                            Lihat Profil
-                        </a>
-                    </div>
-                </div>
             </div>
 
             <!-- Button show menu -->
@@ -165,7 +134,7 @@
                     <a href="/store">Produk</a>
                 </li>
                 <li>
-                    <a href="/store">Promosi</a>
+                    <a href="/Promosi">Promosi</a>
                 </li>
                 <li>
                     <a href="/Blog">Blog</a>
@@ -212,8 +181,7 @@
                     </div>
 
                     <p class="txt-s-101 cl0 size-w-10 p-b-16">
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                        alteration
+                        Sadeng Food adalah sebuah merek makanan beku olahan yang diproduksi oleh PT Ardena Artha Mulia
                     </p>
 
                     <ul>
@@ -221,19 +189,16 @@
                             <span class="size-w-11">
                                 <img src="Product/images/icons/icon-mail-02.png" alt="ICON-MAIL">
                             </span>
-
                             <span class="size-w-12 p-t-1">
-                                markrussell@example.com
+                                HelmiTazkia85@gmail.com
                             </span>
                         </li>
-
                         <li class="txt-s-101 cl0 flex-t p-b-10">
                             <span class="size-w-11">
                                 <img src="Product/images/icons/icon-pin-02.png" alt="ICON-MAIL">
                             </span>
-
                             <span class="size-w-12 p-t-1">
-                                No 40 Baria Sreet 133/2, NewYork
+                                Depan Kantor,Jl.Raya No.25 Leuwisadeng, <br> Kec Leuwisadeng Kab Bogor, Jawa Barat 16640
                             </span>
                         </li>
 
@@ -243,7 +208,7 @@
                             </span>
 
                             <span class="size-w-12 p-t-1">
-                                (785) 977 5767
+                                <a href="https://wa.me/6285773474149" style="color:white;">085773474149</a>
                             </span>
                         </li>
                     </ul>
@@ -258,72 +223,32 @@
 
                     <ul>
                         <li class="p-b-16">
-                            <a href="#" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
-                                About our shop
+                            <a href="/" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
+                                Beranda
                             </a>
                         </li>
 
                         <li class="p-b-16">
                             <a href="#" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
-                                Top sellers
+                                Produk
                             </a>
                         </li>
 
                         <li class="p-b-16">
                             <a href="#" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
-                                Our blog
+                                Promosi
                             </a>
                         </li>
 
                         <li class="p-b-16">
                             <a href="#" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
-                                New products
+                                Tentang Kami
                             </a>
                         </li>
 
                         <li class="p-b-16">
                             <a href="#" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
-                                Secure shopping
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer-col3">
-                    <div class="footer-col-title flex-m">
-                        <span class="txt-m-109 cl0">
-                            My Account
-                        </span>
-                    </div>
-
-                    <ul>
-                        <li class="p-b-16">
-                            <a href="#" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
-                                My account
-                            </a>
-                        </li>
-
-                        <li class="p-b-16">
-                            <a href="#" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
-                                Discount
-                            </a>
-                        </li>
-
-                        <li class="p-b-16">
-                            <a href="#" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
-                                Personal information
-                            </a>
-                        </li>
-
-                        <li class="p-b-16">
-                            <a href="#" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
-                                My address
-                            </a>
-                        </li>
-
-                        <li class="p-b-16">
-                            <a href="#" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
-                                Order history
+                                Kontak Kami
                             </a>
                         </li>
                     </ul>
@@ -332,50 +257,29 @@
                 <div class="footer-col4">
                     <div class="footer-col-title flex-m">
                         <span class="txt-m-109 cl0">
-                            Subscribe
+                            Kantor Pusat
                         </span>
                     </div>
-
                     <p class="txt-s-101 cl0 p-b-33">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore.
+                        Jl. Letjen Suprapto No. 121 Ruko Cempaka Indah Blok B 1/8 Cempaka Baru, <br> Kemayoran Jakarta
+                        Pusat, Daerah Khusus Ibukota Jakarta 10640
                     </p>
-
-                    <form class="flex-w">
-                        <input class="size-a-11 bg0 plh1 txt-s-111 cl3 p-rl-15" type="text" name="email"
-                            placeholder="Your email address">
-                        <button class="flex-c-m size-a-10 bg10 hov-btn2 trans-04">
-                            <img src="Product/images/icons/icon-send.png" alt="SENT">
-                        </button>
-                    </form>
                 </div>
-            </div>
 
-            <div class="flex-w flex-sb-m bo-t-1 bocl16 p-tb-14">
-                <span class="txt-s-101 cl0 p-tb-10 p-r-29">
-                    Copyright © 2017 Organive. All rights reserved.
-                </span>
-
-                <div class="flex-w flex-m">
-                    <a href="#" class="m-r-29 m-tb-10">
-                        <img src="Product/images/icons/icon-pay-01.png" alt="ICON-PAY">
-                    </a>
-
-                    <a href="#" class="m-r-29 m-tb-10">
-                        <img src="Product/images/icons/icon-pay-02.png" alt="ICON-PAY">
-                    </a>
-
-                    <a href="#" class="m-r-29 m-tb-10">
-                        <img src="Product/images/icons/icon-pay-03.png" alt="ICON-PAY">
-                    </a>
-
-                    <a href="#" class="m-r-29 m-tb-10">
-                        <img src="Product/images/icons/icon-pay-04.png" alt="ICON-PAY">
-                    </a>
-
-                    <a href="#">
-                        <img src="Product/images/icons/icon-pay-05.png" alt="ICON-PAY">
-                    </a>
+                <div class="footer-col2">
+                    <div class="footer-col-title flex-m">
+                        <span class="txt-m-109 cl0">
+                            Alamat Pabrik
+                        </span>
+                    </div>
+                    <ul>
+                        <li class="p-b-16">
+                            <a href="/" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
+                                Jl. Cempaka Putih Utara No.285, RT.1/RW.1 Cemp. Baru,
+                                Kec. Kemayoran, Jakarta Pusat Daerah Khusus Ibukota Jakarta 10640
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

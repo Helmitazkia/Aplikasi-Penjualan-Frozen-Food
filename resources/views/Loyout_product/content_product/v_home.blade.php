@@ -121,7 +121,7 @@
             <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item $dataproductaktif->catagories">
                 <!-- Block1 -->
                 <div class="block1">
-                    <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
+                    <div class="block1-bg">
                         <img src="{{asset('storage/'.$dataproductaktif->image) }}" style="width: 270px;">
                         <div class="block1-content flex-col-c-m p-b-46">
                             <a href="#" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
