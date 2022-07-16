@@ -131,7 +131,7 @@
                     <a href="/">Branda</a>
                 </li>
                 <li>
-                    <a href="/store">Produk</a>
+                    <a href="/Store">Produk</a>
                 </li>
                 <li>
                     <a href="/Promosi">Promosi</a>
@@ -143,7 +143,7 @@
                     <a href="/Tentang">Tentang Kami</a>
                 </li>
                 <li>
-                    <a href="Contact.html">Kontak Kami</a>
+                    <a href="/Contact">Kontak Kami</a>
                 </li>
             </ul>
         </div>
@@ -229,25 +229,25 @@
                         </li>
 
                         <li class="p-b-16">
-                            <a href="#" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
+                            <a href="/Store" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
                                 Produk
                             </a>
                         </li>
 
                         <li class="p-b-16">
-                            <a href="#" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
+                            <a href="/Promosi" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
                                 Promosi
                             </a>
                         </li>
 
                         <li class="p-b-16">
-                            <a href="#" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
+                            <a href="/Tentang" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
                                 Tentang Kami
                             </a>
                         </li>
 
                         <li class="p-b-16">
-                            <a href="#" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
+                            <a href="/Contact" class="txt-s-101 cl0 hov-cl10 trans-04 p-tb-5">
                                 Kontak Kami
                             </a>
                         </li>
@@ -265,7 +265,6 @@
                         Pusat, Daerah Khusus Ibukota Jakarta 10640
                     </p>
                 </div>
-
                 <div class="footer-col2">
                     <div class="footer-col-title flex-m">
                         <span class="txt-m-109 cl0">

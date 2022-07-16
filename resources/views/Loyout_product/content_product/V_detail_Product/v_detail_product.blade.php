@@ -1,35 +1,13 @@
 @extends('Loyout_product/header_footer')
 @section('contentproduct')
-
-<!-- Title page -->
-<section class="how-overlay2 bg-img1" style="background-image: url(Product/images/Banner-img/c1.jpg);">
-    <div class="container">
-        <div class="txt-center p-t-160 p-b-165">
-            <h2 class="txt-l-101 cl0 txt-center p-b-14 respon1">
-                shop
-            </h2>
-            <span class="txt-m-201 cl0 flex-c-m flex-w">
-                <a href="/" class="txt-m-201 cl0 hov-cl10 trans-04 m-r-6">
-                    Home
-                </a>
-                <a href="/Store" class="txt-m-201 cl0 hov-cl10 trans-04 m-r-6">
-                    / Products
-                </a>
-                <span>
-                    / Products
-                </span>
-            </span>
-        </div>
-    </div>
-</section>
-
-
 <!--Detail Product-->
 <section class="sec-product-detail bg0 p-t-105 p-b-70">
     <div class="container">
         <div class="row">
             <div class="col-md-7 col-lg-6">
                 <div class="m-r--30 m-r-0-lg">
+                    <a href="/Store"><img src="Product/images/Banner-img/back.jpg" style="width:45px;" alt="SEARCH"></a>
+                    <br>
                     <!-- Slide 100 -->
                     <div id="slide100-01">
                         <div class="wrap-thumb-100 flex-w flex-sb p-t-30">
@@ -41,16 +19,18 @@
                                             {{-- <img src="Product/images/pro-detail-thumb-02.jpg" alt="IMG-SLIDE"
                                                 style="width: 500px"> --}}
                                             <img src="{{asset('storage/'.$detailproduct->image) }}"
-                                                style="width: 350px;">
+                                                style="width: 350px;" class="wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
                                             @endforeach
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
 
             <div class="col-md-5 col-lg-6">
                 @foreach ($datadetail as $detailproduct)
@@ -59,7 +39,7 @@
                         {{ $detailproduct->name}}
                     </h4>
 
-                    <span class="txt-m-117 cl9">
+                    <span class="txt-m-117 cl9" style="font-weight: normal;color:black">
                         <?= number_format($detailproduct->price,0,',','.');
                         ?></b>
                     </span>
@@ -77,67 +57,42 @@
                             (1 customer review)
                         </span>
                     </div>
-                    <p class="txt-s-101 cl6">
+                    <p class="txt-s-101 cl6" style="font-weight: normal;color:black">
                         {{ $detailproduct->description}}
                     </p>
                     <br>
                     <div class="txt-s-107 p-b-6">
-                        <span class="cl6">
+                        <span class="cl6" style="font-weight: normal;color:black">
                             Stok :
                         </span>
-                        <span class="cl9">
+                        <span class="cl9" style="font-weight: normal;color:black">
                             {{ $detailproduct->stok}}
                         </span>
                     </div>
 
                     <div class="txt-s-107 p-b-6">
-                        <span class="cl6">
+                        <span class="cl6" style="font-weight: normal;color:black">
                             Category :
                         </span>
-
-                        <span class="cl9">
+                        <span class="cl9" style="font-weight: normal;color:black">
                             {{$detailproduct->name_catagory}}
                         </span>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <a href="https://wa.me/6285773474149">
+                                <img src="Product/images/Banner-img/Wa1.png" style="width: 78px;"></a>
+                            <a href="https://www.tokopedia.com/ardenafood">
+                                <img src="Product/images/Banner-img/Tokopedia.jpg" style="width: 160px;"></a>
+                            <a href="https://shopee.co.id/ardenafood">
+                                <img src="Product/images/Banner-img/Shope2.JPG" style="width: 100px;"></a>
+
+                        </div>
                     </div>
                 </div>
                 @endforeach
             </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <!-- Tab01 -->
-         <div class="row isotope-grid">
-                @foreach ($product as $dataproductaktif)
-                <div class="col-sm-6 col-md-4 col-lg-3 p-b-75 isotope-item $dataproductaktif->catagories">
-                    <!-- Block1 -->
-                    <div class="block1">
-                        <div class="block1-bg wrap-pic-w bo-all-1 bocl12 hov3 trans-04">
-                            <img src="{{asset('storage/'.$dataproductaktif->image) }}" style="width: 270px;">
-                            <div class="block1-content flex-col-c-m p-b-46">
-                                <a href="#" class="txt-m-103 cl3 txt-center hov-cl10 trans-04 js-name-b1">
-                                    <b style='color:#00008B;font-size: 20px;'>{{$dataproductaktif->name}}</b>
-                                </a>
-                                <span class="block1-content-more txt-m-104 cl9 p-t-21 trans-04">
-                                    <b style='color:#00008B;font-size: 30px;'>
-                                    <?= number_format($dataproductaktif->price,0,',','.');
-                                    ?></b>
-                                </span>
-                                {{-- detail --}}
-                                <div class="block1-wrap-icon flex-c-m flex-w trans-05">
-                                    <a href="/{{ $dataproductaktif->id}}" class="block1-icon flex-c-m wrap-pic-max-w">
-                                        <img src="Product/images/icons/icon-view.png" alt="ICON">
-                                    </a>
-                                    <a href="#" class="block1-icon flex-c-m wrap-pic-max-w js-addcart-b1">
-                                        <img src="Product/images/icons/icon-cart.png" alt="ICON">
-                                    </a>  
-                                </div>
-                            </div>
-                        </div>
-                    </div>	 
-                </div>
-                @endforeach
-            </div>
     </div>
 </section>
 

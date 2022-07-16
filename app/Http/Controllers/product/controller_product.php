@@ -20,7 +20,7 @@ class controller_product extends Controller
         ORDER BY name ASC');
         return view('Loyout_product/content_product/v_shop',[
             'data'=> $data,
-            'title' => 'Product'
+            'title' => 'Produk | Sistus Belanja Online Frozen food'
             ]);
     }
 
@@ -31,7 +31,7 @@ class controller_product extends Controller
         ->where('catagories', 1)->get();
         return view('Loyout_product/content_product/v_shop',[
         'data'=> $data,
-        'title' => 'Product'
+        'title' => 'Sosis | Sistus Belanja Online Frozen food'
         ]);
     }
 
@@ -42,7 +42,7 @@ class controller_product extends Controller
         ->where('catagories', 2)->get();
         return view('Loyout_product/content_product/v_shop',[
         'data'=> $data,
-        'title' => 'Product'
+        'title' => 'Nugget | Sistus Belanja Online Frozen food'
         ]);
     }
 
@@ -53,7 +53,7 @@ class controller_product extends Controller
         ->where('catagories', 3)->get();
         return view('Loyout_product/content_product/v_shop',[
         'data'=> $data,
-        'title' => 'Product'
+        'title' => 'Cireng | Sistus Belanja Online Frozen food'
         ]);
     }
 
@@ -64,7 +64,7 @@ class controller_product extends Controller
         ->where('catagories', 4)->get();
         return view('Loyout_product/content_product/v_shop',[
         'data'=> $data,
-        'title' => 'Product'
+        'title' => 'Bakso | Sistus Belanja Online Frozen food'
         ]);
     }
 
@@ -75,7 +75,7 @@ class controller_product extends Controller
         ->where('catagories', 5)->get();
         return view('Loyout_product/content_product/v_shop',[
         'data'=> $data,
-        'title' => 'Product'
+        'title' => 'Buah | Sistus Belanja Online Frozen food'
         ]);
     }
 
@@ -86,7 +86,7 @@ class controller_product extends Controller
         ->where('catagories', 6)->get();
         return view('Loyout_product/content_product/v_shop',[
         'data'=> $data,
-        'title' => 'Product'
+        'title' => 'Sambal | Sistus Belanja Online Frozen food'
         ]);
     }
 

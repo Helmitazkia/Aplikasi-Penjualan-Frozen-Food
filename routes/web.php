@@ -190,8 +190,8 @@ Route::group(['middleware' => 'auth'], function () {
 //Menampilkan Produck sesuai dengan katagori
 //Route::get('/catagory/{id_catagory}', [controller_product::class,'Tampilproductsesuaicategory']);
 
-Route::get('/Blog', [catagory_controller::class, 'CountCatagoty']);
-Route::get('/Store', [controller_product::class,'AllProductdanAktif']);
+
+//Catagori Produk
 Route::get('/Sosis', [controller_product::class,'ProductSosis']);
 Route::get('/Nugget', [controller_product::class,'ProductNugget']);
 Route::get('/Cireng', [controller_product::class,'ProductCireng']);
@@ -199,6 +199,10 @@ Route::get('/Bakso', [controller_product::class,'ProductBakso']);
 Route::get('/Buah', [controller_product::class,'ProductBuah']);
 Route::get('/Sambal', [controller_product::class,'Productsambal']);
 
+//Blog
+Route::get('/Blog', [catagory_controller::class, 'CountCatagoty']);
+//Shop
+Route::get('/Store', [controller_product::class,'AllProductdanAktif']);
 //Home
 Route::get('/', [controller_home::class,'Newproduct']);
 //detail product
