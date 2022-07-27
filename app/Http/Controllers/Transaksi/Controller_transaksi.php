@@ -11,6 +11,7 @@ use\Illuminate\Support\Facades\DB;
 use App\Providers\RouteServiceProvider;
 
 
+
 class Controller_transaksi extends Controller
 {
     public function Datatypetransaksi()
@@ -164,6 +165,55 @@ class Controller_transaksi extends Controller
             return redirect('Transaksi')->with(['updateerorr' => 'Data Failed to Edit !']);
         }
        
+    }
+
+    public function LaporanData()
+    {
+        $Transaksi = DB::select('select no_transaksi,tanggal_transaksi,customer,id_product,type_transaksi,tabel_customer.name_customer , products.name ,jumlah_beli,users.name AS nama_user ,tabel_type_transaksi.name_type, total_transaksi  from tabel_transaksi
+        inner join products on tabel_transaksi.id_Product = products.id
+        inner join tabel_customer on tabel_transaksi.customer = tabel_customer.id_customer 
+        inner join tabel_type_transaksi on tabel_transaksi.type_transaksi = tabel_type_transaksi.id_type
+        inner join users on tabel_transaksi.staf = users.id
+        ORDER BY no_transaksi DESC');
+        $ambilproducts = DB::table('products')->get();
+        $ambilcustomer = DB::table('tabel_customer')->get();
+        $Type = DB::table('tabel_type_transaksi')->get();
+        $log = (Auth::User()->id);
+        return view('v_admin.v_transaksi.v_report.laporan',[
+            'title' => 'Laporan Data | Halaman Admin Online Frozen Food',
+            'Transaksi' =>$Transaksi,
+            'webname' => 'Data Laporan',
+            'ambilproducts' => $ambilproducts,
+            'log' => $log,
+            'ambilcustomer' => $ambilcustomer,
+            'Type' =>$Type,
+           ]);
+    }
+
+    public function CetakLaporan()
+    {
+
+        
+        $Transaksi = DB::select('select no_transaksi,tanggal_transaksi,customer,id_product,type_transaksi,tabel_customer.name_customer , products.name ,jumlah_beli,users.name AS nama_user ,tabel_type_transaksi.name_type, total_transaksi  from tabel_transaksi
+        inner join products on tabel_transaksi.id_Product = products.id
+        inner join tabel_customer on tabel_transaksi.customer = tabel_customer.id_customer 
+        inner join tabel_type_transaksi on tabel_transaksi.type_transaksi = tabel_type_transaksi.id_type
+        inner join users on tabel_transaksi.staf = users.id
+        ORDER BY no_transaksi DESC LIMIT 25');
+        $ambilproducts = DB::table('products')->get();
+        $ambilcustomer = DB::table('tabel_customer')->get();
+        $Type = DB::table('tabel_type_transaksi')->get();
+        $log = (Auth::User()->id);
+
+        return view('v_admin.v_transaksi.v_report.cetak',[
+            'title' => 'Laporan Data | Halaman Admin Online Frozen Food',
+            'Transaksi' =>$Transaksi,
+            'webname' => 'Data Laporan',
+            'ambilproducts' => $ambilproducts,
+            'log' => $log,
+            'ambilcustomer' => $ambilcustomer,
+            'Type' =>$Type,
+           ]);
     }
 
     

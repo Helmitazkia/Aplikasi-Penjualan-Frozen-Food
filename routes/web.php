@@ -181,8 +181,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/AddTransaksi', [Controller_transaksi::class,'FormAddTransaksi']);
     Route::Post('/PostTransaksi', [Controller_transaksi::class,'AddTransaksi']);
     Route::put('/UpdateTransaksi/{id}', [Controller_transaksi::class, 'UpdateDataTransaksi']);
-    // Route::get('/deleteBarang/{id}', [Controller_barang::class, 'DeleteDataBarang']);
+    Route::get('/Laporan', [Controller_transaksi::class,'LaporanData']);
+    Route::get('/Cetak', [Controller_transaksi::class,'CetakLaporan']);
 });
+
+
 
 
 

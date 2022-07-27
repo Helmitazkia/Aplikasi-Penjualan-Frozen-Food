@@ -81,7 +81,7 @@
                         <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
                     </a>
                     <ul class="sidebar-menu sidebar-menu-dropdown-content">
-                         <li>
+                        <li>
                             <a href="/Produk">
                                 Product
                             </a>
@@ -96,7 +96,7 @@
                                 Data Status
                             </a>
                         </li>
-                       
+
                     </ul>
                 </li>
                 <li class="sidebar-submenu">
@@ -113,14 +113,14 @@
                             <a href="/TypeTransaksi">
                                 Type Transaksi
                             </a>
-                            <a href="chart-apex.html">
+                            <a href="/Laporan">
                                 Data Laporan
                             </a>
                         </li>
 
                     </ul>
                 </li>
-                
+
                 <li class="sidebar-submenu">
                     <a href="/Clientshow" class="sidebar-menu-dropdown">
                         <i class='bx bxs-bolt'></i>
@@ -144,36 +144,17 @@
                             </a>
                         </li>
                     </ul>
-                </li>   
+                </li>
                 <li>
                     <a href="/Datapengiriman">
                         <i class='bx bx-calendar'></i>
                         <span>Pendapatan</span>
                     </a>
                 </li>
-                <li class="sidebar-submenu">
-                    <a href="/Clientshow" class="sidebar-menu-dropdown">
+                <li>
+                    <a href="/Datauser">
                         <i class='bx bxs-user'></i>
                         <span>Data User's</span>
-                        <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
-                    </a>
-                    <ul class="sidebar-menu sidebar-menu-dropdown-content">
-                        <li>
-                            <a href="/Datauser">
-                                User's
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                
-                <li>
-                    <a class="darkmode-toggle" id="darkmode-toggle" onclick="switchTheme()">
-                        <div>
-                            <i class='bx bx-cog mr-10'></i>
-                            <span>darkmode</span>
-                        </div>
-
-                        <span class="darkmode-switch"></span>
                     </a>
                 </li>
             </ul>
@@ -353,6 +334,7 @@
                     }
                 });
         });
+
     </script>
 
 
@@ -379,6 +361,7 @@
                     }
                 });
         });
+
     </script>
 
     <script>
@@ -404,6 +387,7 @@
                     }
                 });
         });
+
     </script>
 
     <script>
@@ -429,6 +413,7 @@
                     }
                 });
         });
+
     </script>
 
     <script>
@@ -454,10 +439,11 @@
                     }
                 });
         });
+
     </script>
 
 
-     <script>
+    <script>
         //.hapus tombol delete yang ada di view dashboar admin
         $('.Hapus-barang').click(function () {
             var id_barang = $(this).attr("data-id");
@@ -480,6 +466,7 @@
                     }
                 });
         });
+
     </script>
 
 
@@ -489,13 +476,14 @@
 
 
 
-<script>
-    @if(Session::has('updatesuccess'))
-    toastr.success("{{Session::get('updatesuccess')}}");
-    @endif
-</script>
+    <script>
+        @if(Session::has('updatesuccess'))
+        toastr.success("{{Session::get('updatesuccess')}}");
+        @endif
 
-    
+    </script>
+
+
 
 
 
