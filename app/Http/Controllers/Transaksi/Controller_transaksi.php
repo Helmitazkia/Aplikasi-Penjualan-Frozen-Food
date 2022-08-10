@@ -216,5 +216,20 @@ class Controller_transaksi extends Controller
            ]);
     }
 
+    public function TotalTransaksi()
+    {
+        $Total = DB::select('SELECT SUM(total_transaksi) as Transaksi , SUM(jumlah_beli) as Jumlah
+        FROM tabel_transaksi');
+        $barangmasuk = DB::select('SELECT SUM(harga_beli) as jumlah
+        FROM tabel_barang_masuk');
+        return view('v_admin/v_pendapatan/index_pendapatan',[
+            'title' => 'Pendapatan | Halaman Admin Online Frozen Food',
+            'Total' =>$Total,
+            'barangmasuk' =>$barangmasuk,
+            'webname' => 'Total Pendapatan',
+            'Transaksi' => 'Transaksi',
+            'Barang' => 'Barang Masuk',
+           ]);
+    }
     
 }

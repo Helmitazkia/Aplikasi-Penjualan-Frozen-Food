@@ -105,8 +105,8 @@
                             </div>
                             <div class="modal-body">
                                 <label class="form-label">Name User</label>
-                                <input type="text" name="name" id="disabledTextInput" class="form-control"
-                                    value="{{old('name')}}" required>
+                                <input type="text" name="name" class="form-control"
+                                  required>
                                 @error('name')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}

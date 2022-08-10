@@ -6,7 +6,9 @@
         <div class="row">
             <div class="col-md-7 col-lg-6">
                 <div class="m-r--30 m-r-0-lg">
-                    <a href="/Store"><img src="Product/images/Banner-img/back.jpg" style="width:45px;" alt="SEARCH"></a>
+                 
+                 
+                 
                     <br>
                     <!-- Slide 100 -->
                     <div id="slide100-01">

@@ -355,86 +355,9 @@
     </div>
 </section>
 
-<!---Start Blog-->
-<section class="sec-blog bg12 p-t-145 p-b-45">
-    <div class="container">
-        <div class="size-a-1 flex-col-c-m p-b-70">
-            <div class="txt-center txt-m-201 cl10 how-pos1-parent m-b-14">
-                Keep Updated With Us
-
-                <div class="how-pos1">
-                    <img src="Product/images/icons/symbol-02.png" alt="IMG">
-                </div>
-            </div>
-
-            <h3 class="txt-center txt-l-101 cl3 respon1">
-                From our blog
-            </h3>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-sm-8 col-lg-4 p-b-50">
-                <div>
-                    <a href="blog-single.html" class="wrap-pic-w hov4 how-pos5-parent">
-                        <img src="Product/images/blog-03.jpg" alt="BLOG">
-
-                        <div class="flex-col-c-m size-a-9 bg10 how-pos5">
-                            <span class="txt-l-110 cl0">
-                                22
-                            </span>
-
-                            <span class="txt-s-110 cl0">
-                                June
-                            </span>
-                        </div>
-                    </a>
-
-                    <div class="p-t-16">
-                        <a href="blog-single.html" class="txt-m-109 cl3 hov-cl10 trans-04">
-                            There are many variations
-                        </a>
-
-                        <div class="flex-w flex-m p-t-15">
-                            <span class="flex-w flex-m m-r-35">
-                                <img class="ver-middle m-r-12" src="Product/images/icons/icon-user.png" alt="SYMBOL">
-                                <span class="txt-s-101 cl6">
-                                    By Juan Knight
-                                </span>
-                            </span>
-
-                            <span class="flex-w flex-m">
-                                <img class="ver-middle m-r-12" src="Product/images/icons/icon-cmt.png" alt="SYMBOL">
-                                <span class="txt-s-101 cl6">
-                                    03
-                                </span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!---Start Blog-->
-
-
 <div class="sec-logo bg0">
     <div class="container">
         <div class="flex-w flex-sa-m p-tb-60">
-            <a href="#" class="dis-block how2 p-rl-15 m-tb-20">
-                <img class="trans-04" src="Product/images/icons/symbol-08.png" alt="IMG">
-            </a>
-
-            <a href="#" class="dis-block how2 p-rl-15 m-tb-20">
-                <img class="trans-04" src="Product/images/icons/symbol-09.png" alt="IMG">
-            </a>
-
-            <a href="#" class="dis-block how2 p-rl-15 m-tb-20">
-                <img class="trans-04" src="Product/images/icons/symbol-10.png" alt="IMG">
-            </a>
-
-            <a href="#" class="dis-block how2 p-rl-15 m-tb-20">
-                <img class="trans-04" src="Product/images/icons/symbol-11.png" alt="IMG">
-            </a>
         </div>
     </div>
 </div>

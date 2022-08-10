@@ -146,7 +146,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="/Datapengiriman">
+                    <a href="/Pendapatan">
                         <i class='bx bx-calendar'></i>
                         <span>Pendapatan</span>
                     </a>
@@ -212,14 +212,11 @@
                     <span class="d-block mt-7">{{Auth::User()->email}}</span>
                     <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
                 </a>
+                <br>
+                <br>
                 <ul class="sidebar-menu sidebar-menu-dropdown-content">
                     <!---Content Profile dan logout-->
                     <li>
-                        <form action="/Clientshow" method="post">
-                            @csrf
-                            <button id="submit" type="submit" class="btn btn-primary">Profile</button>
-                        </form>
-                        <br>
                         <form action="/Logout" method="post">
                             @csrf
                             <button id="submit" type="submit" class="btn btn-primary">Logout</button>
@@ -230,7 +227,6 @@
         </div>
     </div>
     <!-- End Main Header -->
-
 
 
 

@@ -20,6 +20,13 @@ class Controller_agen extends Controller
            ]);
     }
 
+    public function Profil()
+    {
+        $data = DB::select('select id,users.name,email,tabel_status.name_status , addres ,users.password ,phone,image from users
+        inner join tabel_status on users.email_verified_at = tabel_status.id_status');
+        return view('v_layouts_admin/v_header_admin.blade',compact('data',$data));
+    }
+
     //Delete catagory
     public function DeteleAgen($id)
     {

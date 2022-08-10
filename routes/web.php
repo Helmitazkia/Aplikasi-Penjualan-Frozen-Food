@@ -163,6 +163,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/TypeTransaksi', [Controller_transaksi::class,'Datatypetransaksi']);
     Route::Post('/AddNewtype', [Controller_transaksi::class,'Adddatatype']);
     Route::put('/Updatetype/{id}', [Controller_transaksi::class, 'UpdateDatatype']);
+    Route::get('/Pendapatan', [Controller_transaksi::class,'TotalTransaksi']);
 });
 
 //Data Barang Masuk
@@ -173,6 +174,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/BarangUpdate/{id}', [Controller_barang::class, 'Updatebrg']);
     Route::get('/deleteBarang/{id}', [Controller_barang::class, 'DeleteDataBarang']);
 });
+
 
 
 //Data Transaksi

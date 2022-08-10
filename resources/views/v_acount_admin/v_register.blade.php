@@ -64,17 +64,11 @@
                             </div>
                             @enderror
                             <input class="form-control" type="hidden" name="foto" placeholder="Password"
-                             value="Profil-image/vx24mOfOpF3EPWvLjdwbhIDlgdu0vO622In6UYac.png" required>
+                             value="Profil-image/HeY1hJFRbFWNvj7Nja5QHxk9YJRL5cnKeTX65ADW.png" required>
                             <div class="form-button">
                                 <button id="submit" type="submit" class="ibtn">Register</button>
                             </div>
                         </form>
-                        {{-- <div class="other-links">
-                            <div class="text">Or register with</div>
-                            <a href="#"><i class="fab fa-facebook-f"></i>Facebook</a><a href="#"><i
-                                    class="fab fa-google"></i>Google</a><a href="#"><i
-                                    class="fab fa-linkedin-in"></i>Linkedin</a>
-                        </div> --}}
                         <br>
                         <div class="page-links">
                             <a href="/LoginAdmin">Login to account</a>

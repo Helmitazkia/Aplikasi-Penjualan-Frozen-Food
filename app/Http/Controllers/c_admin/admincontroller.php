@@ -28,6 +28,8 @@ class admincontroller extends Controller
         $ambilstatus = DB::table('tabel_status')->get();
         $product_count = DB::table('products')->count();
         $cutomer_count = DB::table('tabel_customer')->count();
+        $transaksi_count = DB::table('tabel_transaksi')->count();
+        $barang_count = DB::table('tabel_barang_masuk')->count();
         //dd($product_count);
         return view('v_admin.v_dashboard',[
             'data'=> $data,
@@ -35,6 +37,8 @@ class admincontroller extends Controller
             'ambilstatus' => $ambilstatus,
             'product_count' => $product_count,
             'cutomer_count' => $cutomer_count,
+            'transaksi_count' => $transaksi_count,
+            'barang_count' => $barang_count,
             'title' => 'Dashboard',
             'webname' => 'Dashboard',
             'webname_product' => 'Total Product',
@@ -54,6 +58,7 @@ class admincontroller extends Controller
          'webname' => 'Product'
         ]);
     }
+    
 
     //Create Product
     public function tambahproduct(Request $request)

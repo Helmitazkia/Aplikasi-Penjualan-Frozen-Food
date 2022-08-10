@@ -39,7 +39,7 @@
                             <h5 class="title-box fs-15 mt-2">Transaksi</h5>
                             <div class="themesflat-counter fs-14 font-wb color-3">
                                 <span class="number" data-from="0" data-to="309" data-speed="2500"
-                                    data-inviewport="yes">75
+                                    data-inviewport="yes">{{ $transaksi_count }}
                                     +</span>
                             </div>
                         </div>
@@ -53,7 +53,7 @@
                             <h5 class="title-box fs-15 mt-2">Barang Masuk</h5>
                             <div class="themesflat-counter fs-14 font-wb color-4">
                                 <span class="number" data-from="0" data-to="309" data-speed="2500"
-                                    data-inviewport="yes">120
+                                    data-inviewport="yes">{{ $barang_count }}
                                     +</span>
                             </div>
                         </div>

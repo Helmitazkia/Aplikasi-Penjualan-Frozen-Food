@@ -28,6 +28,8 @@ class Controller_barang extends Controller
            ]);
     }
 
+    
+
 
     public function FormAddBarang()
     {
