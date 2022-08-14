@@ -122,7 +122,7 @@
                                 @enderror
                                 <br>
                                 <!--Price Edit--->
-                                <label class="form-label">Price (IDR)</label>
+                                <label class="form-label">Harga (IDR)</label>
                                 <input type="text" name="price" id="disabledTextInput" class="form-control" value="<?= number_format($dataproduct->price,0,',','.');
                                     ?>" required>
                                 @error('price')
@@ -145,6 +145,15 @@
                                 <input type="text" name="stok" id="disabledTextInput" class="form-control"
                                     value="{{$dataproduct->stok}}" required>
                                 @error('stok')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                                <br>
+                                <label class="form-label">Link Shope Product:</label>
+                                <input type="text" name="link" class="form-control" value="{{$dataproduct->link}}"
+                                    style="height:80px;" required>
+                                @error('link')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>

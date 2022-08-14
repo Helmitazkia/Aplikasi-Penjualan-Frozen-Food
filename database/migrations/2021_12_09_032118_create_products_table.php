@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->integer('catagories');
             $table->string('image')->nullable();
+            $table->integer('link');
             $table->integer('stok');
             $table->integer('status');
         });

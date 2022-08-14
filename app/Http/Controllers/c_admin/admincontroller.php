@@ -21,7 +21,7 @@ class admincontroller extends Controller
     //Menampilkan Data Product
     public function Dashboard()
     {
-        $data = DB::select('select products.id,name,price,description,catagories,stok ,catagory.name_catagory,image ,status ,tabel_status.name_status from products
+        $data = DB::select('select products.id,name,price,description,catagories,stok,link ,catagory.name_catagory,image ,status ,tabel_status.name_status from products
         INNER JOIN catagory ON products.catagories = catagory.id
         INNER JOIN tabel_status ON products.status = tabel_status.id_status');
         $ambilcatagory = DB::table('catagory')->get();
@@ -69,7 +69,8 @@ class admincontroller extends Controller
             'catagory'   => 'required',
             'image'      => 'required|image|file|max:2024|mimes:jpg,png',
             'desc'       => 'required',
-            'stok'       => 'required'  
+            'stok'       => 'required' , 
+            'link'       => 'required'  
         ]);
        
         //Jika ada file yang di upload
@@ -83,6 +84,7 @@ class admincontroller extends Controller
             'price'       => str_replace(".","",$request->price),
             'catagories'  => $request->catagory,
             'image'       => $uploadimage,
+            'link'       =>  $request->link,
             'description' => $request->desc,
             'stok'        => $request->stok,
             'status'      => $request->status,
@@ -114,7 +116,9 @@ class admincontroller extends Controller
             'price'      => 'required',
             'catagories'   => 'required',
             'image'      => 'image|file|mimes:jpg,png',
-            'desc'       => 'required'     
+            'desc'       => 'required',
+            'stok'       => 'required' ,
+            'link'       => 'required'      
         ]);
        
        //jika ada file yang di upload
@@ -134,10 +138,11 @@ class admincontroller extends Controller
 
          $data = DB::table('Products')->where('id',$id)->update([
             'name'       => $request->name,
-            'price'      => $request->price,
+            'price'      => str_replace(".","",$request->price),
             'catagories' => $request->catagories,
             'image'      => $uploadimage,
             'description'=> $request->desc,
+            'link'       => $request->link,
             'stok'       => $request->stok,
             'status'     => $request->status,
          ]);

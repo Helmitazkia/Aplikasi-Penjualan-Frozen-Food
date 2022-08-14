@@ -14,7 +14,7 @@ class catagory_controller extends Controller
 
     public function DataProduct()
     {
-        $data = DB::select('select products.id,name,price,description,catagories,stok ,catagory.name_catagory,image ,status ,tabel_status.name_status from products
+        $data = DB::select('select products.id,name,price,description,catagories,stok,link,catagory.name_catagory,image ,status ,tabel_status.name_status from products
         INNER JOIN catagory ON products.catagories = catagory.id
         INNER JOIN tabel_status ON products.status = tabel_status.id_status');
         $ambilcatagory = DB::table('catagory')->get();

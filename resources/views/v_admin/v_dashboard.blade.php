@@ -9,9 +9,11 @@
                         <div class="icon bg-icon-1">
                             <i class='bx bxs-briefcase'></i>
                         </div>
-                       <div class="content">
-                        <a href="#"><h5 class="title-box fs-15 mt-2">{{ $webname_product }}</h5></a>
-                           <div class="themesflat-counter fs-14 font-wb color-1">
+                        <div class="content">
+                            <a href="#">
+                                <h5 class="title-box fs-15 mt-2">{{ $webname_product }}</h5>
+                            </a>
+                            <div class="themesflat-counter fs-14 font-wb color-1">
                                 <span class="number" data-from="0" data-to="1225" data-speed="2500"
                                     data-inviewport="yes">{{ $product_count }}</span>
                             </div>
@@ -202,6 +204,15 @@
                                 <input type="text" name="stok" id="disabledTextInput" class="form-control"
                                     value="{{$dataproduct->stok}}" required>
                                 @error('stok')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                                <br>
+                                <label class="form-label">Link Shope Product:</label>
+                                <input type="text" name="link" class="form-control" value="{{$dataproduct->link}}"
+                                    style="height:80px;" required>
+                                @error('link')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>

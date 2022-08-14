@@ -86,7 +86,7 @@
                                 <img src="Product/images/Banner-img/Wa1.png" style="width: 78px;"></a>
                             <a href="https://www.tokopedia.com/ardenafood">
                                 <img src="Product/images/Banner-img/Tokopedia.jpg" style="width: 160px;"></a>
-                            <a href="https://shopee.co.id/ardenafood">
+                            <a href="{{$detailproduct->link}}">
                                 <img src="Product/images/Banner-img/Shope2.JPG" style="width: 100px;"></a>
 
                         </div>
