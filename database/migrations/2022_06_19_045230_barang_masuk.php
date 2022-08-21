@@ -20,6 +20,7 @@ class BarangMasuk extends Migration
             $table->integer('harga_beli');
             $table->integer('catagories');
             $table->integer('jumlah_stok');
+            $table->date('tanggal_masuk');
         });
     }
 

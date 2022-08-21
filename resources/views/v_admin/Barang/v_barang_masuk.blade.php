@@ -41,11 +41,13 @@
                             <table class="table table-responsive-md">
                                 <thead>
                                     <th>NO</th>
-                                    <th>Nama Barang</th>
+                                    <th>Product</th>
+                                    <th>Deskripsi</th>
                                     <th>Catagory</th>
                                     <th>Nama Agen</th>
                                     <th>Harga Beli</th>
                                     <th>Stok Masuk</th>
+                                    <th>Tanggal Masuk</th>
                                     <th>Tools</th>
                                     </tr>
                                 </thead>
@@ -56,11 +58,13 @@
                                     @foreach ($data as $databarang)
                                     <tr>
                                         <td><strong>{{$no++}}</strong></td>
+                                        <td>{{$databarang->name}}</td>
                                         <td>{{$databarang->nama_barang}}</td>
                                         <td>{{$databarang->name_catagory}}</td>
                                         <td>{{$databarang->nama_agen}}</td>
                                         <td><?= number_format($databarang->harga_beli,0,',','.');?></td>
                                         <td>{{$databarang->jumlah_stok}}</td>
+                                        <td>{{$databarang->tanggal_masuk}}</td>
                                         <td>
                                             <div class="d-flex">
                                                 <button type="button" class="btn btn-primary shadow btn-xs sharp mr-1"
@@ -131,8 +135,8 @@
                                 <br>
                                 <!--Price Edit--->
                                 <label class="form-label">Harga Beli</label>
-                                <input type="text" name="harga_beli" class="form-control" value="<?= number_format($databarang->harga_beli,0,',','.');
-                                    ?>" required>
+                                <input type="text" name="harga_beli" class="form-control"
+                                    value="{{$databarang->harga_beli}}" required>
                                 @error('harga_beli')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
@@ -149,9 +153,18 @@
                                 @endforeach
                                 <br>
                                 <label class="form-label">Stok Barang</label>
-                                <input type="text" name="jumlah_stok"  class="form-control"
+                                <input type="text" name="jumlah_stok" class="form-control"
                                     value="{{$databarang->jumlah_stok}}" required>
                                 @error('jumlah_stok')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                                <br>
+                                <label class="form-label">Tanggal Masuk</label>
+                                <input type="text" name="tanggal_masuk" class="form-control"
+                                    value="{{$databarang->tanggal_masuk}}" required>
+                                @error('tanggal_masuk')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}
                                 </div>
