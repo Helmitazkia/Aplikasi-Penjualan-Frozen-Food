@@ -102,7 +102,7 @@
                             @method('put')
                             @csrf
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Edit {{$databarang->nama_barang}}</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Edit {{$databarang->name}}</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
@@ -110,7 +110,7 @@
                                 <!--Price Name--->
                                 <input type="hidden" name="id_barang" class="form-control"
                                     value="{{$databarang->id_barang}}" readonly>
-                                <label class="form-label">Nama Barang</label>
+                                <label class="form-label">Deskripsi</label>
                                 <input type="text" name="nama_barang" class="form-control"
                                     value="{{$databarang->nama_barang}}" required>
                                 @error('nama_barang')
@@ -162,7 +162,7 @@
                                 @enderror
                                 <br>
                                 <label class="form-label">Tanggal Masuk</label>
-                                <input type="text" name="tanggal_masuk" class="form-control"
+                                <input type="date" name="tanggal_masuk" class="form-control"
                                     value="{{$databarang->tanggal_masuk}}" required>
                                 @error('tanggal_masuk')
                                 <div class="alert alert-danger mt-2">

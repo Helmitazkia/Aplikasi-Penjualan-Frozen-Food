@@ -10,14 +10,17 @@
                         @csrf
                         <div class="box-body">
                             <div class="row">
-                                <div class="col-md-6 col-sm-12 mb-24"> <label class="form-label">Deskripsi</label>
-                                    <input type="text" name="nama_barang" id="disabledTextInput" class="form-control"
-                                        value="{{old('nama_barang')}}" required>
-                                    @error('nama_barang')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
+                                <div class="col-md-6 col-sm-12 mb-24"> <label class="form-label">Product</label>
+                                    <select name="id_produk"
+                                        class="form-control custom-select select2 select2-hidden-accessible"
+                                        data-placeholder="Select Department" tabindex="-1" aria-hidden="true"
+                                        data-select2-id="select2-data-22-9i9m" required>
+                                        @foreach ($ambilproduk as $kepo)
+                                        <option value="{{$kepo->id}}">
+                                            <?php echo $kepo->name; ?>
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="col-md-6 col-sm-12 mb-24"> <label class="form-label">Catagory</label>
                                     <select name="catagories"
@@ -46,7 +49,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-6 col-sm-12 mb-24"> <label class="form-label">Stok Masuk</label>
-                                    <input type="number" name="jumlah_stok"  class="form-control"
+                                    <input type="number" name="jumlah_stok" class="form-control"
                                         value="{{old('jumlah_stok')}}" required>
                                     @error('jumlah_stok')
                                     <div class="alert alert-danger mt-2">
@@ -54,20 +57,17 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-6 col-sm-12 mb-24"> <label class="form-label">Product</label>
-                                    <select name="id_produk"
-                                        class="form-control custom-select select2 select2-hidden-accessible"
-                                        data-placeholder="Select Department" tabindex="-1" aria-hidden="true"
-                                        data-select2-id="select2-data-22-9i9m" required>
-                                        @foreach ($ambilproduk as $kepo)
-                                        <option value="{{$kepo->id}}">
-                                            <?php echo $kepo->name; ?>
-                                        </option>
-                                        @endforeach
-                                    </select>
+                                <div class="col-md-6 col-sm-12 mb-24"> <label class="form-label">Deskripsi</label>
+                                    <input type="text" name="nama_barang" id="disabledTextInput" class="form-control"
+                                        value="{{old('nama_barang')}}" required>
+                                    @error('nama_barang')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6 col-sm-12 mb-24"> <label class="form-label">Tanggal Masuk</label>
-                                    <input type="date" name="tanggal_masuk"  class="form-control"
+                                    <input type="date" name="tanggal_masuk" class="form-control"
                                         value="{{old('tanggal_masuk')}}" required>
                                     @error('tanggal_masuk')
                                     <div class="alert alert-danger mt-2">
@@ -79,8 +79,8 @@
                             <div class="box-body">
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12 mb-24"> <label class="form-label">Harga Beli</label>
-                                        <input type="text" name="harga_beli" id="rupiah"
-                                            class="form-control" value="{{old('harga_beli')}}" required>
+                                        <input type="text" name="harga_beli" id="rupiah" class="form-control"
+                                            value="{{old('harga_beli')}}" required>
                                         @error('harga_beli')
                                         <div class="alert alert-danger mt-2">
                                             {{ $message }}
@@ -124,5 +124,6 @@
         rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
         return prefix == undefined ? rupiah : (rupiah ? '' + rupiah : '');
     }
+
 </script>
 @endsection
