@@ -129,7 +129,7 @@
                                         <td>{{$dataproduct->name_status}}</td>
                                         <td>
                                             <img src="{{asset('storage/'.$dataproduct->image) }}" style="width:100px;">
-                                        </td>
+                                        </td> 
                                         <td>
                                             <div class="d-flex">
                                                 <button type="button" class="btn btn-primary shadow btn-xs sharp mr-1"

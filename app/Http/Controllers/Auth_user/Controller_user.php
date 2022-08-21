@@ -50,6 +50,7 @@ class Controller_user extends Controller
             'phone'   => ['required'],
             'image'    => 'required|image|file|max:2024|mimes:jpg,png',
             'password' => ['required', 'min:6'],
+            'email_verified_at' => ['required'],
          
 
         ]);
@@ -63,11 +64,14 @@ class Controller_user extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'addres' => $request->addres,
+            'email_verified_at' => $request->email_verified_at,
             'phone' => $request->phone,
             'image' => $upload, 
             'password' => Hash::make($request->password)
 
         ]);
+
+        // dd($createuser);
 
         //dd($createuser);
         if($createuser){

@@ -22,6 +22,7 @@ class User extends Authenticatable
         //Data Untuk Menambahkan User baru /Registrasi
         'name',
         'email',
+        'email_verified_at',
         'email_verification_code',
         'phone',
         'image',
@@ -44,7 +45,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
 }
